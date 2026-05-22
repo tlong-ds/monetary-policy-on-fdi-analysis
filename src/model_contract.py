@@ -25,6 +25,12 @@ WORKBOOK_VARIABLE_MAP = {
     "ir_lending": "lending_interest_rate_pct",
 }
 
+# Fixed control variables that are always included in every model
+FIXED_CONTROLS = ["infl", "trade_gdp", "ln_gdppc", "xr_dep"]
+
+# bm_gdp is always included as a variable (can serve as monetary proxy or control)
+ALWAYS_INCLUDED_VAR = "bm_gdp"
+
 MODEL_ORDER = [
     "M1_baseline_liquidity",
     "M2_main_monetary_policy",
@@ -58,7 +64,7 @@ MODEL_BLUEPRINTS = [
         model_id="M1_baseline_liquidity",
         workbook_code="M1",
         workbook_label="M1 - Baseline liquidity",
-        workbook_variables=["bm_gdp", "infl", "trade_gdp", "ln_gdppc", "xr_dep"],
+        workbook_variables=[],  # Will use FIXED_VARIABLES
         model_tier="headline",
         channel="liquidity / financial depth",
         thesis_role="Main liquidity-channel model",
@@ -70,7 +76,7 @@ MODEL_BLUEPRINTS = [
         model_id="M2_main_monetary_policy",
         workbook_code="M2",
         workbook_label="M2 - Deposit-rate channel",
-        workbook_variables=["bm_gdp", "ir_deposit", "infl", "trade_gdp", "ln_gdppc", "xr_dep"],
+        workbook_variables=["ir_deposit"],  # Only non-fixed variables
         model_tier="headline",
         channel="deposit-rate cost of capital",
         thesis_role="Main deposit-rate-channel model",
@@ -83,7 +89,7 @@ MODEL_BLUEPRINTS = [
         model_id="M3_lagged_main_model",
         workbook_code="M3",
         workbook_label="M3 - Lagged deposit-rate robustness",
-        workbook_variables=["bm_gdp", "ir_deposit", "infl", "trade_gdp", "ln_gdppc", "xr_dep"],
+        workbook_variables=["ir_deposit"],  # Only non-fixed variables
         model_tier="robustness",
         channel="lagged deposit-rate cost of capital",
         thesis_role="Lagged main monetary policy model with lagged controls",
@@ -96,7 +102,7 @@ MODEL_BLUEPRINTS = [
         model_id="M4_real_interest_robustness",
         workbook_code="M4",
         workbook_label="M4 - Real-rate channel",
-        workbook_variables=["bm_gdp", "ir_real", "trade_gdp", "ln_gdppc", "xr_dep"],
+        workbook_variables=["ir_real"],  # Only non-fixed variables
         model_tier="headline",
         channel="real-rate cost of capital",
         thesis_role="Main real-rate-channel model; inflation-added variant is appendix only",
@@ -109,7 +115,7 @@ MODEL_BLUEPRINTS = [
         model_id="M5_lending_rate_robustness",
         workbook_code="M5",
         workbook_label="M5 - Lending rate robustness",
-        workbook_variables=["bm_gdp", "ir_lending", "infl", "trade_gdp", "ln_gdppc", "xr_dep"],
+        workbook_variables=["ir_lending"],  # Only non-fixed variables
         model_tier="robustness",
         channel="lending-rate cost of capital",
         thesis_role="Robustness only because lending-rate coverage is structurally sparse",
@@ -122,7 +128,7 @@ MODEL_BLUEPRINTS = [
         model_id="M6a_tourism_robustness_from_M2",
         workbook_code="M6",
         workbook_label="M6a - Tourism robustness from M2",
-        workbook_variables=["bm_gdp", "ir_deposit", "infl", "trade_gdp", "ln_gdppc", "xr_dep", "ln_tourism"],
+        workbook_variables=["ir_deposit", "ln_tourism"],  # Only non-fixed variables
         model_tier="appendix",
         channel="tourism sensitivity from deposit-rate channel",
         thesis_role="Appendix sensitivity; not eligible as headline evidence",
@@ -135,7 +141,7 @@ MODEL_BLUEPRINTS = [
         model_id="M6b_tourism_robustness_from_M4",
         workbook_code="M6",
         workbook_label="M6b - Tourism robustness from M4",
-        workbook_variables=["bm_gdp", "ir_real", "trade_gdp", "ln_gdppc", "xr_dep", "ln_tourism"],
+        workbook_variables=["ir_real", "ln_tourism"],  # Only non-fixed variables
         model_tier="appendix",
         channel="tourism sensitivity from real-rate channel",
         thesis_role="Appendix sensitivity; not eligible as headline evidence",
@@ -148,7 +154,7 @@ MODEL_BLUEPRINTS = [
         model_id="M7a_human_capital_robustness_from_M2",
         workbook_code="M7",
         workbook_label="M7a - Human capital sensitivity from M2",
-        workbook_variables=["bm_gdp", "ir_deposit", "infl", "trade_gdp", "ln_gdppc", "xr_dep", "hc"],
+        workbook_variables=["ir_deposit", "hc"],  # Only non-fixed variables
         model_tier="appendix",
         channel="human-capital sensitivity from deposit-rate channel",
         thesis_role="Appendix sensitivity; human capital is not headline evidence",
@@ -161,7 +167,7 @@ MODEL_BLUEPRINTS = [
         model_id="M7b_human_capital_robustness_from_M4",
         workbook_code="M7",
         workbook_label="M7b - Human capital sensitivity from M4",
-        workbook_variables=["bm_gdp", "ir_real", "trade_gdp", "ln_gdppc", "xr_dep", "hc"],
+        workbook_variables=["ir_real", "hc"],  # Only non-fixed variables
         model_tier="appendix",
         channel="human-capital sensitivity from real-rate channel",
         thesis_role="Appendix sensitivity; human capital is not headline evidence",
@@ -263,15 +269,23 @@ def map_workbook_variables(workbook_variables: list[str], lagged: bool = False) 
 
 def map_blueprint_variables(blueprint: ModelBlueprint, lagged: bool | None = None) -> list[str]:
     use_lagged = blueprint.lagged if lagged is None else lagged
+    # Map the workbook variables (non-fixed ones)
     mapped = [WORKBOOK_VARIABLE_MAP[variable] for variable in blueprint.workbook_variables]
+    # Always include fixed controls
+    fixed_mapped = [WORKBOOK_VARIABLE_MAP[variable] for variable in FIXED_CONTROLS]
+    # Always include bm_gdp
+    bm_gdp_mapped = [WORKBOOK_VARIABLE_MAP[ALWAYS_INCLUDED_VAR]]
+    # Combine fixed controls, bm_gdp, and mapped variables
+    all_variables = fixed_mapped + bm_gdp_mapped + mapped
+    
     if not use_lagged:
-        return mapped
+        return all_variables
     if not blueprint.lagged_proxy_only:
-        return [f"{column}_lag1" for column in mapped]
+        return [f"{column}_lag1" for column in all_variables]
     if blueprint.monetary_proxy is None:
         raise ValueError(f"{blueprint.model_id} requested lagged_proxy_only without monetary_proxy.")
     proxy_column = WORKBOOK_VARIABLE_MAP[blueprint.monetary_proxy]
-    return [f"{proxy_column}_lag1" if column == proxy_column else column for column in mapped]
+    return [f"{proxy_column}_lag1" if column == proxy_column else column for column in all_variables]
 
 
 def build_workbook_model_catalog(
