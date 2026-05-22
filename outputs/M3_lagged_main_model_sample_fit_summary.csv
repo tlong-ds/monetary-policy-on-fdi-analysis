@@ -9,4 +9,4 @@ Slope-adjusted within R-squared,-0.0534
 R2 minus adjusted R2 gap,0.3401
 Max VIF,11.4079
 Lost-country note,"Brunei Darussalam, Indonesia, Malaysia, Philippines, Singapore, Thailand, Timor-Leste, Viet Nam"
-Regressors,"broad_money_pct_gdp_lag1, deposit_interest_rate_pct_lag1, inflation_gdp_deflator_pct_lag1, trade_pct_gdp_lag1, ln_gdppc_lag1, xr_dep_pct_lag1"
+Regressors,"inflation_gdp_deflator_pct_lag1, trade_pct_gdp_lag1, ln_gdppc_lag1, xr_dep_pct_lag1, broad_money_pct_gdp_lag1, deposit_interest_rate_pct_lag1"

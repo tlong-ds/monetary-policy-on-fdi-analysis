@@ -9,4 +9,4 @@ Slope-adjusted within R-squared,-0.1076
 R2 minus adjusted R2 gap,0.3226
 Max VIF,11.2027
 Lost-country note,"Cambodia, Philippines"
-Regressors,"broad_money_pct_gdp, deposit_interest_rate_pct, inflation_gdp_deflator_pct, trade_pct_gdp, ln_gdppc, xr_dep_pct"
+Regressors,"inflation_gdp_deflator_pct, trade_pct_gdp, ln_gdppc, xr_dep_pct, broad_money_pct_gdp, deposit_interest_rate_pct"

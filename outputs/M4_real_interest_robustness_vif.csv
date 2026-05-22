@@ -1,6 +1,7 @@
 variable,vif
-broad_money_pct_gdp,10.714891270746675
-ln_gdppc,9.461271336276901
-trade_pct_gdp,6.038220966745055
-real_interest_rate_pct,1.343743740176683
-xr_dep_pct,1.138942315697338
+ln_gdppc,21.26923474708747
+broad_money_pct_gdp,13.642445164189368
+real_interest_rate_pct,6.296586880899136
+trade_pct_gdp,6.052436132288798
+inflation_gdp_deflator_pct,5.328638393577186
+xr_dep_pct,1.151330872134839

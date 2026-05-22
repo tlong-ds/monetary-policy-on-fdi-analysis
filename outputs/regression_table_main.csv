@@ -1,46 +1,47 @@
 metric,M1 - Baseline liquidity,M2 - Deposit-rate channel,M3 - Lagged deposit-rate robustness,M4 - Real-rate channel,M5 - Lending rate robustness
 Broad money (% GDP),"0.0670
 (0.0578)","0.0732
-(0.0786)",,"0.0986
-(0.0662)","0.0497
+(0.0786)",,"0.0334
+(0.0503)","0.0497
 (0.0605)"
 Deposit interest rate (%),,"-0.2940
 (0.3102)",,,
 "Deposit interest rate, lag 1 (%)",,,"-0.0241
 (0.4672)",,
-Real interest rate (%),,,,"-0.0911
-(0.0977)",
+Real interest rate (%),,,,"-0.6601***
+(0.2290)",
 Lending interest rate (%),,,,,"-0.9684***
 (0.3467)"
 Trade (% GDP),"-0.0311
 (0.0213)","-0.0381*
-(0.0224)",,"-0.0379
-(0.0261)","-0.0547**
+(0.0224)",,"-0.0375***
+(0.0125)","-0.0547**
 (0.0221)"
 "Inflation, GDP deflator (%)","0.0244
 (0.0910)","0.0357
-(0.0936)",,,"0.0323
+(0.0936)",,"-0.5940***
+(0.1500)","0.0323
 (0.0788)"
 Log GDP per capita,"-3.1347
 (3.6327)","-3.5097
-(3.8685)",,"-3.4257
-(3.7277)","-4.8413
+(3.8685)",,"-1.2777
+(2.1008)","-4.8413
 (3.9939)"
 Exchange rate depreciation (%),"0.0130
 (0.0773)","0.0508
-(0.1012)",,"0.0147
-(0.0726)","0.1147
+(0.1012)",,"0.1473**
+(0.0647)","0.1147
 (0.0992)"
 Observations,112,96,91,96,96
 Countries used,9,8,8,8,8
 Estimator,"Two-way FE, Driscoll-Kraay SE","Two-way FE, Driscoll-Kraay SE","Two-way FE, Driscoll-Kraay SE","Two-way FE, Driscoll-Kraay SE","Two-way FE, Driscoll-Kraay SE"
 Covariance type,Driscoll-Kraay kernel Bartlett,Driscoll-Kraay kernel Bartlett,Driscoll-Kraay kernel Bartlett,Driscoll-Kraay kernel Bartlett,Driscoll-Kraay kernel Bartlett
-Hausman diagnostic,Diagnostic only; Hausman favors FE,Diagnostic only; negative statistic clipped,Diagnostic only; negative statistic clipped,Diagnostic only; negative statistic clipped,Diagnostic only; Hausman does not reject RE
-Within R-squared,-0.0114,-0.0376,0.0168,0.0150,0.0021
-Slope-adjusted within R-squared,-0.0591,-0.1076,-0.0534,-0.0398,-0.0651
-R2 minus adjusted R2 gap,0.2666,0.3226,0.3401,0.2948,0.2815
-Max VIF,11.11,11.20,11.41,10.71,22.63
-Pesaran CD p-value,0.4598,0.2767,0.8035,0.3446,0.0152
+Hausman diagnostic,Diagnostic only; Hausman favors FE,Diagnostic only; negative statistic clipped,Diagnostic only; negative statistic clipped,Diagnostic only; Hausman favors FE,Diagnostic only; Hausman does not reject RE
+Within R-squared,-0.0114,-0.0376,0.0168,0.2173,0.0021
+Slope-adjusted within R-squared,-0.0591,-0.1076,-0.0534,0.1645,-0.0651
+R2 minus adjusted R2 gap,0.2666,0.3226,0.3401,0.2464,0.2815
+Max VIF,11.11,11.20,11.41,21.27,22.63
+Pesaran CD p-value,0.4598,0.2767,0.8035,0.0530,0.0152
 Lost-country note,Reference/no audited loss,"Cambodia, Philippines","Brunei Darussalam, Indonesia, Malaysia, Philippines, Singapore, Thailand, Timor-Leste, Viet Nam",Reference/no audited loss,None
-Structural monetary-proxy coverage note,Lao PDR (1/14 nonmissing broad_money_pct_gdp),Lao PDR (1/14 nonmissing deposit_interest_rate_pct),Lao PDR (1/14 nonmissing deposit_interest_rate_pct),Cambodia (0/14 nonmissing real_interest_rate_pct); Lao PDR (1/14 nonmissing real_interest_rate_pct),Cambodia (0/14 nonmissing lending_interest_rate_pct); Lao PDR (1/14 nonmissing lending_interest_rate_pct)
+Structural monetary-proxy coverage note,Lao PDR (1/14 nonmissing broad_money_pct_gdp),Lao PDR (1/14 nonmissing broad_money_pct_gdp),Lao PDR (1/14 nonmissing broad_money_pct_gdp),Lao PDR (1/14 nonmissing broad_money_pct_gdp),Lao PDR (1/14 nonmissing broad_money_pct_gdp)
 Thesis role,Main liquidity-channel model,Main deposit-rate-channel model,Lagged main monetary policy model with lagged controls,Main real-rate-channel model; inflation-added variant is appendix only,Robustness only because lending-rate coverage is structurally sparse

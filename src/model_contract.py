@@ -53,7 +53,7 @@ class ModelBlueprint:
     model_tier: str
     channel: str
     thesis_role: str
-    monetary_proxy: str | None = None
+    monetary_proxy: list[str] | None = None
     lagged_proxy_only: bool = False
     lagged: bool = False
     exclude_countries: list[str] | None = None
@@ -68,7 +68,7 @@ MODEL_BLUEPRINTS = [
         model_tier="headline",
         channel="liquidity / financial depth",
         thesis_role="Main liquidity-channel model",
-        monetary_proxy="bm_gdp",
+        monetary_proxy=["bm_gdp"],
         lagged_proxy_only=False,
         lagged=False,
     ),
@@ -80,7 +80,7 @@ MODEL_BLUEPRINTS = [
         model_tier="headline",
         channel="deposit-rate cost of capital",
         thesis_role="Main deposit-rate-channel model",
-        monetary_proxy="ir_deposit",
+        monetary_proxy=["bm_gdp"],
         lagged_proxy_only=False,
         lagged=False,
         exclude_countries=["Cambodia", "Lao PDR"],
@@ -93,7 +93,7 @@ MODEL_BLUEPRINTS = [
         model_tier="robustness",
         channel="lagged deposit-rate cost of capital",
         thesis_role="Lagged main monetary policy model with lagged controls",
-        monetary_proxy="ir_deposit",
+        monetary_proxy=["bm_gdp"],
         lagged_proxy_only=False,
         lagged=True,
         exclude_countries=["Cambodia", "Lao PDR"],
@@ -106,7 +106,7 @@ MODEL_BLUEPRINTS = [
         model_tier="headline",
         channel="real-rate cost of capital",
         thesis_role="Main real-rate-channel model; inflation-added variant is appendix only",
-        monetary_proxy="ir_real",
+        monetary_proxy=["bm_gdp"],
         lagged_proxy_only=False,
         lagged=False,
         exclude_countries=["Cambodia", "Lao PDR"],
@@ -119,7 +119,7 @@ MODEL_BLUEPRINTS = [
         model_tier="robustness",
         channel="lending-rate cost of capital",
         thesis_role="Robustness only because lending-rate coverage is structurally sparse",
-        monetary_proxy="ir_lending",
+        monetary_proxy=["bm_gdp"],
         lagged_proxy_only=False,
         lagged=False,
         exclude_countries=["Cambodia", "Lao PDR"],
@@ -132,7 +132,7 @@ MODEL_BLUEPRINTS = [
         model_tier="appendix",
         channel="tourism sensitivity from deposit-rate channel",
         thesis_role="Appendix sensitivity; not eligible as headline evidence",
-        monetary_proxy="ir_deposit",
+        monetary_proxy=["bm_gdp"],
         lagged_proxy_only=False,
         lagged=False,
         exclude_countries=["Cambodia", "Lao PDR"],
@@ -145,7 +145,7 @@ MODEL_BLUEPRINTS = [
         model_tier="appendix",
         channel="tourism sensitivity from real-rate channel",
         thesis_role="Appendix sensitivity; not eligible as headline evidence",
-        monetary_proxy="ir_real",
+        monetary_proxy=["bm_gdp"],
         lagged_proxy_only=False,
         lagged=False,
         exclude_countries=["Cambodia", "Lao PDR"],
@@ -158,7 +158,7 @@ MODEL_BLUEPRINTS = [
         model_tier="appendix",
         channel="human-capital sensitivity from deposit-rate channel",
         thesis_role="Appendix sensitivity; human capital is not headline evidence",
-        monetary_proxy="ir_deposit",
+        monetary_proxy=["bm_gdp"],
         lagged_proxy_only=False,
         lagged=False,
         exclude_countries=["Cambodia", "Lao PDR"],
@@ -171,7 +171,7 @@ MODEL_BLUEPRINTS = [
         model_tier="appendix",
         channel="human-capital sensitivity from real-rate channel",
         thesis_role="Appendix sensitivity; human capital is not headline evidence",
-        monetary_proxy="ir_real",
+        monetary_proxy=["bm_gdp"],
         lagged_proxy_only=False,
         lagged=False,
         exclude_countries=["Cambodia", "Lao PDR"],
@@ -284,8 +284,9 @@ def map_blueprint_variables(blueprint: ModelBlueprint, lagged: bool | None = Non
         return [f"{column}_lag1" for column in all_variables]
     if blueprint.monetary_proxy is None:
         raise ValueError(f"{blueprint.model_id} requested lagged_proxy_only without monetary_proxy.")
-    proxy_column = WORKBOOK_VARIABLE_MAP[blueprint.monetary_proxy]
-    return [f"{proxy_column}_lag1" if column == proxy_column else column for column in all_variables]
+    # Handle monetary_proxy as list - lag all specified proxy variables
+    proxy_columns = [WORKBOOK_VARIABLE_MAP[proxy] for proxy in blueprint.monetary_proxy]
+    return [f"{column}_lag1" if column in proxy_columns else column for column in all_variables]
 
 
 def build_workbook_model_catalog(
@@ -331,7 +332,7 @@ def build_workbook_model_catalog(
                 "model_tier": blueprint.model_tier,
                 "channel": blueprint.channel,
                 "thesis_role": blueprint.thesis_role,
-                "monetary_proxy": WORKBOOK_VARIABLE_MAP.get(blueprint.monetary_proxy, blueprint.monetary_proxy),
+                "monetary_proxy": ", ".join([WORKBOOK_VARIABLE_MAP.get(proxy, proxy) for proxy in blueprint.monetary_proxy]) if blueprint.monetary_proxy else None,
                 "headline_eligible": blueprint.model_tier == "headline",
                 "appendix_only": blueprint.model_tier == "appendix",
                 "lagged_proxy_only": blueprint.lagged_proxy_only,

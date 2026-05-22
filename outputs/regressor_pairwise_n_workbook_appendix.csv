@@ -1,8 +1,8 @@
-,broad_money_pct_gdp,deposit_interest_rate_pct,inflation_gdp_deflator_pct,trade_pct_gdp,ln_gdppc,xr_dep_pct,hc_human_capital_index
-broad_money_pct_gdp,133,130,133,122,133,122,119
-deposit_interest_rate_pct,130,132,132,121,132,121,118
-inflation_gdp_deflator_pct,133,132,154,140,154,143,140
-trade_pct_gdp,122,121,140,140,140,130,126
-ln_gdppc,133,132,154,140,154,143,140
-xr_dep_pct,122,121,143,130,143,143,130
-hc_human_capital_index,119,118,140,126,140,130,140
+,inflation_gdp_deflator_pct,trade_pct_gdp,ln_gdppc,xr_dep_pct,broad_money_pct_gdp,deposit_interest_rate_pct,hc_human_capital_index
+inflation_gdp_deflator_pct,154,140,154,143,133,132,140
+trade_pct_gdp,140,140,140,130,122,121,126
+ln_gdppc,154,140,154,143,133,132,140
+xr_dep_pct,143,130,143,143,122,121,130
+broad_money_pct_gdp,133,122,133,122,133,130,119
+deposit_interest_rate_pct,132,121,132,121,130,132,118
+hc_human_capital_index,140,126,140,130,119,118,140
