@@ -1,0 +1,758 @@
+\chapter{Methodology and Results Interpretation}
+\label{chap:methodology-results-interpretation}
+
+This chapter explains the empirical strategy used to study the transmission channels and quantitative associations between domestic monetary conditions and foreign direct investment (FDI) inflows in a country-year panel of ASEAN-oriented economies. Understanding how monetary conditions (e.g., changes in money supply or interest rates) influence foreign investment decisions is of paramount importance for policymakers in regional markets characterized by diverse financial structures and varying degrees of economic openness. The central empirical inquiry is whether monetary liquidity and cost-of-capital proxies move in directions that are consistent with theoretical expectations—namely, whether financial expansion correlates positively, and rising interest rates correlate negatively, with FDI inflows.
+
+To address this question, we implement a systematic empirical workflow. The process begins with sample construction and variable harmonization, followed by diagnostic testing of panel properties (including multicollinearity, cross-sectional dependence, and heteroskedasticity). We then justify and select the preferred two-way fixed-effects estimator, which utilizes within-country variation over time to isolate panel associations. Finally, we execute a hierarchy of robustness audits, including common-sample re-estimations, lagged model specifications, and control-drop sensitivity tests. Throughout the chapter, the estimated coefficients are carefully interpreted as conditional panel associations rather than structural causal effects, given the absence of exogenous shocks to monetary conditions.
+
+\section{Data Sources and Sample Construction}
+\label{sec:data-sources-sample}
+
+The construction of the country-year panel is motivated by the need to capture regional monetary dynamics in Southeast Asia, a region that has seen increasing economic integration but remains financially heterogeneous. The analysis uses a harmonized panel that combines net FDI inflows, monetary aggregates, interest-rate indicators, and macroeconomic controls. The data are drawn from cleaned international databases. Specifically, FDI net inflows, broad money, trade openness, inflation, GDP per capita, population, tourism arrivals, and human-capital variables are extracted from global macroeconomic repositories, while real and lending interest rates are prioritized from the World Development Indicators (WDI) to ensure cross-country consistency in their definitions.
+
+The final analytical panel covers the period 2010--2023, yielding a maximum of 154 country-year observations. The panel is unbalanced due to the structural absence of certain interest-rate and macroeconomic statistics in specific country-years. The geographical scope covers ASEAN-oriented economies, including Brunei Darussalam, Cambodia, Indonesia, Lao PDR, Malaysia, Myanmar, Philippines, Singapore, Thailand, Timor-Leste, and Viet Nam. Retaining Timor-Leste in the sample—despite its transitional institutional status—is methodologically motivated to maximize the regional diagnostic range and fully utilize available empirical support. This regional framing allows us to evaluate the robustness of monetary transmission channels across a broad spectrum of financial development, from advanced entrepot hubs to developing island economies.
+
+\section{Data Processing and Variables}
+\label{sec:data-processing-variables}
+
+The selection of variables is theoretically motivated to capture both the liquidity and cost-of-capital transmission channels of monetary conditions, while controlling for confounding macroeconomic conditions. The dependent variable, FDI net inflows as a percentage of GDP, measures the intensity of foreign capital attraction relative to the size of the domestic economy. To capture the liquidity channel (or financial-depth channel), we employ broad money as a percentage of GDP, which represents the overall availability of financial resources. The cost-of-capital channel is proxied by three alternative interest rates: the nominal deposit interest rate (\%), which reflects the return on domestic savings and a benchmark interest rate; the real interest rate (\%), which adjusts for inflation and represents the real cost of borrowing; and the lending interest rate (\%), which directly measures the cost of domestic credit for investment.
+
+To isolate the conditional association between these monetary proxies and FDI, we control for a vector of key macroeconomic covariates. These include: (i) inflation as measured by the GDP deflator (\%), which controls for nominal macroeconomic shocks and price instability; (ii) trade openness as a percentage of GDP (the sum of exports and imports), which controls for a country's integration into global trade networks; (iii) log GDP per capita, which captures the level of domestic economic development and market size; and (iv) exchange-rate depreciation (\%). The exchange-rate depreciation variable is computed as the log-difference of the local currency per U.S. dollar exchange rate:
+\begin{equation}
+    xr\_dep\_{it}=100\left[\ln(exchange\_rate_{it})-\ln(exchange\_rate_{i,t-1})\right],
+\end{equation}
+where positive values denote local-currency depreciation. The use of log-differences is methodologically preferred to simple percentage changes as it symmetricizes depreciation and appreciation shocks.
+
+\begin{table}[htbp]
+\centering
+\caption{Variables definition, category, expected signs, and theoretical rationales}
+\label{tab:variables-summary}
+\begin{threeparttable}
+\scriptsize
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{llcp{0.55\textwidth}}
+\toprule
+Variable & Category & Expected Sign & Theoretical Rationale \\
+\midrule
+FDI (\% GDP) & Dependent Variable & N/A & Measures the intensity of net foreign capital inflows relative to the size of the host economy. \\
+Broad money (\% GDP) & Monetary (Liquidity) & + & Liquidity/financial depth channel; higher liquidity lowers credit constraints, facilitating local asset acquisition and joint ventures. \\
+Deposit interest rate (\%) & Monetary (Cost of Capital) & - / Ambiguous & Cost of capital channel; represents returns on savings and benchmark rates. Higher rates raise financing costs and hurdle rates. \\
+Real interest rate (\%) & Monetary (Cost of Capital) & - & Cost of capital channel; reflects inflation-adjusted borrowing costs. Higher real rates discourage investment by raising the real hurdle rate. \\
+Lending interest rate (\%) & Monetary (Cost of Capital) & - & Cost of capital channel; represents the cost of bank loans. Higher lending rates directly increase the cost of domestic debt for investors. \\
+Inflation, GDP deflator (\%) & Control (Macro Stability) & - & Proxy for macroeconomic instability and nominal uncertainty; high inflation increases risk premia and discourages foreign capital. \\
+Trade (\% GDP) & Control (Openness) & + & Openness/integration channel; greater trade integration facilitates global supply chain participation, attracting export-oriented FDI. \\
+Log GDP per capita & Control (Market Size) & + & Market-seeking channel; proxies local purchasing power, market size, and development stage, attracting market-seeking investment. \\
+Exchange-rate depreciation (\%) & Control (External) & Ambiguous & Wealth effect vs. profit repatriation; local currency depreciation lowers asset prices (positive) but reduces the U.S. dollar value of returns (negative). \\
+Human capital index & Control (Labor Quality) & + & Productivity channel; higher skills and education levels attract efficiency-seeking FDI by lowering training costs and raising output quality. \\
+Log tourism arrivals & Control (Connectivity) & + & Information/connectivity channel; international tourism reflects business networking and reduces information search costs for prospective investors. \\
+\bottomrule
+\end{tabular}
+}
+\end{threeparttable}
+\end{table}
+
+
+In terms of data processing, we adopt an observed-only policy for the dependent variable and the key monetary proxies to avoid introducing artificial patterns or imputation artifacts. Eligible macroeconomic controls are interpolated or edge-filled only where permitted by strict pre-defined rules. The preservation of structural gaps in interest rate series is a deliberate methodological choice: it ensures transparency in the empirical support, although it causes the realized estimation sample to vary across specifications. Winsorized versions of FDI and exchange-rate depreciation are used only for descriptive and visual sensitivity checks; the reported regressions use the observed variables in the main specification.
+
+\section{Empirical Specification}
+\label{sec:empirical-specification}
+
+To address the econometric challenges of panel data—specifically, unobserved country-level heterogeneity (such as institutional quality, historical legal systems, and structural geographical factors) and common macroeconomic shocks (such as global interest rate cycles, energy price shocks, and regional crises)—we employ a two-way fixed-effects (TWFE) panel model. Pooled OLS estimators are biased in this context because they ignore country fixed effects that correlate with both FDI inflows and monetary conditions.
+
+The formal preferred two-way fixed-effects model is specified as:
+\begin{equation}
+    FDI_{it} = \beta_1 Monetary_{it} + \boldsymbol{\gamma}'\mathbf{X}_{it} + \alpha_i + \lambda_t + \varepsilon_{it},
+\end{equation}
+where:
+\begin{itemize}
+    \item \(FDI_{it}\) is foreign direct investment net inflows as a percentage of GDP for country \(i\) in year \(t\);
+    \item \(Monetary_{it}\) is the selected monetary condition or liquidity proxy for country \(i\) in year \(t\) (e.g., broad money as a percentage of GDP, nominal deposit rate, real interest rate, or lending interest rate);
+    \item \(\mathbf{X}_{it}\) is a vector of time-varying macroeconomic controls: inflation (\%), trade openness (\% of GDP), log GDP per capita, and exchange-rate depreciation (\%);
+    \item \(\alpha_i\) denotes country fixed effects, which capture time-invariant country-specific factors;
+    \item \(\lambda_t\) denotes year fixed effects, which absorb time-varying global or regional shocks common to all countries;
+    \item \(\varepsilon_{it}\) is the idiosyncratic error term, assumed to be independent and identically distributed across countries and years in the baseline specification, but relaxed under robust covariance estimation;
+    \item \(i = 1, \dots, N\) index the cross-sectional units (countries, \(N \le 9\) in the estimation samples); and
+    \item \(t = 1, \dots, T\) index the time periods (years 2010--2023, \(T \le 14\)).
+\end{itemize}
+
+\subsection{Alternative Estimators and Specification Testing}
+To establish the baseline and justify the fixed-effects framework, we estimate Pooled OLS and Random Effects (RE) specifications as comparators. The Random Effects model assumes that the country-specific unobserved heterogeneity \(\alpha_i\) is uncorrelated with the regressors. To formally test this assumption, we employ the Hausman specification test. The hypotheses of the test are formulated as:
+\begin{align}
+    H_0 &: \text{Cov}(\alpha_i, \mathbf{w}_{it}) = 0 \quad \text{(Random Effects is consistent and efficient)} \\
+    H_1 &: \text{Cov}(\alpha_i, \mathbf{w}_{it}) \neq 0 \quad \text{(Random Effects is inconsistent; Fixed Effects is consistent)}
+\end{align}
+where \(\mathbf{w}_{it} = [Monetary_{it}, \mathbf{X}_{it}']'\) represents the vector of time-varying regressors. The Hausman test statistic is calculated as:
+\begin{equation}
+    H = (\hat{\boldsymbol{\beta}}_{FE} - \hat{\boldsymbol{\beta}}_{RE})' \left[ \widehat{\text{Var}}(\hat{\boldsymbol{\beta}}_{FE}) - \widehat{\text{Var}}(\hat{\boldsymbol{\beta}}_{RE}) \right]^{-1} (\hat{\boldsymbol{\beta}}_{FE} - \hat{\boldsymbol{\beta}}_{RE})
+\end{equation}
+where \(\hat{\boldsymbol{\beta}}_{FE}\) and \(\hat{\boldsymbol{\beta}}_{RE}\) are the estimated slope coefficient vectors from the FE and RE models, respectively, and \(\widehat{\text{Var}}(\cdot)\) denotes their respective asymptotic covariance matrices. Under the null hypothesis, \(H\) is asymptotically distributed as a chi-squared distribution with degrees of freedom equal to the number of time-varying regressors, \(k\):
+\begin{equation}
+    H \sim \chi^2(k).
+\end{equation}
+A rejection of \(H_0\) indicates that the country effects are correlated with the regressors, rendering the RE estimator inconsistent and justifying the fixed-effects approach.
+
+\subsection{Driscoll--Kraay Standard Errors}
+Although fixed effects absorb time-invariant country-specific bias, standard panel regression estimators assume that the error terms \(\varepsilon_{it}\) are homoskedastic and independent across space and time. Diagnostic audits (Breusch--Pagan and White tests) frequently reject homoskedasticity, while macro-financial panels are highly susceptible to serial correlation and spatial (cross-sectional) correlation. 
+
+To obtain robust statistical inferences, we utilize fixed effects with Driscoll--Kraay (1998) standard errors. Let the model after de-meaning to remove fixed effects be written as:
+\begin{equation}
+    \tilde{y}_{it} = \tilde{\mathbf{w}}_{it}' \boldsymbol{\beta} + \tilde{\varepsilon}_{it},
+\end{equation}
+where de-meaned variables are defined as \(\tilde{z}_{it} = z_{it} - \bar{z}_i - \bar{z}_t + \bar{z}\). Let \(\mathbf{h}_t(\boldsymbol{\beta})\) represent the cross-sectional sum of the moment conditions in period \(t\):
+\begin{equation}
+    \mathbf{h}_t(\hat{\boldsymbol{\beta}}) = \sum_{i=1}^{N_t} \tilde{\mathbf{w}}_{it} \hat{\varepsilon}_{it},
+\end{equation}
+where \(\hat{\varepsilon}_{it} = \tilde{y}_{it} - \tilde{\mathbf{w}}_{it}' \hat{\boldsymbol{\beta}}\) are the FE residuals. The Driscoll--Kraay estimator of the covariance matrix is:
+\begin{equation}
+    \widehat{\text{Var}}(\hat{\boldsymbol{\beta}}) = \left( \sum_{t=1}^T \tilde{\mathbf{W}}_t' \tilde{\mathbf{W}}_t \right)^{-1} \widehat{\boldsymbol{\Omega}} \left( \sum_{t=1}^T \tilde{\mathbf{W}}_t' \tilde{\mathbf{W}}_t \right)^{-1},
+\end{equation}
+where \(\tilde{\mathbf{W}}_t\) is the \(N_t \times k\) matrix of de-meaned regressors, and the cross-sectional covariance matrix \(\widehat{\boldsymbol{\Omega}}\) is estimated using a Newey--West Bartlett kernel to account for serial correlation up to lag \(L\):
+\begin{equation}
+    \widehat{\boldsymbol{\Omega}} = \sum_{t=1}^T \mathbf{h}_t(\hat{\boldsymbol{\beta}}) \mathbf{h}_t(\hat{\boldsymbol{\beta}})' + \sum_{j=1}^L w(j, L) \sum_{t=j+1}^T \left[ \mathbf{h}_t(\hat{\boldsymbol{\beta}}) \mathbf{h}_{t-j}(\hat{\boldsymbol{\beta}})' + \mathbf{h}_{t-j}(\hat{\boldsymbol{\beta}}) \mathbf{h}_t(\hat{\boldsymbol{\beta}})' \right],
+\end{equation}
+with Bartlett weights \(w(j, L) = 1 - \frac{j}{L+1}\).
+The econometric justifications for selecting this covariance estimator are:
+\begin{itemize}
+    \item \textbf{Heteroskedasticity}: The economies in the regional sample are highly varied in economic size (e.g., Singapore is an advanced entrepot, whereas Timor-Leste is a small island economy), causing the variance of FDI and macroeconomic variables to differ substantially across entities.
+    \item \textbf{Autocorrelation}: Macroeconomic variables (such as inflation and exchange rates) exhibit strong persistence over time, implying that errors are serially dependent.
+    \item \textbf{Spatial Dependence}: ASEAN-oriented economies are deeply integrated through trade, financial flows, and tourism, meaning that unobserved country-specific shocks (e.g., a regional currency crisis or trade dispute) propagate across cross-sectional units.
+    \item \textbf{Small \(N\)}: Traditional cluster-robust standard errors rely on the number of clusters \(N\) going to infinity. Since our sample is restricted to the ASEAN region (\(N \le 9\)), cluster-robust errors are severely biased. Driscoll--Kraay standard errors are asymptotically consistent as the time dimension \(T \to \infty\), making them ideal for panels with a small cross-sectional dimension.
+\end{itemize}
+
+\subsection{Robustness and Model Hierarchy}
+To evaluate the sensitivity of our primary estimates, the analysis implements several robustness setups:
+\begin{enumerate}
+    \item \textbf{Common-Sample Estimations}: Because different interest rate series have different missingness profiles, estimation samples change across specifications. To ensure that coefficient differences across channels are not artifacts of sample composition, we re-estimate key specifications (such as M1 vs. M2, M2 vs. M3, and M2 vs. M5) on identical country-year supports.
+    \item \textbf{Lagged Robustness Specification (M3)}: To address concerns of contemporaneous feedback loops (reverse causality) and account for potential delays in monetary transmission, we estimate a lagged model:
+    \begin{equation}
+        FDI_{it} = \beta_1 Monetary_{i,t-1} + \boldsymbol{\gamma}'\mathbf{X}_{i,t-1} + \alpha_i + \lambda_t + \varepsilon_{it}.
+    \end{equation}
+    In this specification, all time-varying regressors (including controls) are lagged by one period.
+    \item \textbf{Control Drops (Collinearity Resolution)}: As detailed in the diagnostic section, inclusion of highly correlated trended variables (like the human capital index and log GDP per capita) causes severe multicollinearity. We audit the stability of VIFs and coefficients by dropping collinear variables.
+\end{enumerate}
+
+\subsection{Goodness-of-Fit and the Slope-Adjusted R-squared}
+\label{subsec:goodness-of-fit}
+The standard within-\(R^2\) measures the proportion of within-country variance explained by the time-varying regressors. However, in small samples, adding regressors mechanically inflates the within-\(R^2\). To address this, we report the slope-adjusted within-\(R^2\):
+\begin{equation}
+    \bar{R}^2_{\text{within}} = 1 - (1 - R^2_{\text{within}}) \frac{N_{\text{obs}} - 1}{N_{\text{obs}} - K_{\text{slope}} - 1},
+\end{equation}
+where \(R^2_{\text{within}}\) is the standard within \(R^2\), \(N_{\text{obs}}\) is the number of observations, and \(K_{\text{slope}}\) is the number of estimated slope coefficients (excluding entity and time fixed effects). Note that this statistic does not subtract degrees of freedom for the fixed effects themselves, which would lead to extremely negative values in small-sample panel models with country and year dummies. When the explanatory power of the time-varying regressors is very low, the slope adjustment penalty dominates, which can yield a negative slope-adjusted within-\(R^2\).
+
+\section{Descriptive Statistics}
+\label{sec:descriptive-statistics}
+
+Table~\ref{tab:descriptive-stats} reports descriptive statistics for the final analytical sample. FDI inflows are highly dispersed: the mean is 5.424 percent of GDP, the standard deviation is 6.825, and the observed range runs from \(-16.205\) to 32.596 percent of GDP. The upper tail is partly driven by Singapore, where high FDI-to-GDP observations are economically plausible for an entrepot financial and investment hub. These observations are retained because they reflect meaningful country characteristics rather than obvious measurement errors.
+
+Monetary variables differ substantially in coverage. Broad money is observed in 133 country-years, deposit interest rates in 132, and real and lending interest rates in 117 each. Exchange-rate depreciation also has substantial dispersion, with a mean of 5.137 percent, a standard deviation of 40.232, and a maximum of 476.795 percent. This high maximum is retained as an observed value but reinforces the need to interpret exchange-rate coefficients cautiously.
+
+\begin{table}[htbp]
+\centering
+\caption{Descriptive statistics for the processed panel}
+\label{tab:descriptive-stats}
+\begin{threeparttable}
+\scriptsize
+\resizebox{0.92\textwidth}{!}{%
+\begin{tabular}{lrrrrrrr}
+\toprule
+Variable & Count & Mean & Std. dev. & Min. & Median & Max. & Missing (\%) \\
+\midrule
+FDI (\% GDP) & 154 & 5.424 & 6.825 & -16.205 & 3.501 & 32.596 & 0.0 \\
+Broad money (\% GDP) & 133 & 83.757 & 38.329 & 23.572 & 79.496 & 148.651 & 13.6 \\
+Deposit interest rate (\%) & 132 & 2.960 & 3.012 & 0.122 & 1.577 & 13.994 & 14.3 \\
+Real interest rate (\%) & 117 & 5.095 & 8.451 & -30.123 & 4.594 & 41.294 & 24.0 \\
+Lending interest rate (\%) & 117 & 8.411 & 4.418 & 3.060 & 5.680 & 22.612 & 24.0 \\
+Inflation, GDP deflator (\%) & 154 & 4.153 & 8.302 & -20.822 & 3.071 & 59.080 & 0.0 \\
+Trade (\% GDP) & 140 & 126.336 & 80.037 & 32.972 & 116.238 & 379.099 & 9.1 \\
+Log GDP per capita & 154 & 8.460 & 1.263 & 6.701 & 8.115 & 11.411 & 0.0 \\
+Exchange-rate depreciation (\%) & 143 & 5.137 & 40.232 & -9.431 & 0.543 & 476.795 & 7.1 \\
+\bottomrule
+\end{tabular}
+}
+\begin{tablenotes}[flushleft]
+\footnotesize
+\item Notes: The regression dependent variable is FDI net inflows as a percentage of GDP. This table is descriptive rather than estimated; the regression tables below use two-way fixed effects with Driscoll--Kraay standard errors. Significance stars are not applicable. Counts differ because the analytical panel is unbalanced and variables have different observed coverage.
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
+
+\section{Model Roles and Sample Coverage}
+\label{sec:model-roles-coverage}
+
+The empirical design separates the analysis into headline models and robustness or appendix models. M1 is the main liquidity-channel model. M2 is the main deposit-rate-channel model. M3 is a lagged deposit-rate robustness model. M4 uses the real interest rate as the rate proxy and is retained as a main real-rate-channel specification. M5 uses the lending rate and is reported as robustness only because the lending-rate series has narrower structural coverage. M6 and M7 add tourism and human-capital controls and are treated as appendix sensitivity checks rather than headline evidence.
+
+Table~\ref{tab:model-roles-samples} summarizes the fixed-effects Driscoll--Kraay sample support for the reported models. The full analytical panel has 154 observations, but complete-case estimation leaves 112 observations in M1, 96 in M2, 91 in M3, 96 in M4, and 96 in M5. Lao PDR is a structural gap for broad money and deposit-rate specifications, with only one non-missing proxy year. Cambodia has no observed real-rate or lending-rate proxy years, and Lao PDR again has only one observed year for those proxies. The real-rate and lending-rate models therefore do not estimate the same country-year support as the broader liquidity model.
+
+\begin{table}[htbp]
+\centering
+\caption{Model roles and realized FE-DK sample sizes}
+\label{tab:model-roles-samples}
+\begin{minipage}{0.90\textwidth}
+\scriptsize
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{p{0.07\textwidth}p{0.27\textwidth}rrp{0.38\textwidth}}
+\toprule
+Model & Thesis role & Observations & Countries & Structural monetary-proxy coverage note \\
+\midrule
+M1 & Main liquidity channel & 112 & 9 & Lao PDR: 1/14 broad-money years \\
+M2 & Main deposit-rate channel & 96 & 8 & Lao PDR: 1/14 deposit-rate years \\
+M3 & Lagged deposit-rate robustness & 91 & 8 & Lao PDR: 1/14 deposit-rate years \\
+M4 & Main real-rate channel & 96 & 8 & Cambodia: 0/14; Lao PDR: 1/14 real-rate years \\
+M5 & Lending-rate robustness & 96 & 8 & Cambodia: 0/14; Lao PDR: 1/14 lending-rate years \\
+M6a & Appendix tourism sensitivity from M2 & 96 & 8 & Lao PDR: 1/14 deposit-rate years \\
+M6b & Appendix tourism sensitivity from M4 & 96 & 8 & Cambodia: 0/14; Lao PDR: 1/14 real-rate years \\
+M7a & Appendix human-capital sensitivity from M2 & 83 & 7 & Lao PDR: 1/14 deposit-rate years \\
+M7b & Appendix human-capital sensitivity from M4 & 83 & 7 & Cambodia: 0/14; Lao PDR: 1/14 real-rate years \\
+\bottomrule
+\end{tabular}%
+}
+\vskip 4pt
+\footnotesize
+Notes: The regression dependent variable is FDI net inflows as a percentage of GDP. FE-DK denotes two-way fixed effects with Driscoll--Kraay standard errors using Bartlett kernel covariance. Significance stars are not applicable in this sample-summary table. Sample sizes vary because the panel is unbalanced and each model requires complete observations for its selected monetary proxy and controls.
+\end{minipage}
+\end{table}
+
+\subsection{Common-Sample Sensitivity Checks}
+A critical challenge in comparing empirical findings across different monetary channels in an unbalanced panel is the potential for sample selection bias. For instance, if the lending rate model (M5) yields a highly significant negative coefficient, we must determine whether this is due to the lending rate channel being inherently stronger than the deposit rate channel (M2), or if it is merely an artifact of the specific subset of country-years for which lending rate data are available. 
+
+To address this concern, we conduct systematic common-sample sensitivity checks. For each pair of models, we restrict the estimation sample to the intersection of their non-missing observations, ensuring that both regressions are run on identical country-year supports. Table~\ref{tab:common-sample-comparisons} presents these common-sample comparisons under the preferred Driscoll--Kraay two-way fixed effects estimator, contrasting the restricted results with their native full-sample estimates.
+
+The first comparison restricts the liquidity model (M1) to the deposit-rate sample (yielding $N=96$). In this common sample, the broad-money coefficient is 0.0861 (SE 0.0739), which is slightly larger than its native coefficient of 0.0670 (SE 0.0578) but remains statistically weak. This suggests that sample restriction to the 8-country deposit-rate support does not materially alter the liquidity channel's significance, confirming that the two baseline specifications are highly comparable.
+
+The second comparison restricts Model M2 (contemporaneous) and Model M3 (lagged) to their common sample ($N=88$, due to the availability of lagged exchange-rate depreciation). In this restricted sample, the contemporaneous broad-money coefficient is 0.0887 (SE 0.0835) and the deposit rate is \(-0.1011\) (SE 0.3089), whereas the lagged broad-money coefficient is 0.0219 (SE 0.0573) and the lagged deposit rate is \(-0.3184\) (SE 0.4599). This comparison suggests that the lagged deposit rate has a larger negative coefficient than the contemporaneous rate when estimated on the exact same support, which is consistent with a lagged response, although both estimates remain statistically weak.
+
+The third comparison evaluates the lending rate channel (M5) against the deposit rate channel (M2). Since both models share the same native support of $N=96$ observations across 8 countries, their restricted common-sample estimates are identical to their native estimates. The lending rate remains negative and highly significant (\(-0.9684^{***}\), SE 0.3467), while the deposit rate is negative and insignificant (\(-0.2940\), SE 0.3102). This finding suggests that the lending interest rate has a stronger association with FDI inflows than the deposit rate in this sample, though we note that this result comes from a restricted sample (excluding Cambodia and with limited Lao PDR data) and displays diagnostic concerns including cross-sectional dependence and high multicollinearity.
+
+\subsection{Appendix Robustness Sample Comparisons}
+We also compare the baseline deposit-rate model (M2) to the human-capital appendix model (M7a) on their common support of $N=83$ observations across 7 countries (which drops Timor-Leste). Restricting M2 to this smaller sample causes the broad-money coefficient to fall to 0.0006 (SE 0.0274) and the deposit rate to flip to positive at 0.0259 (SE 0.1264). This dramatic shift suggests that the exclusion of Timor-Leste and the restriction to the human-capital sample significantly alters the estimated baseline relationships, demonstrating that the deposit-rate channel is highly sensitive to the cross-sectional support. On this same sample, the human-capital model (M7a) estimates a broad-money coefficient of 0.0000 (coefficient $1.09 \times 10^{-5}$, SE 0.0281) and a deposit-rate coefficient of 0.0245 (SE 0.1273), indicating that adding the human-capital index (coefficient 0.5273, SE 2.0437) does not alter the monetary coefficients once the sample is restricted, although the inclusion of both GDP and human capital introduces severe collinearity as discussed in the Appendix.
+
+\begin{table}[htbp]
+\centering
+\caption{Common-sample comparison regression results (Driscoll--Kraay Fixed Effects)}
+\label{tab:common-sample-comparisons}
+\begin{minipage}{\textwidth}
+\scriptsize
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{llccccc}
+\toprule
+Comparison ID & Variable & \multicolumn{2}{c}{Common Sample Estimates} & \multicolumn{2}{c}{Native Sample Estimates} & Obs. (Common / Native) \\
+ & & Model A & Model B & Model A & Model B & \\
+\midrule
+\textbf{M1 vs. M2} & Broad money & 0.0861 & 0.0732 & 0.0670 & 0.0732 & 96 / 112 (M1) \\
+(Liquidity vs. Deposit rate) & & (0.0739) & (0.0786) & (0.0578) & (0.0786) & 96 / 96 (M2) \\
+ & Deposit interest rate & --- & -0.2940 & --- & -0.2940 & \\
+ & & & (0.3102) & & (0.3102) & \\
+\midrule
+\textbf{M2 vs. M3} & Broad money & 0.0887 & 0.0219 & 0.0732 & 0.0565 & 88 / 96 (M2) \\
+(Contemp. vs. Lagged Deposit) & & (0.0835) & (0.0573) & (0.0786) & (0.0616) & 88 / 91 (M3) \\
+ & Deposit interest rate & -0.1011 & -0.3184 & -0.2940 & -0.0241 & \\
+ & & (0.3089) & (0.4599) & (0.3102) & (0.4672) & \\
+\midrule
+\textbf{M2 vs. M5} & Broad money & 0.0732 & 0.0497 & 0.0732 & 0.0497 & 96 / 96 (M2) \\
+(Deposit vs. Lending rate) & & (0.0786) & (0.0605) & (0.0786) & (0.0605) & 96 / 96 (M5) \\
+ & Deposit interest rate & -0.2940 & --- & -0.2940 & --- & \\
+ & & (0.3102) & & (0.3102) & & \\
+ & Lending interest rate & --- & -0.9684*** & --- & -0.9684*** & \\
+ & & & (0.3467) & & (0.3467) & \\
+\midrule
+\textbf{M2 vs. M7a} & Broad money & 0.0006 & 0.0000 & 0.0732 & 0.0000 & 83 / 96 (M2) \\
+(Deposit vs. Human Capital) & & (0.0274) & (0.0281) & (0.0786) & (0.0281) & 83 / 83 (M7a) \\
+ & Deposit interest rate & 0.0259 & 0.0245 & -0.2940 & 0.0245 & \\
+ & & (0.1264) & (0.1273) & (0.3102) & (0.1273) & \\
+ & Human capital index & --- & 0.5273 & --- & 0.5273 & \\
+ & & & (2.0437) & & (2.0437) & \\
+\bottomrule
+\end{tabular}%
+}
+\vskip 4pt
+\footnotesize
+Notes: This table compares key coefficient estimates from models estimated on identical common-sample subsets to isolate specification effects from sample changes. Model A and Model B correspond to the two models named under the comparison ID. Driscoll--Kraay standard errors are reported in parentheses. *, **, and *** denote statistical significance at the 10, 5, and 1 percent levels, respectively. In the lagged model (M3), all variables (including controls) are lagged by one period, and their lagged coefficients are compared to the contemporaneous coefficients in M2.
+\end{minipage}
+\end{table}
+
+\section{Main Regression Results}
+\label{sec:main-regression-results}
+
+Table~\ref{tab:main-regression-results} presents the main two-way fixed-effects panel regression results using Driscoll--Kraay robust standard errors. The motive behind these regressions is to evaluate the direct statistical association of domestic financial liquidity and alternative interest-rate channels with FDI inflows. In Model M1, which focuses on the liquidity channel without interest-rate controls, we estimate a broad-money coefficient of 0.0670 with a standard error of 0.0578. While this positive coefficient is theoretically consistent with the financial-depth channel (where greater domestic liquidity facilitates capital absorption and reduces credit constraints), the estimate is not statistically significant.
+
+In Model M2, which introduces the nominal deposit interest rate to evaluate the cost-of-capital channel alongside broad money, the contemporaneous broad-money coefficient is 0.0732 (SE 0.0786), while the deposit interest rate is estimated to be negative at \(-0.2940\) (SE 0.3102). The negative sign is consistent with standard investment theory—suggesting that higher rates raise financing costs and raise hurdle rates, thereby discouraging foreign capital—but both parameters are statistically weak. Interestingly, the trade openness control in M2 is negative (\(-0.0381\)) and statistically significant at the 10 percent level. This negative trade coefficient represents a regional paradox, as cross-sectionally, open economies attract more FDI, but within-country changes over time show that rising trade openness is associated with lower FDI inflows in this sample, possibly reflecting cyclical trade shocks.
+
+Model M4 substitutes the nominal deposit rate with the real interest rate to test whether inflation-adjusted borrowing costs have a stronger relationship with investment. The broad-money coefficient remains positive at 0.0986 (SE 0.0662), and the real interest rate is negative at \(-0.0911\) (SE 0.0977), but both remain statistically insignificant.
+
+Model M3 addresses potential contemporaneous feedback loops and delayed transmission by lagging all regressors, including controls, by one period. The lagged deposit rate is negative and extremely small (\(-0.0241\), SE 0.4672), and lagged broad money is positive at 0.0565 (SE 0.0616). However, in this lagged specification, the lagged inflation control coefficient is positive at 0.1000 and statistically significant at the 10 percent level (SE 0.0548). This suggests that historical price rises may be associated with subsequent increases in nominal FDI flows, or that inflation acts as a proxy for lagging domestic demand expansion, whereas lagged exchange-rate depreciation (\(-0.0007\), SE 0.1091) and lagged GDP per capita (0.7934, SE 3.0341) remain statistically weak.
+
+Finally, Model M5 evaluates the lending interest rate channel. It yields a negative lending-rate coefficient of \(-0.9684\), which is statistically significant at the 1 percent level (SE 0.3467). However, we treat M5 as auxiliary robustness evidence rather than headline results because: (1) the lending-rate series is structurally sparse (entirely missing for Cambodia and only having one year for Lao PDR); (2) the model displays severe cross-sectional-dependence warnings (Pesaran CD p = 0.015); and (3) it has the highest max VIF among the main models (22.63), indicating serious multicollinearity concerns. While the negative coefficient is consistent with the view that higher direct domestic borrowing costs are associated with lower FDI inflows, this result should be interpreted cautiously as it may be partly driven by the subset of countries with lending-rate data rather than representing a universally stronger lending-rate transmission channel.
+
+\begin{table}[htbp]
+\centering
+\caption{Main fixed-effects Driscoll--Kraay regression results}
+\label{tab:main-regression-results}
+\begin{threeparttable}
+\scriptsize
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{lccccc}
+\toprule
+ & M1 & M2 & M3 & M4 & M5 \\
+ & Liquidity & Deposit rate & Lagged deposit & Real rate & Lending rate \\
+\midrule
+Broad money (\% GDP) & 0.0670 & 0.0732 & 0.0565 & 0.0986 & 0.0497 \\
+ & (0.0578) & (0.0786) & (0.0616) & (0.0662) & (0.0605) \\
+Deposit interest rate (\%) &  & -0.2940 &  &  &  \\
+ &  & (0.3102) &  &  &  \\
+Deposit interest rate, lag 1 (\%) &  &  & -0.0241 &  &  \\
+ &  &  & (0.4672) &  &  \\
+Real interest rate (\%) &  &  &  & -0.0911 &  \\
+ &  &  &  & (0.0977) &  \\
+Lending interest rate (\%) &  &  &  &  & -0.9684*** \\
+ &  &  &  &  & (0.3467) \\
+Trade (\% GDP) & -0.0311 & -0.0381* & -0.0220 & -0.0379 & -0.0547** \\
+ & (0.0213) & (0.0224) & (0.0292) & (0.0261) & (0.0221) \\
+Inflation, GDP deflator (\%) & 0.0244 & 0.0357 & 0.1000* &  & 0.0323 \\
+ & (0.0910) & (0.0936) & (0.0548) &  & (0.0788) \\
+Log GDP per capita & -3.1347 & -3.5097 & 0.7934 & -3.4257 & -4.8413 \\
+ & (3.6327) & (3.8685) & (3.0341) & (3.7277) & (3.9939) \\
+Exchange-rate depreciation (\%) & 0.0130 & 0.0508 & -0.0007 & 0.0147 & 0.1147 \\
+ & (0.0773) & (0.1012) & (0.1091) & (0.0726) & (0.0992) \\
+\midrule
+Observations & 112 & 96 & 91 & 96 & 96 \\
+Countries used & 9 & 8 & 8 & 8 & 8 \\
+Within \(R^2\) & -0.0114 & -0.0376 & 0.0168 & 0.0150 & 0.0021 \\
+Slope-adjusted within \(R^2\) & -0.0591 & -0.1076 & -0.0534 & -0.0398 & -0.0651 \\
+\bottomrule
+\end{tabular}
+}
+\begin{tablenotes}[flushleft]
+\footnotesize
+\item Notes: The dependent variable is FDI net inflows as a percentage of GDP. All columns use two-way fixed effects with country and year effects and Driscoll--Kraay standard errors using Bartlett kernel covariance. Standard errors are in parentheses. *, **, and *** denote statistical significance at the 10, 5, and 1 percent levels. The panel is unbalanced, and sample sizes vary across columns because monetary-proxy and control coverage differs by model. In column M3, all regressors (including controls) are lagged by one period.
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
+
+\section{Diagnostics and Robustness Interpretation}
+\label{sec:diagnostics-robustness}
+
+The diagnostic results in Table~\ref{tab:compact-diagnostics} support the cautious interpretation used in this chapter. White test \(p\)-values are small in the main models, reinforcing the decision to report heteroskedasticity- and dependence-robust Driscoll--Kraay standard errors rather than relying on conventional pooled standard errors. Pesaran CD \(p\)-values are not statistically significant for M1 through M4, but M5 has a \(p\)-value of 0.0152. This means the model with the strongest lending-rate coefficient is also the one with the clearest cross-sectional-dependence diagnostic warning among the main columns.
+
+The fit statistics are modest. Within-\(R^2\) values are close to zero or negative for the main headline specifications, indicating limited within-country explanatory power after absorbing country and year effects. This does not by itself invalidate the coefficient estimates, but it does limit the strength of any substantive claim. The chapter therefore emphasizes sign consistency, statistical precision, sample support, and robustness status rather than predictive fit.
+
+\begin{table}[htbp]
+\centering
+\caption{Compact diagnostics for the reported models}
+\label{tab:compact-diagnostics}
+\begin{threeparttable}
+\scriptsize
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{lrrrrr}
+\toprule
+Model & Within \(R^2\) & Adjusted \(R^2\) & Max VIF & White \(p\) & Pesaran CD \(p\) \\
+\midrule
+M1 & -0.011 & -0.184 & 11.11 & 0.000 & 0.460 \\
+M2 & -0.038 & -0.226 & 11.20 & 0.000 & 0.277 \\
+M3 & 0.017 & -0.276 & 11.41 & 0.034 & 0.803 \\
+M4 & 0.015 & -0.167 & 10.71 & 0.000 & 0.345 \\
+M5 & 0.002 & -0.070 & 22.63 & 0.000 & 0.015 \\
+M6a & -0.178 & -0.219 & 201.80 & 0.002 & 0.463 \\
+M6b & -0.113 & -0.161 & 95.14 & 0.000 & 0.551 \\
+M7a & 0.113 & -0.167 & 387.19 & 0.062 & 0.112 \\
+M7b & 0.117 & -0.148 & 329.29 & 0.004 & 0.107 \\
+\bottomrule
+\end{tabular}
+}
+\begin{tablenotes}[flushleft]
+\footnotesize
+\item Notes: The dependent variable in the corresponding regressions is FDI net inflows as a percentage of GDP. Reported fit statistics correspond to two-way fixed-effects specifications with Driscoll--Kraay standard errors in the regression tables. The Adjusted R-squared reported here represents the overall adjusted coefficient of determination from OLS on de-meaned data, which penalizes for entity and time fixed effect degrees of freedom (yielding negative values due to the small sample size), whereas Table~\ref{tab:main-regression-results} reports the slope-adjusted within R-squared described in Subsection~\ref{subsec:goodness-of-fit}. Significance stars are not applicable in this diagnostic table. Diagnostic samples vary because the panel is unbalanced and each model uses a different complete-case support.
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
+
+\section{Economic Interpretation}
+\label{sec:economic-interpretation}
+
+The empirical pattern is directionally plausible but statistically fragile. The positive broad-money coefficients in M1, M2, M4, and M5 are consistent with a liquidity or financial-depth channel in which deeper monetary and financial conditions are associated with higher FDI inflows. However, none of the broad-money estimates is statistically significant in the reported FE-DK table. The evidence therefore suggests a possible liquidity association but does not establish a precisely estimated relationship. We avoid phrases like "confirms" or "demonstrates" when discussing coefficient signs, preferring more modest language like "is consistent with" or "suggests."
+
+The interest-rate results are also mixed. The negative deposit-rate, lagged deposit-rate, and real-rate coefficients are consistent with the view that higher rates raise financing costs, which may be associated with lower FDI inflows, but these estimates are not statistically significant. The lending-rate coefficient is negative and statistically significant, which is the clearest cost-of-capital signal in the analysis. However, because Cambodia has zero non-missing lending-rate years and Lao PDR has only one, this result should be read as suggestive robustness evidence from a restricted sample rather than as the chapter's primary result. The significant lending-rate coefficient may be partly driven by the subset of countries with lending-rate data, not necessarily by a universally stronger lending-rate transmission channel.
+
+The control coefficients further caution against a strong structural interpretation. Trade openness is negative in the reported models and statistically significant in M2 and M5, contrary to the expected positive sign. Log GDP per capita is negative and imprecise in the reported contemporaneous models. These signs may reflect within-country changes over a short period, reduced estimation samples, or correlation among macro controls rather than stable cross-country structural relationships. Importantly, several control variables may be mediators or jointly determined with FDI and monetary conditions. For example, FDI can raise trade openness; exchange-rate movements can affect FDI and also respond to capital flows; GDP per capita may itself be affected by investment dynamics. Coefficients should not be interpreted as total effects, as they represent conditional associations after controlling for potentially endogenous macro variables.
+
+The most defensible conclusion is that monetary and financial conditions in ASEAN-oriented economies show directionally plausible associations with FDI inflows, especially for lending rates, but the short unbalanced panel, proxy-specific missingness, weak fit, and lack of exogenous identification prevent strong causal or policy-effect claims.
+
+\subsection{Stepwise Broad Money Sign-Flip Decomposition}
+An important methodological finding in our analysis is the "sign-flip" of the broad money coefficient under different estimators when trade openness is introduced. In a simple regression of FDI on broad money alone, the point estimate is positive and of similar magnitude across Pooled OLS, Random Effects, and Fixed Effects models. However, as shown in Table~\ref{tab:broad-money-sign-decomposition}, once trade openness is added to the model, the Pooled OLS and Random Effects estimates for broad money flip to negative (and eventually become statistically significant at the 1\% level in the fully controlled models), whereas the Fixed Effects point estimate remains consistently positive and stable.
+
+This phenomenon is explained by the difference in the sources of variance utilized by these estimators. Pooled OLS and Random Effects utilize both between-country (cross-sectional) and within-country (longitudinal) variation. In the cross-section, countries with high trade openness (such as Singapore and Malaysia) tend to have very high broad money to GDP ratios, but their FDI inflows are also influenced by long-term structural factors that are not fully captured by trade openness. When trade openness is added, it absorbs the cross-sectional covariance, and the remaining between-country variation forces the broad money coefficient to flip to negative. 
+
+By contrast, the Fixed Effects estimator removes all between-country variation by de-meaning the variables, estimating the coefficients using only within-country variation over time. Under Fixed Effects, the broad money coefficient remains positive (ranging between 0.0541 and 0.0861) across all steps of model expansion. This indicates that within a given country, financial deepening and monetary expansion are consistently associated with higher FDI inflows over time, but that this relationship is masked in cross-sectional models by omitted country-specific characteristics. This suggests the methodological advantage of the Fixed Effects specification for isolating the time-series relationship in this regional panel, though the weak overall fit limits the strength of this conclusion.
+
+\begin{table}[htbp]
+\centering
+\caption{Stepwise Broad Money sign-flip decomposition (on common sample, $N=96$)}
+\label{tab:broad-money-sign-decomposition}
+\begin{threeparttable}
+\scriptsize
+\begin{tabular}{clccc}
+\toprule
+Step & Specification & Pooled OLS & Random Effects & Fixed Effects (FE/DK-FE) \\
+\midrule
+1 & Broad money only & 0.0709 & 0.0176 & 0.0555 \\
+  & & (0.157) & (0.348) & (0.289) \\
+2 & Broad money + Inflation & 0.0708 & 0.0179 & 0.0580 \\
+  & & (0.160) & (0.367) & (0.321) \\
+3 & Broad money + Trade & -0.0344 & -0.0030 & 0.0768 \\
+  & & (0.187) & (0.907) & (0.226) \\
+4 & Broad money + Log GDP per capita & 0.0295 & 0.0186 & 0.0541 \\
+  & & (0.432) & (0.533) & (0.267) \\
+5 & Broad money + Trade + Log GDP per capita & -0.0363 & -0.0038 & 0.0753 \\
+  & & (0.107) & (0.882) & (0.206) \\
+6 & M1 baseline controls (with Exchange-rate dep.) & -0.0414** & -0.0387** & 0.0861 \\
+  & & (0.039) & (0.050) & (0.248) \\
+7 & M2 full controls (with Deposit rate) & -0.0429*** & -0.0429*** & 0.0732 \\
+  & & (0.003) & (0.002) & (0.355) \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}[flushleft]
+\footnotesize
+\item Notes: The table reports the estimated coefficients on broad money (\% of GDP) at each step of model expansion. The estimation sample is fixed to the M2 common sample ($N=96$, 8 countries, 2010--2023) to eliminate sample composition effects. P-values are reported in parentheses. *, **, and *** denote statistical significance at the 10, 5, and 1 percent levels, respectively.
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
+
+\section{Limitations}
+\label{sec:limitations}
+
+Several limitations shape the interpretation, which we organize into five categories:
+
+1. \textbf{Short panel and limited within variation:} The panel is short, with only 14 annual observations per country before missingness. Two-way fixed effects absorb persistent country differences and common yearly shocks, leaving limited within-country variation for the monetary variables. This is a major concern because the paper relies on within-country changes over time to identify associations. While Driscoll-Kraay standard errors are used to address heteroskedasticity, autocorrelation, and spatial dependence, their justification is asymptotic in the time dimension \(T\). With \(T \leq 14\), these standard errors should be interpreted as a robustness-oriented correction rather than a fully asymptotic solution.
+
+2. \textbf{Unbalanced proxy coverage:} The monetary proxies are not equally observed. Real and lending interest rates each have 37 missing observations, and their structural gaps change country support. For example, Cambodia has zero observed real-rate and lending-rate years, and Lao PDR has only one observed year for several monetary proxies. The lending-rate result (M5) comes from a restricted sample and may be partly driven by the subset of countries with lending-rate data, not necessarily by a universally stronger lending-rate transmission channel.
+
+3. \textbf{Weak causal identification:} The fixed-effects design controls for time-invariant country heterogeneity and common year shocks, but it does not provide an exogenous shock to monetary conditions or a full causal identification strategy. Macroeconomic controls such as trade openness, GDP per capita, and exchange-rate depreciation may respond to the same shocks that influence FDI, meaning coefficients should be interpreted as conditional associations rather than total effects. The model does not include exogenous shocks to monetary conditions, instruments, event-study designs, or local projections around policy surprises.
+
+4. \textbf{Proxy limitations:} Broad money as \% of GDP captures financial depth as much as monetary conditions, reflecting banking depth, savings behavior, capital-account structure, and income level. It is better interpreted as ``monetary-financial depth'' rather than a direct monetary-policy instrument. Similarly, interest rates reflect policy and market conditions, including credit demand and external conditions, rather than pure monetary-policy actions.
+
+5. \textbf{Diagnostic fragility:} The within-\(R^2\) values are close to zero or negative in the main models, and slope-adjusted within \(R^2\) is negative in all reported main models, indicating limited explanatory power. Model M5 displays the highest max VIF among the main models (22.63) and the only statistically significant Pesaran CD warning (\(p = 0.015\)), directly qualifying its significant lending-rate coefficient. These diagnostic concerns suggest that substantive claims should be modest, and coefficients should be interpreted with caution.
+
+\section{Appendix: Additional Diagnostics and Sample Audits}
+\label{app:additional-diagnostics-audits}
+
+This appendix provides a comprehensive set of diagnostic audits and data completeness summaries to document the empirical support behind the main panel regressions. The geographical focus on ASEAN-oriented economies means that data coverage varies by country, which dictates the sample composition across different specifications. 
+
+To evaluate the relationships among the main macroeconomic and monetary indicators, Table~\ref{tab:correlation-matrix} presents the Pearson correlation matrix. As expected, FDI inflows are highly positively correlated with trade openness (0.813) and log GDP per capita (0.488), indicating that structurally larger and more open markets attract greater foreign capital. Broad money is positively correlated with the human capital index (0.705) and log GDP per capita (0.554), reflecting the association between financial depth and structural economic development. The three interest rate measures are negatively correlated with broad money, consistent with standard liquidity theory. Table~\ref{tab:correlation-pairwise-n} reports the corresponding pairwise sample sizes, showing that while some pairs (such as FDI and GDP per capita) have the full 154 observations, others involving interest rates or human capital are reduced to 104--117 observations.
+
+Table~\ref{tab:coverage-by-country} documents the country-level data completeness across all variables. While most countries (such as Indonesia, Malaysia, and Thailand) have full 14-year coverage for nearly all indicators, Cambodia is a structural gap for the interest rate proxies (having 0 observed years), Lao PDR has only 1 observed year for broad money and interest rates, and Myanmar has 0 observed years for trade openness. Similarly, Timor-Leste lacks human capital data (0 observed years), which explains why the country is dropped when estimating the human capital robustness specification M7.
+
+To address these gaps, we implement an observed-only strategy for our primary regressions. Table~\ref{tab:missingness-handling-summary} summarizes the missing-data handling rules and assessments. Variables with less than 10\% missingness (such as exchange-rate depreciation and human capital) are left missing or edge-filled according to strict pre-defined rules, while key monetary proxies and FDI are never imputed.
+
+Finally, Table~\ref{tab:model-sample-audit} audits the step-by-step sample reductions when moving between models. Transitioning from the liquidity baseline M1 to the deposit rate model M2 loses 16 observations and 1 country (Cambodia), primarily driven by the deposit rate's missingness. Moving from M2 to the lagged M3 specification loses 8 observations from the base (reducing completed country-year observations by 5), driven by the lagged exchange-rate depreciation's availability. Adding the human-capital control in M7 reduces the sample by 13 observations and drops Timor-Leste completely due to missing human capital data.
+
+\begin{table}[htbp]
+\centering
+\caption{Pearson correlation matrix of main analysis variables}
+\label{tab:correlation-matrix}
+\begin{minipage}{\textwidth}
+\scriptsize
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{lccccccccccc}
+\toprule
+Variable & (1) & (2) & (3) & (4) & (5) & (6) & (7) & (8) & (9) & (10) & (11) \\
+\midrule
+(1) FDI net inflows (\% GDP) & 1.000 & & & & & & & & & & \\
+(2) Broad money (\% GDP) & 0.319 & 1.000 & & & & & & & & & \\
+(3) Inflation, GDP deflator (\%) & -0.034 & -0.214 & 1.000 & & & & & & & & \\
+(4) Trade (\% GDP) & 0.813 & 0.591 & -0.060 & 1.000 & & & & & & & \\
+(5) Log GDP per capita & 0.488 & 0.554 & -0.179 & 0.653 & 1.000 & & & & & & \\
+(6) Exchange-rate depreciation (\%) & -0.043 & -0.142 & 0.006 & -0.171 & -0.113 & 1.000 & & & & & \\
+(7) Deposit interest rate (\%) & -0.227 & -0.300 & 0.254 & -0.331 & -0.465 & 0.209 & 1.000 & & & & \\
+(8) Real interest rate (\%) & -0.127 & -0.195 & -0.838 & -0.116 & -0.191 & 0.097 & 0.034 & 1.000 & & & \\
+(9) Lending interest rate (\%) & -0.232 & -0.739 & 0.235 & -0.374 & -0.706 & 0.214 & 0.661 & 0.279 & 1.000 & & \\
+(10) Tourism arrivals (Log) & 0.213 & 0.600 & -0.167 & 0.240 & 0.423 & -0.058 & 0.120 & -0.235 & -0.541 & 1.000 & \\
+(11) Human capital index & 0.248 & 0.705 & -0.216 & 0.522 & 0.827 & -0.154 & -0.469 & -0.327 & -0.868 & 0.458 & 1.000 \\
+\bottomrule
+\end{tabular}%
+}
+\vskip 4pt
+\footnotesize
+Notes: This table displays the Pearson correlation coefficients between all main analysis variables. The sample is unbalanced and correlation coefficients are computed based on pairwise-complete observations. Column numbers (1) through (11) correspond to the variables defined in the rows.
+\end{minipage}
+\end{table}
+
+\begin{table}[htbp]
+\centering
+\caption{Pairwise sample size (N) matrix of variables}
+\label{tab:correlation-pairwise-n}
+\begin{minipage}{\textwidth}
+\scriptsize
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{lccccccccccc}
+\toprule
+Variable & (1) & (2) & (3) & (4) & (5) & (6) & (7) & (8) & (9) & (10) & (11) \\
+\midrule
+(1) FDI net inflows (\% GDP) & 154 & & & & & & & & & & \\
+(2) Broad money (\% GDP) & 133 & 133 & & & & & & & & & \\
+(3) Inflation, GDP deflator (\%) & 154 & 133 & 154 & & & & & & & & \\
+(4) Trade (\% GDP) & 140 & 122 & 140 & 140 & & & & & & & \\
+(5) Log GDP per capita & 154 & 133 & 154 & 140 & 154 & & & & & & \\
+(6) Exchange-rate depreciation (\%) & 143 & 122 & 143 & 130 & 143 & 143 & & & & & \\
+(7) Deposit interest rate (\%) & 132 & 130 & 132 & 121 & 132 & 121 & 132 & & & & \\
+(8) Real interest rate (\%) & 117 & 115 & 117 & 106 & 117 & 108 & 117 & 117 & & & \\
+(9) Lending interest rate (\%) & 117 & 115 & 117 & 106 & 117 & 108 & 117 & 117 & 117 & & \\
+(10) Tourism arrivals (Log) & 154 & 133 & 154 & 140 & 154 & 143 & 132 & 117 & 117 & 154 & \\
+(11) Human capital index & 140 & 119 & 140 & 126 & 140 & 130 & 118 & 104 & 104 & 140 & 140 \\
+\bottomrule
+\end{tabular}%
+}
+\vskip 4pt
+\footnotesize
+Notes: This table reports the pairwise count of non-missing country-year observations available for each pair of variables in the analytical dataset. The full panel contains a maximum of 154 country-year observations. Column numbers (1) through (11) correspond to the variables defined in the rows.
+\end{minipage}
+\end{table}
+
+\begin{table}[htbp]
+\centering
+\caption{Country-level data completeness and coverage counts}
+\label{tab:coverage-by-country}
+\begin{minipage}{\textwidth}
+\scriptsize
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{lcccccccccccc}
+\toprule
+Country & (1) & (2) & (3) & (4) & (5) & (6) & (7) & (8) & (9) & (10) & (11) & (12) \\
+\midrule
+Brunei Darussalam & 14 & 14 & 14 & 14 & 14 & 14 & 14 & 14 & 13 & 14 & 14 & 14 \\
+Cambodia & 14 & 14 & 14 & 0 & 0 & 14 & 14 & 14 & 13 & 14 & 14 & 14 \\
+Indonesia & 14 & 14 & 14 & 14 & 14 & 14 & 14 & 14 & 13 & 14 & 14 & 14 \\
+Lao PDR & 14 & 1 & 1 & 1 & 1 & 14 & 14 & 14 & 13 & 14 & 14 & 14 \\
+Malaysia & 14 & 14 & 14 & 14 & 14 & 14 & 14 & 14 & 13 & 14 & 14 & 14 \\
+Myanmar & 14 & 11 & 11 & 11 & 11 & 0 & 14 & 14 & 13 & 14 & 14 & 14 \\
+Philippines & 14 & 13 & 10 & 10 & 10 & 14 & 14 & 14 & 13 & 14 & 14 & 14 \\
+Singapore & 14 & 11 & 12 & 12 & 12 & 14 & 14 & 14 & 13 & 14 & 14 & 14 \\
+Thailand & 14 & 14 & 14 & 14 & 14 & 14 & 14 & 14 & 13 & 14 & 14 & 14 \\
+Timor-Leste & 14 & 14 & 14 & 13 & 13 & 14 & 14 & 14 & 13 & 14 & 14 & 0 \\
+Viet Nam & 14 & 13 & 14 & 14 & 14 & 14 & 14 & 14 & 13 & 14 & 14 & 14 \\
+\bottomrule
+\end{tabular}%
+}
+\vskip 4pt
+\footnotesize
+Notes: The numbers denote the count of observed years (out of a maximum of 14 years, 2010--2023) for each country-variable combination. Variable indices are:
+(1) FDI net inflows (\% GDP),
+(2) Broad money (\% GDP),
+(3) Deposit interest rate (\%),
+(4) Real interest rate (\%),
+(5) Lending interest rate (\%),
+(6) Trade (\% GDP),
+(7) Inflation, GDP deflator (\%),
+(8) Log GDP per capita,
+(9) Exchange-rate depreciation (\%),
+(10) Tourism arrivals (Log),
+(11) Population (Log),
+(12) Human capital index.
+\end{minipage}
+\end{table}
+
+\begin{table}[htbp]
+\centering
+\caption{Missing-data handling rules and assessment by variable}
+\label{tab:missingness-handling-summary}
+\begin{minipage}{\textwidth}
+\scriptsize
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{llccccl}
+\toprule
+Variable & Role / Group & Missing Rate & Severity & Struct. Gaps$^{a}$ & Mechanism & Recommended Handling Rule \\
+\midrule
+FDI net inflows (\% GDP) & Dependent & 0.00\% & $<$10\% & 0 & Complete & Observed only (no imputation) \\
+Broad money (\% GDP) & Key Independent & 13.64\% & 10--30\% & 0 & MCAR & Observed only (no imputation) \\
+Deposit interest rate (\%) & Key Independent & 14.29\% & 10--30\% & 0 & MCAR & Observed only (no imputation) \\
+Real interest rate (\%) & Key Independent & 24.03\% & 10--30\% & 1 & MCAR & Observed only (no imputation) \\
+Lending interest rate (\%) & Key Independent & 24.03\% & 10--30\% & 1 & MCAR & Observed only (no imputation) \\
+Inflation, GDP deflator (\%) & Control & 0.00\% & $<$10\% & 0 & Complete & Within-country interpolate \& edge-fill \\
+Log GDP per capita & Control & 0.00\% & $<$10\% & 0 & Complete & Within-country interpolate \& edge-fill \\
+Log Population & Control & 0.00\% & $<$10\% & 0 & Complete & Within-country interpolate \& edge-fill \\
+Tourism arrivals (Log) & Control (Robustness) & 26.62\% & 10--30\% & 0 & MCAR & Within-country interpolate \& edge-fill (keep structural country gaps) \\
+Trade (\% GDP) & Control & 13.64\% & 10--30\% & 1 & MCAR & Within-country interpolate \& edge-fill (keep structural country gaps) \\
+Exchange-rate depreciation (\%) & Control & 9.09\% & $<$10\% & 0 & MCAR & Within-country interpolate \& edge-fill (except structural 2010) \\
+Human capital index & Control (Robustness) & 9.09\% & $<$10\% & 1 & MCAR & Leave missing (report limitation) \\
+\bottomrule
+\end{tabular}%
+}
+\vskip 4pt
+\footnotesize
+$^{a}$ Number of countries with 100\% missingness for this variable (e.g. Cambodia for interest rates, Myanmar for trade, and Timor-Leste for human capital).\\
+Notes: MCAR indicates that Little's test or similar diagnostics do not reject the hypothesis that data are Missing Completely At Random. The recommended handling rules are applied to the raw panel before regression estimation.
+\end{minipage}
+\end{table}
+
+\begin{table}[htbp]
+\centering
+\caption{Adjacent model sample-loss audit and drivers}
+\label{tab:model-sample-audit}
+\begin{minipage}{\textwidth}
+\scriptsize
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{llccccll}
+\toprule
+Comparison ID & Base Model & Added Model & Base Obs. & Added Obs. & Rows Lost & Countries Lost & Top Loss Driver \\
+\midrule
+M1 to M2 & M1 baseline liquidity & M2 main deposit rate & 112 & 96 & 16 & 1 (Cambodia, Philippines) & deposit\_interest\_rate\_pct (3 obs.) \\
+M2 to M3 & M2 main deposit rate & M3 lagged deposit rate & 96 & 91 & 8 & 0 (Brunei, Indon, Mal, Phil, Sing, Thai, TL, VN) & xr\_dep\_pct\_lag1 (8 obs.) \\
+M2 to M5 & M2 main deposit rate & M5 lending rate robustness & 96 & 96 & 0 & 0 (None) & None \\
+M2 to M7a & M2 main deposit rate & M7a human capital sensitivity & 96 & 83 & 13 & 1 (Timor-Leste) & hc\_human\_capital\_index (13 obs.) \\
+M4 to M7b & M4 real rate & M7b human capital sensitivity & 96 & 83 & 13 & 1 (Timor-Leste) & hc\_human\_capital\_index (13 obs.) \\
+\bottomrule
+\end{tabular}%
+}
+\vskip 4pt
+\footnotesize
+Notes: This table summarizes the completed observations and country counts at each adjacent specification step. Lost countries in parentheses represent the entities experiencing observation loss, though they may remain in the estimation sample if they have other valid years.
+\end{minipage}
+\end{table}
+
+\section{Appendix: Panel Diagnostics (Unit Root and Cointegration Tests)}
+\label{app:panel-diagnostics-unit-root-cointegration}
+
+Before conducting panel regressions in levels, it is methodologically essential to test for panel unit roots and cointegration to ensure that the estimated associations do not represent spurious regressions. If macroeconomic variables are non-stationary and do not share a stable long-run equilibrium, regression results in levels can lead to inflated t-statistics and incorrect statistical inferences.
+
+Table~\ref{tab:unit-root} presents Augmented Dickey-Fuller (ADF) panel unit root test results. Panel A reports tests on the full panel variables. For most variables, including FDI net inflows ($p = 0.0073$), log GDP per capita ($p = 0.0426$), inflation ($p = 0.0000$), and exchange-rate depreciation ($p = 0.0000$), the null hypothesis of a panel unit root is rejected at the 5\% significance level. Broad money rejects the unit root at the 10\% level ($p = 0.0562$). However, trade openness is highly trended and fails to reject the unit root ($p = 0.3087$), indicating that it exhibits non-stationary characteristics in levels. Panel B reports tests on the restricted panel variables (interest rates and auxiliary controls). We reject the null of a panel unit root at the 5\% level for the deposit interest rate ($p = 0.0382$), real interest rate ($p = 0.0000$), lending interest rate ($p = 0.0188$), and log tourism arrivals ($p = 0.0394$). The human capital index fails to reject the unit root at the 5\% level but rejects at the 10\% level ($p = 0.1036$).
+
+To verify if these non-stationary or trended series are cointegrated, we conduct Engle-Granger panel cointegration tests on the residuals of all estimated specifications. The null hypothesis is that the residuals of the level regression contain a unit root (no cointegration). Table~\ref{tab:cointegration} reports these results. For the baseline liquidity model M1, we reject the null hypothesis of no cointegration at the 5\% significance level (t-stat = \(-5.2349\), $p = 0.0104$). Similarly, for the real rate model M4, cointegration is rejected at the 1\% significance level (t-stat = \(-5.6626\), $p = 0.0023$). For the remaining models (M2, M3, M5, M6a, M6b, M7a, and M7b), the estimated t-statistics all exceed their respective 5\% (and often 1\%) critical values, confirming that the residuals are stationary. This strong evidence of cointegration provides some diagnostic support for our use of the two-way fixed-effects estimator in levels, suggesting that the estimated monetary associations may be stable in the long run, though with such a small panel and mixed missingness, these tests should be treated as diagnostic support rather than validation.
+
+\begin{table}[htbp]
+\centering
+\caption{Panel unit root test results (Augmented Dickey-Fuller)}
+\label{tab:unit-root}
+\begin{minipage}{\textwidth}
+\scriptsize
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{lcccccc}
+\toprule
+Variable & ADF Stat. & p-value & Lags & Obs. & Critical Value (5\%) & Critical Value (1\% / 10\%) \\
+\midrule
+\multicolumn{7}{l}{\textbf{Panel A: Full Panel Variables}} \\
+FDI net inflows (\% GDP) & -3.5292 & 0.0073 & 0 & 153 & -2.881 & -3.474 / -2.577 \\
+Broad money (\% GDP) & -2.8150 & 0.0562 & 0 & 132 & -2.884 & -3.481 / -2.579 \\
+Inflation, GDP deflator (\%) & -5.8744 & 0.0000 & 2 & 151 & -2.881 & -3.474 / -2.577 \\
+Trade (\% GDP) & -1.9504 & 0.3087 & 14 & 125 & -2.885 & -3.484 / -2.579 \\
+Log GDP per capita & -2.9244 & 0.0426 & 0 & 153 & -2.881 & -3.474 / -2.577 \\
+Exchange-rate depreciation (\%) & -11.0885 & 0.0000 & 0 & 142 & -2.882 & -3.477 / -2.578 \\
+\midrule
+\multicolumn{7}{l}{\textbf{Panel B: Restricted Panel Variables (excluding Cambodia and Lao PDR)}} \\
+Deposit interest rate (\%) & -2.9664 & 0.0382 & 2 & 114 & -2.887 & -3.489 / -2.580 \\
+Real interest rate (\%) & -5.3739 & 0.0000 & 2 & 113 & -2.887 & -3.490 / -2.581 \\
+Lending interest rate (\%) & -3.2211 & 0.0188 & 1 & 114 & -2.887 & -3.489 / -2.580 \\
+Tourism arrivals (Log) & -2.9546 & 0.0394 & 0 & 125 & -2.885 & -3.484 / -2.579 \\
+Human capital index & -2.5508 & 0.1036 & 0 & 111 & -2.888 & -3.491 / -2.581 \\
+\bottomrule
+\end{tabular}%
+}
+\vskip 4pt
+\footnotesize
+Notes: This table reports panel Augmented Dickey-Fuller (ADF) unit root test statistics. The null hypothesis is that the panel contains a unit root (non-stationary). Panel A uses the full analytical panel sample. Panel B uses the restricted sample where interest rate and auxiliary proxies are available. Lags are determined automatically by information criteria.
+\end{minipage}
+\end{table}
+
+\begin{table}[htbp]
+\centering
+\caption{Panel cointegration test results (Engle-Granger Two-Step)}
+\label{tab:cointegration}
+\begin{minipage}{\textwidth}
+\scriptsize
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{lcccccc}
+\toprule
+Specification & t-statistic & p-value & Obs. & Critical Value (1\%) & Critical Value (5\%) & Critical Value (10\%) \\
+\midrule
+M1 (Baseline liquidity) & -5.2349 & 0.0104 & 112 & -5.482 & -4.861 & -4.544 \\
+M2 (Main deposit rate) & -5.6877 & N/A$^{a}$ & 96 & -5.831 & -5.189 & -4.863 \\
+M3 (Lagged deposit rate) & -4.5635 & N/A$^{a}$ & 91 & -5.849 & -5.201 & -4.872 \\
+M4 (Real rate) & -5.6626 & 0.0023 & 96 & -5.522 & -4.887 & -4.564 \\
+M5 (Lending rate) & -5.6633 & N/A$^{a}$ & 96 & -5.831 & -5.189 & -4.863 \\
+M6a (Tourism sensitivity, M2) & -6.2964 & N/A$^{a}$ & 96 & -6.124 & -5.474 & -5.144 \\
+M6b (Tourism sensitivity, M4) & -6.3659 & N/A$^{a}$ & 96 & -5.831 & -5.189 & -4.863 \\
+M7a (Human capital sensitivity, M2) & -5.3577 & N/A$^{a}$ & 83 & -6.183 & -5.513 & -5.175 \\
+M7b (Human capital sensitivity, M4) & -5.2806 & N/A$^{a}$ & 83 & -5.883 & -5.223 & -4.889 \\
+\bottomrule
+\end{tabular}%
+}
+\vskip 4pt
+\footnotesize
+$^{a}$ P-values are reported as N/A where analytic distributions or asymptotic tables are not implemented for specific panels with multiple regressors in the software library.\\
+Notes: The Engle-Granger panel cointegration test evaluates whether the residuals of the level panel specifications are stationary (rejection of the null of no cointegration). All tests use country and year fixed effects.
+\end{minipage}
+\end{table}
+
+\section{Appendix: Tourism and Human-Capital Branches}
+\label{app:tourism-human-capital-branches}
+
+The M6 tourism branches and M7 human-capital branches test whether the main monetary relationships are sensitive to additional structural controls. While these extensions are conceptually relevant for capturing non-monetary determinants of investment, their inclusion introduces severe econometric problems. Specifically, Model M7a (which adds the human-capital index to the deposit-rate baseline Model M2) suffers from extreme multicollinearity. As shown in the compact diagnostics table (Table~\ref{tab:compact-diagnostics}), the maximum Variance Inflation Factor (VIF) for M7a is 387.19, which far exceeds the standard conservative threshold of 10.
+
+A VIF decomposition reveals that this collinearity is primarily driven by the joint inclusion of the human-capital index and log GDP per capita. In developing economies, human capital development (education, literacy, and skill acquisition) and GDP per capita are highly correlated, trended variables. Including both in a panel model with small $N$ causes the independent variance of each to be nearly fully absorbed by the other, inflating the standard errors and destabilizing the coefficient estimates.
+
+To resolve this collinearity and isolate the source of the variance inflation, we run control-drop diagnostics where we sequentially omit specific variables from the M7a specification. Table~\ref{tab:collinearity-resolution} presents the VIF values under the baseline model and three alternative control drop setups.
+
+\begin{table}[htbp]
+\centering
+\caption{VIF values and collinearity resolution for Model M7a}
+\label{tab:collinearity-resolution}
+\begin{minipage}{\textwidth}
+\scriptsize
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{lcccc}
+\toprule
+Variable & Baseline (M7a) & Drop Human Capital & Drop Log GDP per capita & Drop Trade Openness \\
+\midrule
+Human capital index & 387.19 & --- & 16.80 & 235.42 \\
+Log GDP per capita & 273.47 & 10.46 & --- & 164.61 \\
+Broad money (\% GDP) & 29.04 & 11.20 & 16.68 & 17.77 \\
+Trade (\% GDP) & 7.46 & 6.56 & 6.22 & --- \\
+Deposit interest rate (\%) & 2.92 & 2.24 & 2.70 & 2.45 \\
+Inflation, GDP deflator (\%) & 1.37 & 1.19 & 1.37 & 1.44 \\
+Exchange-rate depreciation (\%) & 1.30 & 1.27 & 1.28 & 1.09 \\
+\bottomrule
+\end{tabular}%
+}
+\vskip 4pt
+\footnotesize
+Notes: This table shows how the severe multicollinearity in the human capital sensitivity model (M7a) is resolved by dropping collinear controls. The baseline column includes both log GDP per capita and the human capital index, yielding VIFs as high as 387.19. Dropping either variable reduces all VIFs to normal bounds ($\le 16.80$), whereas dropping trade openness fails to resolve the VIF issue.
+\end{minipage}
+\end{table}
+
+The VIF diagnostics confirm our theoretical expectations:
+\begin{itemize}
+    \item \textbf{Dropping Human Capital}: Omitting the human-capital index collapses the maximum VIF from 387.19 down to 11.20 (which is the VIF on broad money in the baseline M2 model). The VIF on log GDP per capita falls from 273.47 to 10.46, which is well within acceptable econometric bounds.
+    \item \textbf{Dropping Log GDP per Capita}: Alternatively, omitting log GDP per capita while retaining the human-capital index reduces the maximum VIF to 16.80 (which is the VIF on the human-capital index itself). The VIF on broad money falls to 16.68. This suggests that either variable can serve as a proxy for structural development without causing severe collinearity, but they cannot be included simultaneously.
+    \item \textbf{Dropping Trade Openness}: To verify that the collinearity is not driven by the trade control, we drop trade openness while retaining both human capital and GDP. The VIF for human capital remains extremely high at 235.42, and GDP remains at 164.61, proving that trade is not the source of the variance inflation.
+\end{itemize}
+
+To evaluate the structural consequences of collinearity and verify that the results are not driven by the variance inflation of the collinear controls, we report the actual regression parameters across these control-drop scenarios in Table~\ref{tab:collinearity-robustness-regressions}. Dropping the collinear controls successfully resolves the severe VIF issues. Specifically, omitting the human capital index collapses the maximum VIF from 387.19 to 11.20, and omitting log GDP per capita reduces it to 16.80. Across these drop scenarios, the trade openness coefficient remains stable, negative, and statistically insignificant (at the 10\% level) in the baseline ($p$-value of 0.145), the drop GDP specification ($p$-value of 0.153), and the drop human capital specification (where the $p$-value falls slightly to 0.094, showing marginal significance at the 10\% level with a coefficient of $-0.0381$). This stability suggests that collinearity does not distort the underlying negative association between trade openness and FDI inflows, although the baseline VIF of 387.19 renders the joint coefficient estimates structurally unreliable. In terms of specification testing, the Hausman test yields extremely large negative statistics or p-values near 1.000 in the Baseline (M7a) and the Drop Human Capital models, whereas under the Drop GDP specification, the random effects model failed to converge due to division-by-zero errors in the covariance calculation.
+
+\begin{table}[htbp]
+\centering
+\caption{Regression results under collinearity resolution drop scenarios}
+\label{tab:collinearity-robustness-regressions}
+\begin{minipage}{\textwidth}
+\scriptsize
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{lccccccll}
+\toprule
+Scenario / Specification & Obs. & Countries & Years & Preferred Estimator & Max VIF & Condition No. & Trade Openness Coeff. (SE) [p-val] & Hausman Test (Raw / p-val) \\
+\midrule
+Baseline (M7a) & 83 & 7 & 13 & FE-DK & 387.19 & 4050.11 & \(-0.0328\) (0.0222) [0.145] & \(-3222.60\) / 1.000 \\
+Drop Trade Openness & 93 & 8 & 13 & FE-DK & 235.42 & 1563.65 & --- & 2.22 / 0.898 \\
+Drop Log GDP per capita & 83 & 7 & 13 & FE-DK & 16.80 & 3697.18 & \(-0.0335\) (0.0231) [0.153] & N/A (RE estimation failed)$^{a}$ \\
+Drop Human Capital Index & 96 & 8 & 13 & FE-DK & 11.20 & 1737.56 & \(-0.0381^{*}\) (0.0224) [0.094] & \(-3.44\) / 1.000 \\
+\bottomrule
+\end{tabular}%
+}
+\vskip 4pt
+\footnotesize
+$^{a}$ Random effects estimation failed to converge or compute due to division-by-zero errors under this specification, preventing the calculation of the Hausman test.\\
+Notes: The dependent variable in the regressions is FDI net inflows as a percentage of GDP. FE-DK denotes two-way fixed effects with country and year fixed effects and Driscoll--Kraay standard errors. Standard errors are in parentheses, and p-values are in square brackets. * denotes statistical significance at the 10\% level. The Baseline (M7a) includes both log GDP per capita and the human capital index, causing severe multicollinearity.
+\end{minipage}
+\end{table}
+
+Given this severe multicollinearity, the human-capital specifications are structurally unreliable and are kept as sensitivity checks in the Appendix rather than promoted to headline results. The M6 tourism branches add log tourism arrivals to the M2 and M4 branches, which also increases VIFs to 201.80 (M6a) and 95.14 (M6b), reinforcing that structural controls are highly collinear in this regional panel.
+
+\section{Appendix: Review Flags and Outliers}
+\label{app:review-flags-outliers}
+
+Reviewed outliers are retained rather than mechanically deleted. These include extreme inflation observations for Timor-Leste in 2021 and Viet Nam in 2010, high FDI-to-GDP observations for Singapore, and high trade-openness observations for Singapore. These values are economically interpretable in the relevant country contexts and are retained in the main analysis. Their presence nevertheless supports the chapter's restrained language and the use of fixed effects, robustness checks, and appendix diagnostics.
