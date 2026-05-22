@@ -1,0 +1,10 @@
+metric,value
+Preferred estimator,Fixed effects
+Hausman p-value,0.0000
+Hausman raw statistic,302.6381
+Hausman negative-statistic flag,False
+FE vs RE comparison note,ok
+Condition number,1902.9575
+Breusch-Pagan LM p-value,0.0096
+White LM p-value,0.0008
+Max VIF,111.5282

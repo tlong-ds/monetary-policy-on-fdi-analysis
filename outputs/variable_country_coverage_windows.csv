@@ -1,0 +1,129 @@
+variable,country,usable_years,first_usable_year,last_usable_year,window_length_years,internal_missing_years,internal_missing_year_list,is_contiguous_window
+broad_money_pct_gdp,Brunei Darussalam,14,2010,2023,14,0,,True
+broad_money_pct_gdp,Cambodia,14,2010,2023,14,0,,True
+broad_money_pct_gdp,Indonesia,14,2010,2023,14,0,,True
+broad_money_pct_gdp,Lao PDR,1,2010,2010,1,0,,True
+broad_money_pct_gdp,Malaysia,14,2010,2023,14,0,,True
+broad_money_pct_gdp,Myanmar,11,2010,2020,11,0,,True
+broad_money_pct_gdp,Philippines,13,2010,2022,13,0,,True
+broad_money_pct_gdp,Singapore,11,2010,2020,11,0,,True
+broad_money_pct_gdp,Thailand,14,2010,2023,14,0,,True
+broad_money_pct_gdp,Timor-Leste,14,2010,2023,14,0,,True
+broad_money_pct_gdp,Viet Nam,13,2010,2022,13,0,,True
+deposit_interest_rate_pct,Brunei Darussalam,14,2010,2023,14,0,,True
+deposit_interest_rate_pct,Cambodia,14,2010,2023,14,0,,True
+deposit_interest_rate_pct,Indonesia,14,2010,2023,14,0,,True
+deposit_interest_rate_pct,Lao PDR,1,2010,2010,1,0,,True
+deposit_interest_rate_pct,Malaysia,14,2010,2023,14,0,,True
+deposit_interest_rate_pct,Myanmar,11,2010,2020,11,0,,True
+deposit_interest_rate_pct,Philippines,10,2010,2019,10,0,,True
+deposit_interest_rate_pct,Singapore,12,2010,2021,12,0,,True
+deposit_interest_rate_pct,Thailand,14,2010,2023,14,0,,True
+deposit_interest_rate_pct,Timor-Leste,14,2010,2023,14,0,,True
+deposit_interest_rate_pct,Viet Nam,14,2010,2023,14,0,,True
+fdi_pct_gdp,Brunei Darussalam,14,2010,2023,14,0,,True
+fdi_pct_gdp,Cambodia,14,2010,2023,14,0,,True
+fdi_pct_gdp,Indonesia,14,2010,2023,14,0,,True
+fdi_pct_gdp,Lao PDR,14,2010,2023,14,0,,True
+fdi_pct_gdp,Malaysia,14,2010,2023,14,0,,True
+fdi_pct_gdp,Myanmar,14,2010,2023,14,0,,True
+fdi_pct_gdp,Philippines,14,2010,2023,14,0,,True
+fdi_pct_gdp,Singapore,14,2010,2023,14,0,,True
+fdi_pct_gdp,Thailand,14,2010,2023,14,0,,True
+fdi_pct_gdp,Timor-Leste,14,2010,2023,14,0,,True
+fdi_pct_gdp,Viet Nam,14,2010,2023,14,0,,True
+hc_human_capital_index,Brunei Darussalam,14,2010,2023,14,0,,True
+hc_human_capital_index,Cambodia,14,2010,2023,14,0,,True
+hc_human_capital_index,Indonesia,14,2010,2023,14,0,,True
+hc_human_capital_index,Lao PDR,14,2010,2023,14,0,,True
+hc_human_capital_index,Malaysia,14,2010,2023,14,0,,True
+hc_human_capital_index,Myanmar,14,2010,2023,14,0,,True
+hc_human_capital_index,Philippines,14,2010,2023,14,0,,True
+hc_human_capital_index,Singapore,14,2010,2023,14,0,,True
+hc_human_capital_index,Thailand,14,2010,2023,14,0,,True
+hc_human_capital_index,Viet Nam,14,2010,2023,14,0,,True
+inflation_gdp_deflator_pct,Brunei Darussalam,14,2010,2023,14,0,,True
+inflation_gdp_deflator_pct,Cambodia,14,2010,2023,14,0,,True
+inflation_gdp_deflator_pct,Indonesia,14,2010,2023,14,0,,True
+inflation_gdp_deflator_pct,Lao PDR,14,2010,2023,14,0,,True
+inflation_gdp_deflator_pct,Malaysia,14,2010,2023,14,0,,True
+inflation_gdp_deflator_pct,Myanmar,14,2010,2023,14,0,,True
+inflation_gdp_deflator_pct,Philippines,14,2010,2023,14,0,,True
+inflation_gdp_deflator_pct,Singapore,14,2010,2023,14,0,,True
+inflation_gdp_deflator_pct,Thailand,14,2010,2023,14,0,,True
+inflation_gdp_deflator_pct,Timor-Leste,14,2010,2023,14,0,,True
+inflation_gdp_deflator_pct,Viet Nam,14,2010,2023,14,0,,True
+lending_interest_rate_pct,Brunei Darussalam,14,2010,2023,14,0,,True
+lending_interest_rate_pct,Indonesia,14,2010,2023,14,0,,True
+lending_interest_rate_pct,Lao PDR,1,2010,2010,1,0,,True
+lending_interest_rate_pct,Malaysia,14,2010,2023,14,0,,True
+lending_interest_rate_pct,Myanmar,11,2010,2020,11,0,,True
+lending_interest_rate_pct,Philippines,10,2010,2019,10,0,,True
+lending_interest_rate_pct,Singapore,12,2010,2021,12,0,,True
+lending_interest_rate_pct,Thailand,14,2010,2023,14,0,,True
+lending_interest_rate_pct,Timor-Leste,13,2011,2023,13,0,,True
+lending_interest_rate_pct,Viet Nam,14,2010,2023,14,0,,True
+ln_gdppc,Brunei Darussalam,14,2010,2023,14,0,,True
+ln_gdppc,Cambodia,14,2010,2023,14,0,,True
+ln_gdppc,Indonesia,14,2010,2023,14,0,,True
+ln_gdppc,Lao PDR,14,2010,2023,14,0,,True
+ln_gdppc,Malaysia,14,2010,2023,14,0,,True
+ln_gdppc,Myanmar,14,2010,2023,14,0,,True
+ln_gdppc,Philippines,14,2010,2023,14,0,,True
+ln_gdppc,Singapore,14,2010,2023,14,0,,True
+ln_gdppc,Thailand,14,2010,2023,14,0,,True
+ln_gdppc,Timor-Leste,14,2010,2023,14,0,,True
+ln_gdppc,Viet Nam,14,2010,2023,14,0,,True
+ln_population_total,Brunei Darussalam,14,2010,2023,14,0,,True
+ln_population_total,Cambodia,14,2010,2023,14,0,,True
+ln_population_total,Indonesia,14,2010,2023,14,0,,True
+ln_population_total,Lao PDR,14,2010,2023,14,0,,True
+ln_population_total,Malaysia,14,2010,2023,14,0,,True
+ln_population_total,Myanmar,14,2010,2023,14,0,,True
+ln_population_total,Philippines,14,2010,2023,14,0,,True
+ln_population_total,Singapore,14,2010,2023,14,0,,True
+ln_population_total,Thailand,14,2010,2023,14,0,,True
+ln_population_total,Timor-Leste,14,2010,2023,14,0,,True
+ln_population_total,Viet Nam,14,2010,2023,14,0,,True
+ln_tourism_arrivals,Brunei Darussalam,14,2010,2023,14,0,,True
+ln_tourism_arrivals,Cambodia,14,2010,2023,14,0,,True
+ln_tourism_arrivals,Indonesia,14,2010,2023,14,0,,True
+ln_tourism_arrivals,Lao PDR,14,2010,2023,14,0,,True
+ln_tourism_arrivals,Malaysia,14,2010,2023,14,0,,True
+ln_tourism_arrivals,Myanmar,14,2010,2023,14,0,,True
+ln_tourism_arrivals,Philippines,14,2010,2023,14,0,,True
+ln_tourism_arrivals,Singapore,14,2010,2023,14,0,,True
+ln_tourism_arrivals,Thailand,14,2010,2023,14,0,,True
+ln_tourism_arrivals,Timor-Leste,14,2010,2023,14,0,,True
+ln_tourism_arrivals,Viet Nam,14,2010,2023,14,0,,True
+real_interest_rate_pct,Brunei Darussalam,14,2010,2023,14,0,,True
+real_interest_rate_pct,Indonesia,14,2010,2023,14,0,,True
+real_interest_rate_pct,Lao PDR,1,2010,2010,1,0,,True
+real_interest_rate_pct,Malaysia,14,2010,2023,14,0,,True
+real_interest_rate_pct,Myanmar,11,2010,2020,11,0,,True
+real_interest_rate_pct,Philippines,10,2010,2019,10,0,,True
+real_interest_rate_pct,Singapore,12,2010,2021,12,0,,True
+real_interest_rate_pct,Thailand,14,2010,2023,14,0,,True
+real_interest_rate_pct,Timor-Leste,13,2011,2023,13,0,,True
+real_interest_rate_pct,Viet Nam,14,2010,2023,14,0,,True
+trade_pct_gdp,Brunei Darussalam,14,2010,2023,14,0,,True
+trade_pct_gdp,Cambodia,14,2010,2023,14,0,,True
+trade_pct_gdp,Indonesia,14,2010,2023,14,0,,True
+trade_pct_gdp,Lao PDR,14,2010,2023,14,0,,True
+trade_pct_gdp,Malaysia,14,2010,2023,14,0,,True
+trade_pct_gdp,Philippines,14,2010,2023,14,0,,True
+trade_pct_gdp,Singapore,14,2010,2023,14,0,,True
+trade_pct_gdp,Thailand,14,2010,2023,14,0,,True
+trade_pct_gdp,Timor-Leste,14,2010,2023,14,0,,True
+trade_pct_gdp,Viet Nam,14,2010,2023,14,0,,True
+xr_dep_pct,Brunei Darussalam,13,2011,2023,13,0,,True
+xr_dep_pct,Cambodia,13,2011,2023,13,0,,True
+xr_dep_pct,Indonesia,13,2011,2023,13,0,,True
+xr_dep_pct,Lao PDR,13,2011,2023,13,0,,True
+xr_dep_pct,Malaysia,13,2011,2023,13,0,,True
+xr_dep_pct,Myanmar,13,2011,2023,13,0,,True
+xr_dep_pct,Philippines,13,2011,2023,13,0,,True
+xr_dep_pct,Singapore,13,2011,2023,13,0,,True
+xr_dep_pct,Thailand,13,2011,2023,13,0,,True
+xr_dep_pct,Timor-Leste,13,2011,2023,13,0,,True
+xr_dep_pct,Viet Nam,13,2011,2023,13,0,,True

@@ -1,0 +1,13 @@
+variable,missing_count,missing_rate,model_status,significant_predictors,mechanism_assessment
+fdi_pct_gdp,0,0.0,not_needed,,complete
+broad_money_pct_gdp,21,0.13636363636363635,fit,,MCAR_not_rejected
+trade_pct_gdp,21,0.13636363636363635,fit,,MCAR_not_rejected
+inflation_gdp_deflator_pct,0,0.0,not_needed,,complete
+deposit_interest_rate_pct,22,0.14285714285714285,fit,,MCAR_not_rejected
+real_interest_rate_pct,37,0.24025974025974026,fit,,MCAR_not_rejected
+lending_interest_rate_pct,37,0.24025974025974026,fit,,MCAR_not_rejected
+hc_human_capital_index,14,0.09090909090909091,fit,,MCAR_not_rejected
+ln_gdppc,0,0.0,not_needed,,complete
+xr_dep_pct,14,0.09090909090909091,fit,,MCAR_not_rejected
+ln_population_total,0,0.0,not_needed,,complete
+ln_tourism_arrivals,41,0.2662337662337662,fit,,MCAR_not_rejected

@@ -1,0 +1,5 @@
+scenario,preferred_estimator,hausman_p_value,hausman_raw_statistic,negative_hausman_flag,comparison_note,re_failure_reason,observations,countries_used,years_used,trade_coef,trade_std_error,trade_p_value,max_vif,condition_number,trade_coef_change_vs_reference
+M7a_human_capital_robustness_from_M2,fixed_effects_driscoll_kraay,1.0,-3222.6029928376247,True,ok,,83,7,13,-0.032834130282546024,0.02224598016256763,0.14545844102128846,387.18724706952366,4050.1131265163276,0.0
+M7a_human_capital_robustness_from_M2_drop_trade_pct_gdp,fixed_effects_driscoll_kraay,0.8980042878407745,2.2238381368308873,False,ok,,93,8,13,,,,235.4159073555394,1563.6542880904822,
+M7a_human_capital_robustness_from_M2_drop_ln_gdppc,fixed_effects_driscoll_kraay,,,False,random_effects_failed,float division by zero,83,7,13,-0.03346078589107923,0.023135050071811533,0.15346894121742238,16.797859088315036,3697.178083600165,-0.0006266556085332067
+M7a_human_capital_robustness_from_M2_drop_hc_human_capital_index,fixed_effects_driscoll_kraay,1.0,-3.43904632489129,True,ok,,96,8,13,-0.038052078167044895,0.022429938362458993,0.09423690921080707,11.202676127956344,1737.5560802039015,-0.0052179478844988705

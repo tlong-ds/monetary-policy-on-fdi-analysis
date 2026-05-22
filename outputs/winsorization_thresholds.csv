@@ -1,0 +1,3 @@
+source_variable,sensitivity_variable,lower_bound_p01,upper_bound_p99,values_clipped,use_case
+fdi_pct_gdp,fdi_pct_gdp_winsorized,-7.158033659619595,28.95417012283373,4,robustness_only_do_not_replace_main_observed_values
+xr_dep_pct,xr_dep_pct_winsorized,-9.430560533941446,37.36430674318526,13,robustness_only_do_not_replace_main_observed_values

@@ -1,0 +1,9 @@
+variable,missing_count,missing_share
+deposit_interest_rate_pct,22,0.1428571428571428
+broad_money_pct_gdp,21,0.1363636363636363
+hc_human_capital_index,14,0.0909090909090909
+trade_pct_gdp,14,0.0909090909090909
+xr_dep_pct,11,0.0714285714285714
+fdi_pct_gdp,0,0.0
+inflation_gdp_deflator_pct,0,0.0
+ln_gdppc,0,0.0

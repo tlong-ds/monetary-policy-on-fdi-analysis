@@ -1,0 +1,1 @@
+Estimator: Random effects. Hausman p-value: 1.0000. Observations: 73. R-squared: 0.9051. Countries used: 8. Years used: 10. Hausman note: covariance-difference inversion became numerically unstable, so the raw statistic turned negative. The reported Hausman statistic was clipped to 0.0, which mechanically gives p=1.0000. Treat this as weak evidence for RE, not as a strong proof.

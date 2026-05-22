@@ -1,0 +1,8 @@
+variable,missing_count,missing_share
+deposit_interest_rate_pct_lag1,29,0.18831168831168832
+broad_money_pct_gdp_lag1,27,0.17532467532467533
+trade_pct_gdp_lag1,24,0.15584415584415584
+xr_dep_pct_lag1,22,0.14285714285714285
+inflation_gdp_deflator_pct_lag1,11,0.07142857142857142
+ln_gdppc_lag1,11,0.07142857142857142
+fdi_pct_gdp,0,0.0

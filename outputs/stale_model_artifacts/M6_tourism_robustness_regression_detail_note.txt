@@ -1,0 +1,1 @@
+Preferred estimator: Fixed effects. Hausman p-value: 0.0000. Recommendation: Optional; thiếu nhiều quan sát sau Covid.. Hausman note: positive test statistic with the standard FE-versus-RE interpretation.

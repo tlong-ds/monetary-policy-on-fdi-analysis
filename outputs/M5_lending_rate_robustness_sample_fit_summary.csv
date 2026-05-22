@@ -1,0 +1,12 @@
+metric,value
+Observations,96
+Countries used,8
+Years used,13
+Estimator,"Two-way FE, Driscoll-Kraay SE"
+Hausman diagnostic,Diagnostic only; Hausman does not reject RE
+Within R-squared,0.0021
+Slope-adjusted within R-squared,-0.0651
+R2 minus adjusted R2 gap,0.2815
+Max VIF,22.6259
+Lost-country note,None
+Regressors,"broad_money_pct_gdp, lending_interest_rate_pct, inflation_gdp_deflator_pct, trade_pct_gdp, ln_gdppc, xr_dep_pct"

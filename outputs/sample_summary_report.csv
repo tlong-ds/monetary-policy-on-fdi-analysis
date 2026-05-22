@@ -1,0 +1,10 @@
+model_id,rows_used,rows_dropped,countries_used,years_used,regressors
+M1_baseline_liquidity,116,38,10,13,"broad_money_pct_gdp_lag1, inflation_gdp_deflator_pct, trade_pct_gdp, ln_gdppc, xr_dep_pct"
+M2_main_monetary_policy,110,44,9,13,"broad_money_pct_gdp, deposit_interest_rate_pct_lag1, inflation_gdp_deflator_pct, trade_pct_gdp, ln_gdppc, xr_dep_pct"
+M3_lagged_main_model,109,45,9,13,"broad_money_pct_gdp, deposit_interest_rate_pct, inflation_gdp_deflator_pct, trade_pct_gdp, ln_gdppc, xr_dep_pct"
+M4_real_interest_robustness,96,58,8,13,"broad_money_pct_gdp, real_interest_rate_pct_lag1, trade_pct_gdp, ln_gdppc, xr_dep_pct"
+M5_lending_rate_robustness,96,58,8,13,"broad_money_pct_gdp, lending_interest_rate_pct_lag1, inflation_gdp_deflator_pct, trade_pct_gdp, ln_gdppc, xr_dep_pct"
+M6a_tourism_robustness_from_M2,110,44,9,13,"broad_money_pct_gdp, deposit_interest_rate_pct_lag1, inflation_gdp_deflator_pct, trade_pct_gdp, ln_gdppc, xr_dep_pct, ln_tourism_arrivals"
+M6b_tourism_robustness_from_M4,96,58,8,13,"broad_money_pct_gdp, real_interest_rate_pct_lag1, trade_pct_gdp, ln_gdppc, xr_dep_pct, ln_tourism_arrivals"
+M7a_human_capital_robustness_from_M2,97,57,8,13,"broad_money_pct_gdp, deposit_interest_rate_pct_lag1, inflation_gdp_deflator_pct, trade_pct_gdp, ln_gdppc, xr_dep_pct, hc_human_capital_index"
+M7b_human_capital_robustness_from_M4,84,70,7,13,"broad_money_pct_gdp, real_interest_rate_pct_lag1, trade_pct_gdp, ln_gdppc, xr_dep_pct, hc_human_capital_index"

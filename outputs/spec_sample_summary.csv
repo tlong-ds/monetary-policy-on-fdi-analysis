@@ -1,0 +1,10 @@
+specification,specification_role,rows_used,rows_dropped,countries_used,years_used,variables
+baseline_theory_fit,main_baseline,119,35,10,14,"fdi_pct_gdp, broad_money_pct_gdp, deposit_interest_rate_pct, trade_pct_gdp, inflation_gdp_deflator_pct, ln_gdppc"
+baseline_with_xr,main_baseline_extension,109,45,9,13,"fdi_pct_gdp, broad_money_pct_gdp, deposit_interest_rate_pct, trade_pct_gdp, inflation_gdp_deflator_pct, ln_gdppc, xr_dep_pct"
+liquidity_broad_sample,liquidity_sensitivity,133,21,11,14,"fdi_pct_gdp, broad_money_pct_gdp, inflation_gdp_deflator_pct, ln_gdppc"
+spec_real_rate,one_proxy_per_channel_sensitivity,98,56,8,13,"fdi_pct_gdp, real_interest_rate_pct, trade_pct_gdp, inflation_gdp_deflator_pct, ln_gdppc, xr_dep_pct"
+spec_deposit_rate,one_proxy_per_channel_sensitivity,111,43,9,13,"fdi_pct_gdp, deposit_interest_rate_pct, trade_pct_gdp, inflation_gdp_deflator_pct, ln_gdppc, xr_dep_pct"
+spec_broad_money_only,one_proxy_per_channel_sensitivity,112,42,9,13,"fdi_pct_gdp, broad_money_pct_gdp, trade_pct_gdp, inflation_gdp_deflator_pct, ln_gdppc, xr_dep_pct"
+real_interest_robustness,robustness_collinearity_check,96,58,8,13,"fdi_pct_gdp, broad_money_pct_gdp, real_interest_rate_pct, trade_pct_gdp, inflation_gdp_deflator_pct, ln_gdppc, xr_dep_pct"
+lending_rate_robustness,robustness_collinearity_check,96,58,8,13,"fdi_pct_gdp, broad_money_pct_gdp, lending_interest_rate_pct, trade_pct_gdp, inflation_gdp_deflator_pct, ln_gdppc, xr_dep_pct"
+full_saturated_diagnostic_only,diagnostic_only_not_preferred,96,58,8,13,"fdi_pct_gdp, broad_money_pct_gdp, deposit_interest_rate_pct, trade_pct_gdp, inflation_gdp_deflator_pct, ln_gdppc, xr_dep_pct, ln_population_total, ln_tourism_arrivals, hc_human_capital_index"

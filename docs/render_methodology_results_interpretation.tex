@@ -1,0 +1,28 @@
+\documentclass[11pt]{report}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=1in]{geometry}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{amsmath}
+\usepackage{booktabs}
+\usepackage{threeparttable}
+\usepackage{graphicx}
+\usepackage{xurl}
+\usepackage[hidelinks]{hyperref}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.65em}
+\hfuzz=20pt
+\sloppy
+
+\begin{document}
+
+\IfFileExists{methodology_results_interpretation.tex}{%
+  \input{methodology_results_interpretation.tex}%
+}{%
+  \input{docs/methodology_results_interpretation.tex}%
+}
+
+\end{document}

@@ -1,0 +1,6 @@
+comparison_id,base_model_id,added_model_id,base_rows,added_rows,rows_lost_from_base,base_countries,added_countries,countries_lost_from_base,lost_countries,top_loss_drivers
+M1_to_M2,M1_baseline_liquidity,M2_main_monetary_policy,112,96,16,9,8,1,"Cambodia, Philippines",deposit_interest_rate_pct: 3
+M2_to_M3_lagged_proxy,M2_main_monetary_policy,M3_lagged_main_model,96,91,8,8,8,0,"Brunei Darussalam, Indonesia, Malaysia, Philippines, Singapore, Thailand, Timor-Leste, Viet Nam",xr_dep_pct_lag1: 8
+M2_to_M5_lending_robustness,M2_main_monetary_policy,M5_lending_rate_robustness,96,96,0,8,8,0,None,None
+M2_to_M7a_appendix_hc,M2_main_monetary_policy,M7a_human_capital_robustness_from_M2,96,83,13,8,7,1,Timor-Leste,hc_human_capital_index: 13
+M4_to_M7b_appendix_hc,M4_real_interest_robustness,M7b_human_capital_robustness_from_M4,96,83,13,8,7,1,Timor-Leste,hc_human_capital_index: 13

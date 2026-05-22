@@ -1,0 +1,10 @@
+specification,countries_used,total_rows,min_country_years,median_country_years,max_country_years,countries_with_lt_8_years,countries_with_internal_gaps,panel_balance_warning
+baseline_theory_fit,10,119,1,14.0,14,1,0,review_country_with_short_time_series
+baseline_with_xr,9,109,9,13.0,13,0,0,acceptable_for_unbalanced_panel_with_caveat
+full_saturated_diagnostic_only,8,96,9,13.0,13,0,0,acceptable_for_unbalanced_panel_with_caveat
+lending_rate_robustness,8,96,9,13.0,13,0,0,acceptable_for_unbalanced_panel_with_caveat
+liquidity_broad_sample,11,133,1,14.0,14,1,0,review_country_with_short_time_series
+real_interest_robustness,8,96,9,13.0,13,0,0,acceptable_for_unbalanced_panel_with_caveat
+spec_broad_money_only,9,112,10,13.0,13,0,0,acceptable_for_unbalanced_panel_with_caveat
+spec_deposit_rate,9,111,9,13.0,13,0,0,acceptable_for_unbalanced_panel_with_caveat
+spec_real_rate,8,98,9,13.0,13,0,0,acceptable_for_unbalanced_panel_with_caveat

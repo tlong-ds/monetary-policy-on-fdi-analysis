@@ -1,0 +1,3 @@
+model_id,model,model_tier,headline_eligible,appendix_only,purpose,estimator,nobs,within_r2,slope_adjusted_within_r2,r_squared,adj_r_squared,r2_adj_r2_gap,gap_rank,selected_by_low_gap,headline_selection_allowed
+M1_baseline_liquidity,M1 - Baseline liquidity,headline,True,False,Kiểm tra kênh cung tiền,"Two-way FE, Driscoll-Kraay SE",112.0,-0.011380527177954125,-0.05908715581842361,0.08277331115686248,-0.18386235420451458,0.26663566536137706,1,True,True
+M4_real_interest_robustness,M4 - Real-rate channel,headline,True,False,Thay proxy lãi suất bằng real interest rate,"Two-way FE, Driscoll-Kraay SE",96.0,0.0149727029377974,-0.03975103578788053,0.12799246113991491,-0.16677065058743779,0.2947631117273527,3,True,True

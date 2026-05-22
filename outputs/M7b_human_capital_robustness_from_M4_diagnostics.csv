@@ -1,0 +1,15 @@
+metric,value
+Headline estimator,"Two-way FE, Driscoll-Kraay SE"
+Hausman diagnostic,Diagnostic only; RE failed (float division by zero)
+Hausman p-value,n/a
+Hausman raw statistic,n/a
+Hausman negative-statistic flag,False
+FE vs RE comparison note,random_effects_failed
+Diagnostic model note,BP/White/condition-number diagnostics use pooled OLS residuals/design; Pesaran CD uses FE-DK residuals.
+Pesaran CD statistic,-1.6098
+Pesaran CD p-value,0.1074
+Condition number,2815.5679
+Breusch-Pagan LM p-value,0.0006
+White LM p-value,0.0042
+Max VIF,329.2891
+Lost-country note,Timor-Leste

@@ -1,0 +1,10 @@
+model_id,workbook_model,purpose,countries_used,total_rows,min_country_years,median_country_years,max_country_years,countries_with_lt_8_years,countries_with_internal_gaps,panel_reliability_flag
+M1_baseline_liquidity,M1 - Baseline liquidity,Kiểm tra kênh cung tiền,9,112,10,13.0,13,0,0,acceptable_unbalanced_panel_with_caveat
+M2_main_monetary_policy,M2 - Deposit-rate channel,Kênh cung tiền + lãi suất,8,96,9,13.0,13,0,0,acceptable_unbalanced_panel_with_caveat
+M3_lagged_main_model,M3 - Lagged deposit-rate robustness,Giảm vấn đề nội sinh/đồng thời,8,91,9,12.0,12,0,0,acceptable_unbalanced_panel_with_caveat
+M4_real_interest_robustness,M4 - Real-rate channel,Thay proxy lãi suất bằng real interest rate,8,96,9,13.0,13,0,0,acceptable_unbalanced_panel_with_caveat
+M5_lending_rate_robustness,M5 - Lending rate robustness,Thay proxy lãi suất bằng lending rate,8,96,9,13.0,13,0,0,acceptable_unbalanced_panel_with_caveat
+M6a_tourism_robustness_from_M2,M6a - Tourism robustness from M2,Kiểm tra kênh dịch vụ/du lịch,8,96,9,13.0,13,0,0,acceptable_unbalanced_panel_with_caveat
+M6b_tourism_robustness_from_M4,M6b - Tourism robustness from M4,Kiểm tra kênh dịch vụ/du lịch,8,96,9,13.0,13,0,0,acceptable_unbalanced_panel_with_caveat
+M7a_human_capital_robustness_from_M2,M7a - Human capital sensitivity from M2,Kiểm soát chất lượng lao động,7,83,9,13.0,13,0,0,high_risk_fewer_than_8_countries
+M7b_human_capital_robustness_from_M4,M7b - Human capital sensitivity from M4,Kiểm soát chất lượng lao động,7,83,9,13.0,13,0,0,high_risk_fewer_than_8_countries

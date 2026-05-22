@@ -1,0 +1,30 @@
+country,year,flag,value,note
+Timor-Leste,2021,inflation_extreme_keep_and_review,59.0796775560114,Observed value retained for main analysis.
+Viet Nam,2010,inflation_extreme_keep_and_review,42.30326724885569,Observed value retained for main analysis.
+Singapore,2010,singapore_fdi_gt_20_structural_expected,23.06947167708019,High Singapore FDI-to-GDP is economically expected; keep and rely on country FE/sensitivity checks.
+Singapore,2013,singapore_fdi_gt_20_structural_expected,20.93448104465322,High Singapore FDI-to-GDP is economically expected; keep and rely on country FE/sensitivity checks.
+Singapore,2014,singapore_fdi_gt_20_structural_expected,21.81848807826785,High Singapore FDI-to-GDP is economically expected; keep and rely on country FE/sensitivity checks.
+Singapore,2015,singapore_fdi_gt_20_structural_expected,22.65418268904913,High Singapore FDI-to-GDP is economically expected; keep and rely on country FE/sensitivity checks.
+Singapore,2016,singapore_fdi_gt_20_structural_expected,20.37662875624948,High Singapore FDI-to-GDP is economically expected; keep and rely on country FE/sensitivity checks.
+Singapore,2017,singapore_fdi_gt_20_structural_expected,29.67063369400461,High Singapore FDI-to-GDP is economically expected; keep and rely on country FE/sensitivity checks.
+Singapore,2018,singapore_fdi_gt_20_structural_expected,22.83772906260186,High Singapore FDI-to-GDP is economically expected; keep and rely on country FE/sensitivity checks.
+Singapore,2019,singapore_fdi_gt_20_structural_expected,28.22565433990986,High Singapore FDI-to-GDP is economically expected; keep and rely on country FE/sensitivity checks.
+Singapore,2020,singapore_fdi_gt_20_structural_expected,22.71768080641079,High Singapore FDI-to-GDP is economically expected; keep and rely on country FE/sensitivity checks.
+Singapore,2021,singapore_fdi_gt_20_structural_expected,32.59646101303017,High Singapore FDI-to-GDP is economically expected; keep and rely on country FE/sensitivity checks.
+Singapore,2022,singapore_fdi_gt_20_structural_expected,28.31881563519163,High Singapore FDI-to-GDP is economically expected; keep and rely on country FE/sensitivity checks.
+Singapore,2023,singapore_fdi_gt_20_structural_expected,24.8866145212528,High Singapore FDI-to-GDP is economically expected; keep and rely on country FE/sensitivity checks.
+Singapore,2010,trade_high_open_economy_review,369.6855557876458,High openness can be structural for entrepot economies; retain and interpret with country effects.
+Singapore,2011,trade_high_open_economy_review,379.098631377539,High openness can be structural for entrepot economies; retain and interpret with country effects.
+Singapore,2012,trade_high_open_economy_review,369.2129657876647,High openness can be structural for entrepot economies; retain and interpret with country effects.
+Singapore,2013,trade_high_open_economy_review,367.0417800490191,High openness can be structural for entrepot economies; retain and interpret with country effects.
+Singapore,2014,trade_high_open_economy_review,360.467319166237,High openness can be structural for entrepot economies; retain and interpret with country effects.
+Singapore,2015,trade_high_open_economy_review,329.4713989402615,High openness can be structural for entrepot economies; retain and interpret with country effects.
+Singapore,2016,trade_high_open_economy_review,302.8396560465736,High openness can be structural for entrepot economies; retain and interpret with country effects.
+Singapore,2017,trade_high_open_economy_review,316.7944092875681,High openness can be structural for entrepot economies; retain and interpret with country effects.
+Singapore,2018,trade_high_open_economy_review,326.5965872867496,High openness can be structural for entrepot economies; retain and interpret with country effects.
+Singapore,2019,trade_high_open_economy_review,324.3949851153009,High openness can be structural for entrepot economies; retain and interpret with country effects.
+Singapore,2020,trade_high_open_economy_review,332.0408054819134,High openness can be structural for entrepot economies; retain and interpret with country effects.
+Singapore,2021,trade_high_open_economy_review,329.161383683762,High openness can be structural for entrepot economies; retain and interpret with country effects.
+Singapore,2022,trade_high_open_economy_review,332.3495677548403,High openness can be structural for entrepot economies; retain and interpret with country effects.
+Singapore,2023,trade_high_open_economy_review,325.6932240537803,High openness can be structural for entrepot economies; retain and interpret with country effects.
+Myanmar,2012,xr_dep_pct_extreme_keep_and_review,476.795463489171,Observed value retained; use winsorized version only for sensitivity checks.

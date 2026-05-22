@@ -1,0 +1,1 @@
+Notes: Entries report coefficient estimates with standard errors in parentheses. *** p<0.01, ** p<0.05, * p<0.10.
