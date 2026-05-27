@@ -1,12 +1,12 @@
 metric,value
-Observations,83
+Observations,151
 Countries used,7
-Years used,13
+Years used,23
 Estimator,"Two-way FE, Driscoll-Kraay SE"
 Hausman diagnostic,Diagnostic only; Hausman favors FE
-Within R-squared,0.1105
-Slope-adjusted within R-squared,0.0275
-R2 minus adjusted R2 gap,0.3497
-Max VIF,350.8979
+Within R-squared,0.0476
+Slope-adjusted within R-squared,0.0010
+R2 minus adjusted R2 gap,0.2902
+Max VIF,179.5011
 Lost-country note,Timor-Leste
-Regressors,"inflation_gdp_deflator_pct, trade_pct_gdp, ln_gdppc, xr_dep_pct, broad_money_pct_gdp, real_interest_rate_pct, hc_human_capital_index"
+Regressors,"inflation_gdp_deflator_pct, trade_pct_gdp, ln_gdppc, xr_dep_pct, broad_money_growth_pct, real_interest_rate_pct, hc_human_capital_index"

@@ -1,0 +1,25 @@
+\begin{table}[htbp]
+\centering
+\caption{Adjacent model sample-loss audit and drivers}
+\label{tab:model-sample-audit}
+\begin{minipage}{\textwidth}
+\scriptsize
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{llccccll}
+\toprule
+Comparison ID & Base Model & Added Model & Base Obs. & Added Obs. & Rows Lost & Countries Lost & Top Loss Driver \\\midrule
+M1 to M2 & M1 & M2 & 209 & 149 & 60 & Brunei Darussalam, Cambodia, Lao PDR, Philippines, Thailand, Timor-Leste & deposit\_interest\_rate\_pct: 27 \\
+M2 to M3 lagged & M2 & M3 & 149 & 145 & 8 & Brunei Darussalam, Indonesia, Malaysia, Philippines, Singapore, Thailand, Viet Nam & xr\_dep\_pct\_lag1: 6; deposit\_interest\_rate\_pct\_lag1: 2 \\
+M2 to M5 lending & M2 & M5 & 149 & 151 & 0 & None & nan \\
+M2 to M6 tourism & M2 & M6 & 149 & 149 & 0 & None & nan \\
+M4 to M6 tourism & M4 & M6 & 164 & 151 & 13 & Timor-Leste & ln\_tourism\_arrivals: 13 \\
+M2 to M7 hc & M2 & M7 & 149 & 149 & 0 & None & nan \\
+M4 to M7 hc & M4 & M7 & 164 & 151 & 13 & Timor-Leste & hc\_human\_capital\_index: 13 \\
+\bottomrule
+\end{tabular}
+}
+\vskip 4pt
+\footnotesize
+Notes: This table summarizes the completed observations and country counts at each adjacent specification step. Lost countries in parentheses represent the entities experiencing observation loss, though they may remain in the estimation sample if they have other valid years.
+\end{minipage}
+\end{table}

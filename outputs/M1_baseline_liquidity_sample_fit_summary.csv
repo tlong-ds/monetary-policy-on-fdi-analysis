@@ -1,12 +1,12 @@
 metric,value
-Observations,112
-Countries used,9
-Years used,13
+Observations,209
+Countries used,10
+Years used,23
 Estimator,"Two-way FE, Driscoll-Kraay SE"
-Hausman diagnostic,Diagnostic only; Hausman favors FE
-Within R-squared,-0.0114
-Slope-adjusted within R-squared,-0.0591
-R2 minus adjusted R2 gap,0.2666
-Max VIF,11.1114
+Hausman diagnostic,Diagnostic only; negative statistic clipped
+Within R-squared,0.0305
+Slope-adjusted within R-squared,0.0066
+R2 minus adjusted R2 gap,0.2067
+Max VIF,5.2682
 Lost-country note,Reference or no adjacent loss audit
-Regressors,"inflation_gdp_deflator_pct, trade_pct_gdp, ln_gdppc, xr_dep_pct, broad_money_pct_gdp"
+Regressors,"broad_money_growth_pct, inflation_gdp_deflator_pct, trade_pct_gdp, ln_gdppc, xr_dep_pct"

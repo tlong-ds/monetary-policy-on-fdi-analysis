@@ -1,10 +1,10 @@
 model_id,statistic,raw_statistic,degrees_of_freedom,p_value,negative_statistic_flag,variables,comparison_note,re_failure_reason
-M1_baseline_liquidity,265.9365133769774,265.9365133769774,5,0.0,False,"inflation_gdp_deflator_pct, trade_pct_gdp, ln_gdppc, xr_dep_pct, broad_money_pct_gdp",ok,
-M2_main_monetary_policy,0.0,-3.4390463248294374,6,1.0,True,"inflation_gdp_deflator_pct, trade_pct_gdp, ln_gdppc, xr_dep_pct, broad_money_pct_gdp, deposit_interest_rate_pct",ok,
-M3_lagged_main_model,0.0,-15888.325163945965,6,1.0,True,"inflation_gdp_deflator_pct_lag1, trade_pct_gdp_lag1, ln_gdppc_lag1, xr_dep_pct_lag1, broad_money_pct_gdp_lag1, deposit_interest_rate_pct_lag1",ok,
-M4_real_interest_robustness,204.60695932014616,204.60695932014616,6,0.0,False,"inflation_gdp_deflator_pct, trade_pct_gdp, ln_gdppc, xr_dep_pct, broad_money_pct_gdp, real_interest_rate_pct",ok,
-M5_lending_rate_robustness,5.521650976511314,5.521650976511314,6,0.47884376208776447,False,"inflation_gdp_deflator_pct, trade_pct_gdp, ln_gdppc, xr_dep_pct, broad_money_pct_gdp, lending_interest_rate_pct",ok,
-M6a_tourism_robustness_from_M2,,,7,,False,"inflation_gdp_deflator_pct, trade_pct_gdp, ln_gdppc, xr_dep_pct, broad_money_pct_gdp, deposit_interest_rate_pct, ln_tourism_arrivals",random_effects_failed,float division by zero
-M6b_tourism_robustness_from_M4,,,7,,False,"inflation_gdp_deflator_pct, trade_pct_gdp, ln_gdppc, xr_dep_pct, broad_money_pct_gdp, real_interest_rate_pct, ln_tourism_arrivals",random_effects_failed,float division by zero
-M7a_human_capital_robustness_from_M2,0.0,-3222.6029927534823,7,1.0,True,"inflation_gdp_deflator_pct, trade_pct_gdp, ln_gdppc, xr_dep_pct, broad_money_pct_gdp, deposit_interest_rate_pct, hc_human_capital_index",ok,
-M7b_human_capital_robustness_from_M4,49.43485702067207,49.43485702067207,7,1.8646395094634727e-08,False,"inflation_gdp_deflator_pct, trade_pct_gdp, ln_gdppc, xr_dep_pct, broad_money_pct_gdp, real_interest_rate_pct, hc_human_capital_index",ok,
+M1_baseline_liquidity,0.0,-64.4574764264441,5,1.0,True,"broad_money_growth_pct, inflation_gdp_deflator_pct, trade_pct_gdp, ln_gdppc, xr_dep_pct",ok,
+M2_main_monetary_policy,,,6,,False,"broad_money_growth_pct, deposit_interest_rate_pct, inflation_gdp_deflator_pct, trade_pct_gdp, ln_gdppc, xr_dep_pct",random_effects_failed,float division by zero
+M3_lagged_main_model,,,6,,False,"broad_money_growth_pct_lag1, deposit_interest_rate_pct_lag1, inflation_gdp_deflator_pct_lag1, trade_pct_gdp_lag1, ln_gdppc_lag1, xr_dep_pct_lag1",random_effects_failed,float division by zero
+M4_real_interest_robustness,0.0,-2.992410924450632,6,1.0,True,"broad_money_growth_pct, real_interest_rate_pct, inflation_gdp_deflator_pct, trade_pct_gdp, ln_gdppc, xr_dep_pct",ok,
+M5_lending_rate_robustness,,,6,,False,"broad_money_growth_pct, lending_interest_rate_pct, inflation_gdp_deflator_pct, trade_pct_gdp, ln_gdppc, xr_dep_pct",random_effects_failed,float division by zero
+M6_tourism_robustnessa_from_M4_real_interest_robustness,0.0,-120.45448517962116,7,1.0,True,"broad_money_growth_pct, real_interest_rate_pct, inflation_gdp_deflator_pct, trade_pct_gdp, ln_gdppc, xr_dep_pct, ln_tourism_arrivals",ok,
+M6_tourism_robustnessb_from_M2_main_monetary_policy,0.0,-14.89943241576411,7,1.0,True,"broad_money_growth_pct, deposit_interest_rate_pct, inflation_gdp_deflator_pct, trade_pct_gdp, ln_gdppc, xr_dep_pct, ln_tourism_arrivals",ok,
+M7_human_capital_robustnessa_from_M4_real_interest_robustness,23.562919139021318,23.562919139021318,7,0.0013593509003411164,False,"broad_money_growth_pct, real_interest_rate_pct, inflation_gdp_deflator_pct, trade_pct_gdp, ln_gdppc, xr_dep_pct, hc_human_capital_index",ok,
+M7_human_capital_robustnessb_from_M2_main_monetary_policy,2.7596504617435067,2.7596504617435067,7,0.9063109794206528,False,"broad_money_growth_pct, deposit_interest_rate_pct, inflation_gdp_deflator_pct, trade_pct_gdp, ln_gdppc, xr_dep_pct, hc_human_capital_index",ok,

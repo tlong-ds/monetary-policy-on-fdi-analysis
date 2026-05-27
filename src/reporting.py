@@ -5,7 +5,7 @@ from IPython.display import Markdown, display
 
 
 VARIABLE_LABELS = {
-    "broad_money_pct_gdp": "Broad money (% GDP)",
+    "broad_money_growth_pct": "Broad money growth (annual %)",
     "deposit_interest_rate_pct": "Deposit interest rate (%)",
     "deposit_interest_rate_pct_lag1": "Deposit interest rate, lag 1 (%)",
     "real_interest_rate_pct": "Real interest rate (%)",
@@ -19,7 +19,7 @@ VARIABLE_LABELS = {
 }
 
 THEORY_EXPECTED_SIGNS = {
-    "broad_money_pct_gdp": ("positive", "theory: liquidity and credit availability can support FDI"),
+    "broad_money_growth_pct": ("positive", "theory: faster monetary expansion can support liquidity conditions associated with FDI"),
     "deposit_interest_rate_pct": ("negative / ambiguous", "theory: higher rates can raise capital costs, but deposit-rate effects are ambiguous"),
     "real_interest_rate_pct": ("negative", "theory: higher real borrowing costs can discourage investment"),
     "lending_interest_rate_pct": ("negative", "theory: higher lending costs can discourage investment"),

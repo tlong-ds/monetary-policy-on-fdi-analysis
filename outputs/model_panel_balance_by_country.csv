@@ -1,72 +1,68 @@
 model_id,country,usable_years,first_usable_year,last_usable_year,window_length_years,internal_missing_years,internal_missing_year_list,is_contiguous_window
-M1_baseline_liquidity,Brunei Darussalam,13,2011,2023,13,0,,True
-M1_baseline_liquidity,Cambodia,13,2011,2023,13,0,,True
-M1_baseline_liquidity,Indonesia,13,2011,2023,13,0,,True
-M1_baseline_liquidity,Malaysia,13,2011,2023,13,0,,True
-M1_baseline_liquidity,Philippines,12,2011,2022,12,0,,True
-M1_baseline_liquidity,Singapore,10,2011,2020,10,0,,True
-M1_baseline_liquidity,Thailand,13,2011,2023,13,0,,True
-M1_baseline_liquidity,Timor-Leste,13,2011,2023,13,0,,True
-M1_baseline_liquidity,Viet Nam,12,2011,2022,12,0,,True
-M2_main_monetary_policy,Brunei Darussalam,13,2011,2023,13,0,,True
-M2_main_monetary_policy,Indonesia,13,2011,2023,13,0,,True
-M2_main_monetary_policy,Malaysia,13,2011,2023,13,0,,True
-M2_main_monetary_policy,Philippines,9,2011,2019,9,0,,True
-M2_main_monetary_policy,Singapore,10,2011,2020,10,0,,True
-M2_main_monetary_policy,Thailand,13,2011,2023,13,0,,True
-M2_main_monetary_policy,Timor-Leste,13,2011,2023,13,0,,True
-M2_main_monetary_policy,Viet Nam,12,2011,2022,12,0,,True
-M3_lagged_main_model,Brunei Darussalam,12,2012,2023,12,0,,True
-M3_lagged_main_model,Indonesia,12,2012,2023,12,0,,True
-M3_lagged_main_model,Malaysia,12,2012,2023,12,0,,True
-M3_lagged_main_model,Philippines,9,2012,2020,9,0,,True
-M3_lagged_main_model,Singapore,10,2012,2021,10,0,,True
-M3_lagged_main_model,Thailand,12,2012,2023,12,0,,True
-M3_lagged_main_model,Timor-Leste,12,2012,2023,12,0,,True
-M3_lagged_main_model,Viet Nam,12,2012,2023,12,0,,True
-M4_real_interest_robustness,Brunei Darussalam,13,2011,2023,13,0,,True
-M4_real_interest_robustness,Indonesia,13,2011,2023,13,0,,True
-M4_real_interest_robustness,Malaysia,13,2011,2023,13,0,,True
-M4_real_interest_robustness,Philippines,9,2011,2019,9,0,,True
-M4_real_interest_robustness,Singapore,10,2011,2020,10,0,,True
-M4_real_interest_robustness,Thailand,13,2011,2023,13,0,,True
+M1_baseline_liquidity,Brunei Darussalam,23,2001,2023,23,0,,True
+M1_baseline_liquidity,Cambodia,23,2001,2023,23,0,,True
+M1_baseline_liquidity,Indonesia,23,2001,2023,23,0,,True
+M1_baseline_liquidity,Lao PDR,10,2001,2010,10,0,,True
+M1_baseline_liquidity,Malaysia,23,2001,2023,23,0,,True
+M1_baseline_liquidity,Philippines,22,2001,2022,22,0,,True
+M1_baseline_liquidity,Singapore,20,2001,2020,20,0,,True
+M1_baseline_liquidity,Thailand,23,2001,2023,23,0,,True
+M1_baseline_liquidity,Timor-Leste,20,2003,2023,21,1,2004,False
+M1_baseline_liquidity,Viet Nam,22,2001,2022,22,0,,True
+M2_main_monetary_policy,Brunei Darussalam,21,2003,2023,21,0,,True
+M2_main_monetary_policy,Indonesia,23,2001,2023,23,0,,True
+M2_main_monetary_policy,Malaysia,23,2001,2023,23,0,,True
+M2_main_monetary_policy,Philippines,19,2001,2019,19,0,,True
+M2_main_monetary_policy,Singapore,20,2001,2020,20,0,,True
+M2_main_monetary_policy,Thailand,21,2001,2023,23,2,"2002, 2003",False
+M2_main_monetary_policy,Viet Nam,22,2001,2022,22,0,,True
+M3_lagged_main_model,Brunei Darussalam,20,2004,2023,20,0,,True
+M3_lagged_main_model,Indonesia,22,2002,2023,22,0,,True
+M3_lagged_main_model,Malaysia,22,2002,2023,22,0,,True
+M3_lagged_main_model,Philippines,19,2002,2020,19,0,,True
+M3_lagged_main_model,Singapore,20,2002,2021,20,0,,True
+M3_lagged_main_model,Thailand,20,2002,2023,22,2,"2003, 2004",False
+M3_lagged_main_model,Viet Nam,22,2002,2023,22,0,,True
+M4_real_interest_robustness,Brunei Darussalam,23,2001,2023,23,0,,True
+M4_real_interest_robustness,Indonesia,23,2001,2023,23,0,,True
+M4_real_interest_robustness,Malaysia,23,2001,2023,23,0,,True
+M4_real_interest_robustness,Philippines,19,2001,2019,19,0,,True
+M4_real_interest_robustness,Singapore,20,2001,2020,20,0,,True
+M4_real_interest_robustness,Thailand,21,2001,2023,23,2,"2002, 2003",False
 M4_real_interest_robustness,Timor-Leste,13,2011,2023,13,0,,True
-M4_real_interest_robustness,Viet Nam,12,2011,2022,12,0,,True
-M5_lending_rate_robustness,Brunei Darussalam,13,2011,2023,13,0,,True
-M5_lending_rate_robustness,Indonesia,13,2011,2023,13,0,,True
-M5_lending_rate_robustness,Malaysia,13,2011,2023,13,0,,True
-M5_lending_rate_robustness,Philippines,9,2011,2019,9,0,,True
-M5_lending_rate_robustness,Singapore,10,2011,2020,10,0,,True
-M5_lending_rate_robustness,Thailand,13,2011,2023,13,0,,True
-M5_lending_rate_robustness,Timor-Leste,13,2011,2023,13,0,,True
-M5_lending_rate_robustness,Viet Nam,12,2011,2022,12,0,,True
-M6a_tourism_robustness_from_M2,Brunei Darussalam,13,2011,2023,13,0,,True
-M6a_tourism_robustness_from_M2,Indonesia,13,2011,2023,13,0,,True
-M6a_tourism_robustness_from_M2,Malaysia,13,2011,2023,13,0,,True
-M6a_tourism_robustness_from_M2,Philippines,9,2011,2019,9,0,,True
-M6a_tourism_robustness_from_M2,Singapore,10,2011,2020,10,0,,True
-M6a_tourism_robustness_from_M2,Thailand,13,2011,2023,13,0,,True
-M6a_tourism_robustness_from_M2,Timor-Leste,13,2011,2023,13,0,,True
-M6a_tourism_robustness_from_M2,Viet Nam,12,2011,2022,12,0,,True
-M6b_tourism_robustness_from_M4,Brunei Darussalam,13,2011,2023,13,0,,True
-M6b_tourism_robustness_from_M4,Indonesia,13,2011,2023,13,0,,True
-M6b_tourism_robustness_from_M4,Malaysia,13,2011,2023,13,0,,True
-M6b_tourism_robustness_from_M4,Philippines,9,2011,2019,9,0,,True
-M6b_tourism_robustness_from_M4,Singapore,10,2011,2020,10,0,,True
-M6b_tourism_robustness_from_M4,Thailand,13,2011,2023,13,0,,True
-M6b_tourism_robustness_from_M4,Timor-Leste,13,2011,2023,13,0,,True
-M6b_tourism_robustness_from_M4,Viet Nam,12,2011,2022,12,0,,True
-M7a_human_capital_robustness_from_M2,Brunei Darussalam,13,2011,2023,13,0,,True
-M7a_human_capital_robustness_from_M2,Indonesia,13,2011,2023,13,0,,True
-M7a_human_capital_robustness_from_M2,Malaysia,13,2011,2023,13,0,,True
-M7a_human_capital_robustness_from_M2,Philippines,9,2011,2019,9,0,,True
-M7a_human_capital_robustness_from_M2,Singapore,10,2011,2020,10,0,,True
-M7a_human_capital_robustness_from_M2,Thailand,13,2011,2023,13,0,,True
-M7a_human_capital_robustness_from_M2,Viet Nam,12,2011,2022,12,0,,True
-M7b_human_capital_robustness_from_M4,Brunei Darussalam,13,2011,2023,13,0,,True
-M7b_human_capital_robustness_from_M4,Indonesia,13,2011,2023,13,0,,True
-M7b_human_capital_robustness_from_M4,Malaysia,13,2011,2023,13,0,,True
-M7b_human_capital_robustness_from_M4,Philippines,9,2011,2019,9,0,,True
-M7b_human_capital_robustness_from_M4,Singapore,10,2011,2020,10,0,,True
-M7b_human_capital_robustness_from_M4,Thailand,13,2011,2023,13,0,,True
-M7b_human_capital_robustness_from_M4,Viet Nam,12,2011,2022,12,0,,True
+M4_real_interest_robustness,Viet Nam,22,2001,2022,22,0,,True
+M5_lending_rate_robustness,Brunei Darussalam,23,2001,2023,23,0,,True
+M5_lending_rate_robustness,Indonesia,23,2001,2023,23,0,,True
+M5_lending_rate_robustness,Malaysia,23,2001,2023,23,0,,True
+M5_lending_rate_robustness,Philippines,19,2001,2019,19,0,,True
+M5_lending_rate_robustness,Singapore,20,2001,2020,20,0,,True
+M5_lending_rate_robustness,Thailand,21,2001,2023,23,2,"2002, 2003",False
+M5_lending_rate_robustness,Viet Nam,22,2001,2022,22,0,,True
+M6_tourism_robustnessa_from_M4_real_interest_robustness,Brunei Darussalam,23,2001,2023,23,0,,True
+M6_tourism_robustnessa_from_M4_real_interest_robustness,Indonesia,23,2001,2023,23,0,,True
+M6_tourism_robustnessa_from_M4_real_interest_robustness,Malaysia,23,2001,2023,23,0,,True
+M6_tourism_robustnessa_from_M4_real_interest_robustness,Philippines,19,2001,2019,19,0,,True
+M6_tourism_robustnessa_from_M4_real_interest_robustness,Singapore,20,2001,2020,20,0,,True
+M6_tourism_robustnessa_from_M4_real_interest_robustness,Thailand,21,2001,2023,23,2,"2002, 2003",False
+M6_tourism_robustnessa_from_M4_real_interest_robustness,Viet Nam,22,2001,2022,22,0,,True
+M6_tourism_robustnessb_from_M2_main_monetary_policy,Brunei Darussalam,21,2003,2023,21,0,,True
+M6_tourism_robustnessb_from_M2_main_monetary_policy,Indonesia,23,2001,2023,23,0,,True
+M6_tourism_robustnessb_from_M2_main_monetary_policy,Malaysia,23,2001,2023,23,0,,True
+M6_tourism_robustnessb_from_M2_main_monetary_policy,Philippines,19,2001,2019,19,0,,True
+M6_tourism_robustnessb_from_M2_main_monetary_policy,Singapore,20,2001,2020,20,0,,True
+M6_tourism_robustnessb_from_M2_main_monetary_policy,Thailand,21,2001,2023,23,2,"2002, 2003",False
+M6_tourism_robustnessb_from_M2_main_monetary_policy,Viet Nam,22,2001,2022,22,0,,True
+M7_human_capital_robustnessa_from_M4_real_interest_robustness,Brunei Darussalam,23,2001,2023,23,0,,True
+M7_human_capital_robustnessa_from_M4_real_interest_robustness,Indonesia,23,2001,2023,23,0,,True
+M7_human_capital_robustnessa_from_M4_real_interest_robustness,Malaysia,23,2001,2023,23,0,,True
+M7_human_capital_robustnessa_from_M4_real_interest_robustness,Philippines,19,2001,2019,19,0,,True
+M7_human_capital_robustnessa_from_M4_real_interest_robustness,Singapore,20,2001,2020,20,0,,True
+M7_human_capital_robustnessa_from_M4_real_interest_robustness,Thailand,21,2001,2023,23,2,"2002, 2003",False
+M7_human_capital_robustnessa_from_M4_real_interest_robustness,Viet Nam,22,2001,2022,22,0,,True
+M7_human_capital_robustnessb_from_M2_main_monetary_policy,Brunei Darussalam,21,2003,2023,21,0,,True
+M7_human_capital_robustnessb_from_M2_main_monetary_policy,Indonesia,23,2001,2023,23,0,,True
+M7_human_capital_robustnessb_from_M2_main_monetary_policy,Malaysia,23,2001,2023,23,0,,True
+M7_human_capital_robustnessb_from_M2_main_monetary_policy,Philippines,19,2001,2019,19,0,,True
+M7_human_capital_robustnessb_from_M2_main_monetary_policy,Singapore,20,2001,2020,20,0,,True
+M7_human_capital_robustnessb_from_M2_main_monetary_policy,Thailand,21,2001,2023,23,2,"2002, 2003",False
+M7_human_capital_robustnessb_from_M2_main_monetary_policy,Viet Nam,22,2001,2022,22,0,,True

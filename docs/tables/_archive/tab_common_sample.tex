@@ -1,0 +1,32 @@
+\begin{table}[htbp]
+\centering
+\caption{Common-sample comparison regression results (Driscoll--Kraay Fixed Effects)}
+\label{tab:common-sample-comparisons}
+\begin{minipage}{\textwidth}
+\scriptsize
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{llccccc}
+\toprule
+Comparison ID & Variable & \multicolumn{2}{c}{Common Sample Estimates} & \multicolumn{2}{c}{Native Sample Estimates} & Obs. (Common / Native) \\\\ & & Model A & Model B & Model A & Model B & \\\midrule
+\textbf{M1 vs. M2}\\(Liquidity vs. Deposit rate) & Broad money & 0.0365\\(0.0405) & 0.0451\\(0.0388) & 0.0460*\\(0.0277) & 0.0451\\(0.0388) & 149 / 209 (M1) \\
+\midrule
+\textbf{M2 vs. M3}\\(Contemp. vs. Lagged Deposit) & Broad money & 0.0418\\(0.0369) & --- & 0.0451\\(0.0388) & --- & 141 / 149 (M2) \\
+ & Deposit interest rate & 0.1824\\(0.1485) & --- & 0.0922\\(0.1242) & --- & 141 / 145 (M3) \\
+ & Deposit interest rate (lagged) & --- & 0.0476\\(0.1306) & --- & 0.1274\\(0.1521) & \\
+\midrule
+\textbf{M2 vs. M5}\\(Deposit vs. Lending rate) & Broad money & 0.0451\\(0.0388) & 0.0591\\(0.0375) & 0.0451\\(0.0388) & 0.0627*\\(0.0360) & 149 / 149 (M2) \\
+ & Deposit interest rate & 0.0922\\(0.1242) & --- & 0.0922\\(0.1242) & --- & 149 / 151 (M5) \\
+ & Lending interest rate & --- & 0.2560\\(0.1774) & --- & 0.2500\\(0.1738) & \\
+\midrule
+\textbf{M2 vs. M7a}\\(Deposit vs. Human Capital) & Broad money & 0.0451\\(0.0388) & 0.0453\\(0.0392) & 0.0451\\(0.0388) & 0.0453\\(0.0392) & 149 / 149 (M2) \\
+ & Deposit interest rate & 0.0922\\(0.1242) & 0.0887\\(0.1700) & 0.0922\\(0.1242) & 0.0887\\(0.1700) & 149 / 149 (M7) \\
+ & Human capital index & --- & 0.1646\\(3.2596) & --- & 0.1646\\(3.2596) & \\
+\midrule
+\bottomrule
+\end{tabular}
+}
+\vskip 4pt
+\footnotesize
+This table compares key coefficient estimates from models estimated on identical common-sample subsets to isolate specification effects from sample changes. Model A and Model B correspond to the two models named under the comparison ID. Driscoll--Kraay standard errors are reported in parentheses. *, **, and *** denote statistical significance at the 10, 5, and 1 percent levels, respectively. In the lagged model (M3), all variables (including controls) are lagged by one period, and their lagged coefficients are compared to the contemporaneous coefficients in M2.
+\end{minipage}
+\end{table}

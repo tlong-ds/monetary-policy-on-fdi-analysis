@@ -26,6 +26,9 @@ MODEL_ARTIFACTS_DIR = OUTPUTS_DIR / "model_artifacts"
 
 PRIMARY_WORKBOOK = RAW_DIR / "asean_fdi_monetary_policy_clean_merged.xlsx"
 WDI_WORKBOOK = RAW_DIR / "P_Data_Extract_From_World_Development_Indicators.xlsx"
+CURRENT_MACRO_PANEL_WORKBOOK = RAW_DIR / "2000-2025-bm-ir-infl.xlsx"
+CURRENT_HC_POP_FILE = RAW_DIR / "2000-2023-hc-pop.csv"
+CURRENT_ADDITIONAL_SERIES_FILE = RAW_DIR / "2000-2025-lending-deposit-tourism-arrivals.csv"
 MODEL_SELECTION_WORKBOOK = ROOT / "model_selection_asean_fdi.xlsx"
 PROCESSED_PANEL_FILE = PROCESSED_DIR / "clean_panel.csv"
 
@@ -41,7 +44,20 @@ ASEAN_COUNTRIES = [
     "Thailand",
     "Viet Nam",
 ]
-TIME_WINDOW = (2010, 2023)
+PANEL_COUNTRY_ORDER = [
+    ("BRN", "Brunei Darussalam"),
+    ("KHM", "Cambodia"),
+    ("IDN", "Indonesia"),
+    ("LAO", "Lao PDR"),
+    ("MYS", "Malaysia"),
+    ("MMR", "Myanmar"),
+    ("PHL", "Philippines"),
+    ("SGP", "Singapore"),
+    ("THA", "Thailand"),
+    ("TLS", "Timor-Leste"),
+    ("VNM", "Viet Nam"),
+]
+TIME_WINDOW = (2000, 2023)
 WINSOR_BOUNDS = (0.01, 0.99)
 
 

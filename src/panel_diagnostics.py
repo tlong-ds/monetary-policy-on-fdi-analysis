@@ -8,14 +8,25 @@ from statsmodels.stats.diagnostic import het_breuschpagan, het_white
 from statsmodels.stats.outliers_influence import variance_inflation_factor
 from statsmodels.tools.tools import add_constant
 
-try:
-    import rpy2.robjects as ro
-    from rpy2.robjects import pandas2ri
-    from rpy2.robjects.packages import importr
-    from rpy2.robjects.conversion import localconverter
-    R_AVAILABLE = True
-except ImportError:
-    R_AVAILABLE = False
+R_IMPORT_ERROR: Exception | None = None
+_RPY2_HANDLES: tuple | None = None
+
+
+def _load_rpy2():
+    global R_IMPORT_ERROR, _RPY2_HANDLES
+    if _RPY2_HANDLES is not None:
+        return _RPY2_HANDLES
+    R_IMPORT_ERROR = None
+    try:
+        import rpy2.robjects as ro
+        from rpy2.robjects import pandas2ri
+        from rpy2.robjects.packages import importr
+        from rpy2.robjects.conversion import localconverter
+        _RPY2_HANDLES = (ro, pandas2ri, importr, localconverter)
+        return _RPY2_HANDLES
+    except Exception as exc:
+        R_IMPORT_ERROR = exc
+        return None
 
 
 def hausman_test(fe_result, re_result, variables: list[str]) -> dict:
@@ -169,8 +180,10 @@ def pooled_adf_test(frame: pd.DataFrame, variable: str, regression: str = 'c') -
 
 
 def r_wooldridge_serial_correlation_test(frame: pd.DataFrame, dependent: str, regressors: list[str]) -> dict:
-    if not R_AVAILABLE:
-        return {"error": "rpy2 not installed"}
+    rpy2_handles = _load_rpy2()
+    if rpy2_handles is None:
+        return {"error": f"R integration unavailable: {R_IMPORT_ERROR}"}
+    ro, pandas2ri, importr, localconverter = rpy2_handles
     plm = importr("plm")
     
     keep_cols = ["country", "year", dependent] + regressors
@@ -258,5 +271,4 @@ def pooled_engle_granger_test(
         }
     except Exception as e:
         return {"error": str(e).strip()}
-
 

@@ -1,0 +1,42 @@
+\begin{table}[htbp]
+\centering
+\caption{Main fixed-effects Driscoll--Kraay regression results}
+\label{tab:main-regression-results}
+\begin{threeparttable}
+\scriptsize
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{lccccc}
+\toprule
+ & M1 & M2 & M3 & M4 & M5 \\
+ &  &  & Lagged deposit & Real rate & Lending rate \\
+\midrule
+Broad money growth (annual \%) & 0.0460* & 0.0451 & 0.1223** & 0.0351 & 0.0627* \\
+ & (0.0277) & (0.0388) & (0.0572) & (0.0426) & (0.0360) \\
+Deposit interest rate (\%) &  & 0.0922 & 0.1274 &  &  \\
+ &  & (0.1242) & (0.1521) &  &  \\
+Real interest rate (\%) &  &  &  & -0.3225 &  \\
+ &  &  &  & (0.2370) &  \\
+Lending interest rate (\%) &  &  &  &  & 0.2500 \\
+ &  &  &  &  & (0.1738) \\
+Trade (\% GDP) & -0.0014 & -0.0154 & -0.0170 & -0.0126 & -0.0182 \\
+ & (0.0123) & (0.0175) & (0.0198) & (0.0184) & (0.0167) \\
+Inflation, GDP deflator (\%) & -0.0195 & 0.0017 & -0.0322 & -0.2957 & -0.0200 \\
+ & (0.0576) & (0.0441) & (0.0485) & (0.1988) & (0.0396) \\
+Log GDP per capita & 0.2059 & 0.9642* & 1.1131 & -0.9521 & 1.8815*** \\
+ & (1.5284) & (0.5560) & (0.8672) & (1.2826) & (0.5928) \\
+Exchange rate depreciation (\%) & 0.0153 & 0.0539 & 0.0585 & 0.0801* & 0.0624 \\
+ & (0.0272) & (0.0413) & (0.0469) & (0.0427) & (0.0384) \\
+\midrule
+Observations & 209 & 149 & 145 & 164 & 151 \\
+Countries used & 10 & 7 & 7 & 8 & 7 \\
+Within R-squared & 0.0305 & 0.0655 & 0.0883 & 0.0352 & 0.0535 \\
+Slope-adjusted within $R^2$ & 0.0066 & 0.0260 & 0.0486 & -0.0017 & 0.0141 \\
+\bottomrule
+\end{tabular}
+}
+\begin{tablenotes}[flushleft]
+\footnotesize
+\item The dependent variable is FDI net inflows as a percentage of GDP. All columns use two-way fixed effects with country and year effects and Driscoll--Kraay standard errors using Bartlett kernel covariance. Standard errors are in parentheses. *, **, and *** denote statistical significance at the 10, 5, and 1 percent levels. The panel is unbalanced, and sample sizes vary across columns because monetary-proxy and control coverage differs by model. In column M3, all regressors (including controls) are lagged by one period.
+\end{tablenotes}
+\end{threeparttable}
+\end{table}

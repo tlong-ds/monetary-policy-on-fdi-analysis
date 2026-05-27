@@ -1,0 +1,148 @@
+===== pooled_ols =====
+OLS Regression Results                            
+==============================================================================
+Dep. Variable:            fdi_pct_gdp   R-squared:                       0.730
+Model:                            OLS   Adj. R-squared:                  0.717
+Method:                 Least Squares   F-statistic:                     106.1
+Date:                Wed, 27 May 2026   Prob (F-statistic):           8.02e-06
+Time:                        15:17:33   Log-Likelihood:                -393.04
+No. Observations:                 149   AIC:                             802.1
+Df Residuals:                     141   BIC:                             826.1
+Df Model:                           7                                         
+Covariance Type:              cluster                                         
+==============================================================================================
+                                 coef    std err          z      P>|z|      [0.025      0.975]
+----------------------------------------------------------------------------------------------
+Intercept                    -19.7667     17.485     -1.130      0.258     -54.037      14.504
+broad_money_growth_pct         0.0604      0.035      1.724      0.085      -0.008       0.129
+deposit_interest_rate_pct     -0.0101      0.163     -0.062      0.951      -0.329       0.309
+inflation_gdp_deflator_pct     0.0312      0.045      0.698      0.485      -0.056       0.119
+trade_pct_gdp                  0.0553      0.004     14.815      0.000       0.048       0.063
+ln_gdppc                       0.4487      0.491      0.915      0.360      -0.513       1.410
+xr_dep_pct                     0.0338      0.033      1.034      0.301      -0.030       0.098
+hc_human_capital_index         1.7065      4.411      0.387      0.699      -6.939      10.352
+==============================================================================
+Omnibus:                       21.430   Durbin-Watson:                   1.028
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):              107.288
+Skew:                           0.154   Prob(JB):                     5.04e-24
+Kurtosis:                       7.146   Cond. No.                     4.37e+03
+==============================================================================
+
+Notes:
+[1] Standard Errors are robust to cluster correlation (cluster)
+[2] The condition number is large, 4.37e+03. This might indicate that there are
+strong multicollinearity or other numerical problems.
+
+===== fixed_effects =====
+PanelOLS Estimation Summary                           
+================================================================================
+Dep. Variable:            fdi_pct_gdp   R-squared:                        0.0388
+Estimator:                   PanelOLS   R-squared (Between):             -0.6024
+No. Observations:                 149   R-squared (Within):               0.0653
+Date:                Wed, May 27 2026   R-squared (Overall):             -0.5085
+Time:                        15:17:33   Log-likelihood                   -332.29
+Cov. Estimator:             Clustered                                           
+                                        F-statistic:                      0.6511
+Entities:                           7   P-value                           0.7127
+Avg Obs:                       21.286   Distribution:                   F(7,113)
+Min Obs:                       19.000                                           
+Max Obs:                       23.000   F-statistic (robust):          4.008e+13
+                                        P-value                           0.0000
+Time periods:                      23   Distribution:                   F(7,113)
+Avg Obs:                       6.4783                                           
+Min Obs:                       4.0000                                           
+Max Obs:                       7.0000                                           
+                                                                                
+                                     Parameter Estimates                                      
+==============================================================================================
+                            Parameter  Std. Err.     T-stat    P-value    Lower CI    Upper CI
+----------------------------------------------------------------------------------------------
+Intercept                     -18.529     21.020    -0.8815     0.3799     -60.174      23.117
+broad_money_growth_pct         0.0453     0.0224     2.0210     0.0456      0.0009      0.0897
+deposit_interest_rate_pct      0.0887     0.0805     1.1017     0.2729     -0.0708      0.2482
+inflation_gdp_deflator_pct     0.0017     0.0306     0.0549     0.9563     -0.0590      0.0624
+trade_pct_gdp                 -0.0153     0.0156    -0.9833     0.3276     -0.0462      0.0155
+ln_gdppc                       0.9459     0.7913     1.1953     0.2345     -0.6219      2.5137
+xr_dep_pct                     0.0540     0.0360     1.4989     0.1367     -0.0174      0.1253
+hc_human_capital_index         0.1646     2.3412     0.0703     0.9441     -4.4737      4.8029
+==============================================================================================
+
+F-test for Poolability: 5.0856
+P-value: 0.0000
+Distribution: F(28,113)
+
+Included effects: Entity, Time
+
+===== fixed_effects_driscoll_kraay =====
+PanelOLS Estimation Summary                           
+================================================================================
+Dep. Variable:            fdi_pct_gdp   R-squared:                        0.0388
+Estimator:                   PanelOLS   R-squared (Between):             -0.6024
+No. Observations:                 149   R-squared (Within):               0.0653
+Date:                Wed, May 27 2026   R-squared (Overall):             -0.5085
+Time:                        15:17:33   Log-likelihood                   -332.29
+Cov. Estimator:        Driscoll-Kraay                                           
+                                        F-statistic:                      0.6511
+Entities:                           7   P-value                           0.7127
+Avg Obs:                       21.286   Distribution:                   F(7,113)
+Min Obs:                       19.000                                           
+Max Obs:                       23.000   F-statistic (robust):             2.1896
+                                        P-value                           0.0402
+Time periods:                      23   Distribution:                   F(7,113)
+Avg Obs:                       6.4783                                           
+Min Obs:                       4.0000                                           
+Max Obs:                       7.0000                                           
+                                                                                
+                                     Parameter Estimates                                      
+==============================================================================================
+                            Parameter  Std. Err.     T-stat    P-value    Lower CI    Upper CI
+----------------------------------------------------------------------------------------------
+Intercept                     -18.529     13.575    -1.3649     0.1750     -45.424      8.3665
+broad_money_growth_pct         0.0453     0.0392     1.1571     0.2497     -0.0323      0.1229
+deposit_interest_rate_pct      0.0887     0.1700     0.5217     0.6029     -0.2482      0.4255
+inflation_gdp_deflator_pct     0.0017     0.0443     0.0380     0.9697     -0.0860      0.0894
+trade_pct_gdp                 -0.0153     0.0178    -0.8605     0.3913     -0.0506      0.0200
+ln_gdppc                       0.9459     0.6209     1.5235     0.1304     -0.2841      2.1759
+xr_dep_pct                     0.0540     0.0407     1.3258     0.1876     -0.0267      0.1346
+hc_human_capital_index         0.1646     3.2596     0.0505     0.9598     -6.2932      6.6224
+==============================================================================================
+
+F-test for Poolability: 5.0856
+P-value: 0.0000
+Distribution: F(28,113)
+
+Included effects: Entity, Time
+
+===== random_effects =====
+RandomEffects Estimation Summary                        
+================================================================================
+Dep. Variable:            fdi_pct_gdp   R-squared:                        0.7304
+Estimator:              RandomEffects   R-squared (Between):              0.9182
+No. Observations:                 149   R-squared (Within):              -0.2781
+Date:                Wed, May 27 2026   R-squared (Overall):              0.7304
+Time:                        15:17:33   Log-likelihood                   -393.04
+Cov. Estimator:             Clustered                                           
+                                        F-statistic:                      54.572
+Entities:                           7   P-value                           0.0000
+Avg Obs:                       21.286   Distribution:                   F(7,141)
+Min Obs:                       19.000                                           
+Max Obs:                       23.000   F-statistic (robust):          8.777e+13
+                                        P-value                           0.0000
+Time periods:                      23   Distribution:                   F(7,141)
+Avg Obs:                       6.4783                                           
+Min Obs:                       4.0000                                           
+Max Obs:                       7.0000                                           
+                                                                                
+                                     Parameter Estimates                                      
+==============================================================================================
+                            Parameter  Std. Err.     T-stat    P-value    Lower CI    Upper CI
+----------------------------------------------------------------------------------------------
+Intercept                     -19.767     16.243    -1.2169     0.2257     -51.878      12.344
+broad_money_growth_pct         0.0604     0.0326     1.8558     0.0656     -0.0039      0.1248
+deposit_interest_rate_pct     -0.0101     0.1513    -0.0667     0.9469     -0.3093      0.2891
+inflation_gdp_deflator_pct     0.0312     0.0415     0.7516     0.4535     -0.0509      0.1134
+trade_pct_gdp                  0.0553     0.0035     15.948     0.0000      0.0484      0.0621
+ln_gdppc                       0.4487     0.4557     0.9848     0.3264     -0.4521      1.3496
+xr_dep_pct                     0.0338     0.0304     1.1126     0.2678     -0.0262      0.0938
+hc_human_capital_index         1.7065     4.0976     0.4165     0.6777     -6.3943      9.8072
+==============================================================================================

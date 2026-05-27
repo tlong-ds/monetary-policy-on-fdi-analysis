@@ -1,8 +1,8 @@
 variable,vif
-ln_tourism_arrivals,102.08647900512153
-ln_gdppc,88.73043707056408
-broad_money_pct_gdp,22.15582655645541
-trade_pct_gdp,8.75837125591147
-real_interest_rate_pct,6.580048574556644
-inflation_gdp_deflator_pct,5.7174681207485385
-xr_dep_pct,1.2051708689513625
+ln_gdppc,667.9396274802226
+ln_tourism_arrivals,630.972426002878
+inflation_gdp_deflator_pct,9.09679004377692
+real_interest_rate_pct,7.7897487579230305
+trade_pct_gdp,4.050754273894597
+broad_money_growth_pct,3.33473985633744
+xr_dep_pct,1.0981931397122722

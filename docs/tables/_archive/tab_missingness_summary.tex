@@ -1,0 +1,31 @@
+\begin{table}[htbp]
+\centering
+\caption{Missing-data handling rules and assessment by variable}
+\label{tab:missingness-handling-summary}
+\begin{minipage}{\textwidth}
+\scriptsize
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{llccccl}
+\toprule
+Variable & Role / Group & Missing Rate & Severity & Struct.\ Gaps$^{a}$ & Mechanism & Recommended Handling Rule \\\midrule
+FDI net inflows (\% GDP) & Dependent & 1.5\% & $<$10\% & 0 & MCAR & Observed only (no imputation) \\
+Broad money (\% GDP) & Key Independent & 9.1\% & $<$10\% & 0 & MCAR & Observed only (no imputation) \\
+Deposit interest rate (\%) & Key Independent & 19.3\% & 10--30\% & 0 & MCAR & Observed only (no imputation) \\
+Real interest rate (\%) & Key Independent & 22.3\% & 10--30\% & 0 & MCAR & Observed only (no imputation) \\
+Lending interest rate (\%) & Key Independent & 27.3\% & 10--30\% & 0 & MCAR & Observed only (no imputation) \\
+Inflation, GDP deflator (\%) & Control & 0.0\% & $<$10\% & 0 & MCAR & Within-country interpolate \& edge-fill \\
+Log GDP per capita & Control & 0.0\% & $<$10\% & 0 & MCAR & Within-country interpolate \& edge-fill \\
+Log Population & Control & 9.1\% & $<$10\% & 0 & MCAR & Within-country interpolate \& edge-fill \\
+Tourism arrivals (Log) & Control (Robustness) & 9.1\% & $<$10\% & 0 & MCAR & Within-country interpolate \& edge-fill (keep structural country gaps) \\
+Trade (\% GDP) & Control & 9.1\% & $<$10\% & 0 & MCAR & Within-country interpolate \& edge-fill \\
+Exchange-rate depreciation (\%) & Control & 4.2\% & $<$10\% & 0 & MCAR & Within-country interpolate \& edge-fill (except structural 2010) \\
+Human capital index & Control (Robustness) & 9.1\% & $<$10\% & 0 & MCAR & Leave missing (report limitation) \\
+\bottomrule
+\end{tabular}
+}
+\vskip 4pt
+\footnotesize
+$^{a}$ Number of countries with 100\% missingness for this variable (e.g. Cambodia for interest rates, Myanmar for trade, and Timor-Leste for human capital).\\
+Notes: MCAR indicates that Little's test or similar diagnostics do not reject the hypothesis that data are Missing Completely At Random. The recommended handling rules are applied to the raw panel before regression estimation.
+\end{minipage}
+\end{table}

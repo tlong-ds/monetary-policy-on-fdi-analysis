@@ -1,0 +1,48 @@
+\begin{table}[htbp]
+\centering
+\caption{Two-way fixed-effects regression results with Driscoll–Kraay standard errors}
+\label{tab:main-regression-results}
+\begin{threeparttable}
+\scriptsize
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{lccccccccc}
+\toprule
+ & \multicolumn{5}{c}{Panel A: Headline Models} & \multicolumn{4}{c}{Panel B: Extended Models} \\
+\cmidrule(lr){2-6} \cmidrule(lr){7-10}
+ & M1 & M2 & M3 & M4 & M5 & M6a & M6b & M7a & M7b \\
+\midrule
+Broad money growth (annual \%) & 0.0460* & 0.0451 & 0.1223** & 0.0351 & 0.0627* & 0.0446 & 0.0422 & 0.0494 & 0.0453 \\
+ & (0.0277) & (0.0388) & (0.0572) & (0.0426) & (0.0360) & (0.0395) & (0.0386) & (0.0432) & (0.0392) \\
+Deposit interest rate (\%) &  & 0.0922 & 0.1274 &  &  &  & 0.0883 &  & 0.0887 \\
+ &  & (0.1242) & (0.1521) &  &  &  & (0.1217) &  & (0.1700) \\
+Real interest rate (\%) &  &  &  & -0.3225 &  & 0.0836 &  & 0.0743 &  \\
+ &  &  &  & (0.2370) &  & (0.1128) &  & (0.1380) &  \\
+Lending interest rate (\%) &  &  &  &  & 0.2500 &  &  &  &  \\
+ &  &  &  &  & (0.1738) &  &  &  &  \\
+Tourism arrivals (Log) &  &  &  &  &  & -0.5474 & -0.5260 &  &  \\
+ &  &  &  &  &  & (0.6736) & (0.6588) &  &  \\
+Human capital index &  &  &  &  &  &  &  & 0.7949 & 0.1646 \\
+ &  &  &  &  &  &  &  & (3.2223) & (3.2596) \\
+Trade (\% GDP) & -0.0014 & -0.0154 & -0.0170 & -0.0126 & -0.0182 & -0.0134 & -0.0120 & -0.0165 & -0.0153 \\
+ & (0.0123) & (0.0175) & (0.0198) & (0.0184) & (0.0167) & (0.0188) & (0.0195) & (0.0174) & (0.0178) \\
+Inflation (\%) & -0.0195 & 0.0017 & -0.0322 & -0.2957 & -0.0200 & 0.0785 & 0.0012 & 0.0695 & 0.0017 \\
+ & (0.0576) & (0.0441) & (0.0485) & (0.1988) & (0.0396) & (0.1274) & (0.0447) & (0.1534) & (0.0443) \\
+Log GDP per capita & 0.2059 & 0.9642* & 1.1131 & -0.9521 & 1.8815*** & 1.2607** & 0.8889 & 1.2495** & 0.9459 \\
+ & (1.5284) & (0.5560) & (0.8672) & (1.2826) & (0.5928) & (0.5675) & (0.5750) & (0.5319) & (0.6209) \\
+Exchange-rate depreciation (\%) & 0.0153 & 0.0539 & 0.0585 & 0.0801* & 0.0624 & 0.0637* & 0.0560 & 0.0618* & 0.0540 \\
+ & (0.0272) & (0.0413) & (0.0469) & (0.0427) & (0.0384) & (0.0368) & (0.0425) & (0.0344) & (0.0407) \\
+Observations & 209 & 149 & 145 & 164 & 151 & 151 & 149 & 151 & 149 \\
+Countries & 10 & 7 & 7 & 8 & 7 & 7 & 7 & 7 & 7 \\
+Within $R^2$ & 0.0305 & 0.0655 & 0.0883 & 0.0352 & 0.0535 & 0.0387 & 0.0393 & 0.0476 & 0.0653 \\
+Slope-adj. $R^2$ & 0.0066 & 0.0260 & 0.0486 & -0.0017 & 0.0141 & -0.0084 & -0.0084 & 0.0010 & 0.0189 \\
+Max VIF & 5.27 & 7.18 & 7.26 & 9.74 & 12.62 & 667.94 & 582.07 & 179.50 & 207.32 \\
+Pesaran CD $p$ & 0.0765 & 0.3760 & 0.6651 & 0.0539 & 0.3604 & 0.5234 & 0.4032 & 0.4543 & 0.3713 \\
+\bottomrule
+\end{tabular}
+}
+\begin{tablenotes}[flushleft]
+\footnotesize
+\item The dependent variable is FDI net inflows (\% of GDP). All columns use two-way fixed effects with country and year effects and Driscoll--Kraay standard errors (Bartlett kernel). Standard errors in parentheses. *, **, *** denote significance at 10\%, 5\%, 1\% levels. Panel A: headline models. Panel B: robustness models adding tourism arrivals (M6a, M6b) or the human capital index (M7a, M7b) to the M4 and M2 baselines respectively. Samples vary by model due to unbalanced panel coverage.
+\end{tablenotes}
+\end{threeparttable}
+\end{table}

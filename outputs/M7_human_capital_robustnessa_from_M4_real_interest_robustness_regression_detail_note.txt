@@ -1,0 +1,1 @@
+Headline estimator: Two-way FE, Driscoll-Kraay SE. Hausman status: Diagnostic only; Hausman favors FE. Recommendation: Optional after fixing number-format issue in combined file.. Structural coverage note: No structural monetary-proxy coverage note. Hausman note: positive test statistic with the standard FE-versus-RE interpretation.

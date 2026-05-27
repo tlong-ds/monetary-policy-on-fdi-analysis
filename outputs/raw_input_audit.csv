@@ -1,0 +1,4 @@
+file_name,role,years,countries,rows,notes
+2000-2025-bm-ir-infl.xlsx,base_macro_panel,2000-2023,11,264,Uses WDI-style country-year rows directly from the Data sheet.
+2000-2023-hc-pop.csv,human_capital_population_panel,2000-2023,10,240,"Melts row-by-variable yearly columns, uses only hc and pop, and ignores flawed xr entirely."
+2000-2025-lending-deposit-tourism-arrivals.csv,supplementary_interest_tourism_panel,2000-2023,10,229,"Melts year columns and merges deposit rate, lending rate, and tourism arrivals by country-year."

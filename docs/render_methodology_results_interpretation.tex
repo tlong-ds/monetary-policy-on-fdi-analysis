@@ -9,8 +9,10 @@
 \usepackage{booktabs}
 \usepackage{threeparttable}
 \usepackage{graphicx}
+\usepackage{subcaption}
 \usepackage{xurl}
 \usepackage[hidelinks]{hyperref}
+\usepackage{caption}
 
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{0.65em}
@@ -19,10 +21,6 @@
 
 \begin{document}
 
-\IfFileExists{methodology_results_interpretation.tex}{%
-  \input{methodology_results_interpretation.tex}%
-}{%
-  \input{docs/methodology_results_interpretation.tex}%
-}
+\input{methodology_results_interpretation}
 
 \end{document}

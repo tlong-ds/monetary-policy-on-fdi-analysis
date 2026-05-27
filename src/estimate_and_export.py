@@ -28,7 +28,6 @@ from src.model_contract import (
     add_country_lags,
     build_workbook_model_catalog,
     WORKBOOK_VARIABLE_MAP,
-    MODEL_ORDER,
 )
 from src.reporting import (
     stars,
@@ -134,7 +133,7 @@ def summarize_model_country_windows(keys: pd.DataFrame, model_id: str) -> pd.Dat
         )
     return pd.DataFrame(rows)
 
-def estimate_model(frame: pd.DataFrame, model_id: str, regressors: list[str], exclude_countries: list[str] | None = None, dependent: str = 'fdi_pct_gdp') -> dict[str, pd.DataFrame]:
+def estimate_model(frame: pd.DataFrame, model_id: str, regressors: list[str], exclude_countries: list[str] | None = None, dependent: str = 'fdi_pct_gdp') -> dict[str, object]:
     model_df = build_model_frame(frame, dependent, regressors, exclude_countries=exclude_countries)
     if model_df.empty:
         raise ValueError(f'No complete-case observations remain for {model_id}.')
@@ -165,6 +164,26 @@ def estimate_model(frame: pd.DataFrame, model_id: str, regressors: list[str], ex
         )
     except (ZeroDivisionError, ValueError) as exc:
         re_failure_reason = str(exc)
+
+    def raw_summary_text(result: object) -> str:
+        if result is None:
+            return ""
+        try:
+            summary_obj = getattr(result, "summary")
+            if callable(summary_obj):
+                summary_obj = summary_obj()
+            if hasattr(summary_obj, "as_text"):
+                return str(summary_obj.as_text())
+            return str(summary_obj)
+        except Exception:
+            return str(result)
+
+    raw_summaries = {
+        "pooled_ols": raw_summary_text(pooled),
+        "fixed_effects": raw_summary_text(fe_clustered),
+        "fixed_effects_driscoll_kraay": raw_summary_text(fe_dk),
+        "random_effects": raw_summary_text(re) if re is not None else f"Random effects failed: {re_failure_reason}",
+    }
 
     coefficient_parts = [
         extract_result_rows(pooled, model_id, 'pooled_ols'),
@@ -273,6 +292,7 @@ def estimate_model(frame: pd.DataFrame, model_id: str, regressors: list[str], ex
         'vif': vif,
         'diagnostics': diagnostics,
         'sample_missingness': missingness,
+        'raw_summaries': raw_summaries,
     }
 
 # STEPWISE broad money sign decomposition helper
@@ -324,8 +344,8 @@ def fit_broad_money_decomposition_model(
         'nobs': float(getattr(result, 'nobs', len(model_df))),
         'countries': model_df.index.get_level_values('country').nunique(),
         'years': model_df.index.get_level_values('year').nunique(),
-        'coef': float(result.params['broad_money_pct_gdp']),
-        'p_value': float(result.pvalues['broad_money_pct_gdp']),
+        'coef': float(result.params['broad_money_growth_pct']),
+        'p_value': float(result.pvalues['broad_money_growth_pct']),
         'r_squared': float(getattr(result, 'rsquared', pd.NA)),
         'adj_r_squared': adjusted_r_squared(result),
         'fit_status': 'estimated',
@@ -349,6 +369,29 @@ def run_full_estimation_and_export(df: pd.DataFrame, estimated_models: pd.DataFr
     workbook_model_specs = workbook_tables['model_specs']
     workbook_notes = workbook_tables['notes']
     
+    # Use the caller-provided estimated_models as the source of truth for which specs to run.
+    # This prevents notebook/kernel import drift from causing "no objects to concatenate".
+    if estimated_models is None or estimated_models.empty:
+        status_counts = workbook_catalog_df['status'].value_counts(dropna=False).to_dict() if 'status' in workbook_catalog_df.columns else {}
+        raise ValueError(
+            "No estimated models were provided to run_full_estimation_and_export(). "
+            f"Workbook catalog status counts: {status_counts}. "
+            "Rebuild the processed panel and ensure required columns exist (e.g., broad_money_growth_pct)."
+        )
+
+    workbook_catalog_df = workbook_catalog_df.merge(
+        estimated_models[['model_id']].drop_duplicates(),
+        on='model_id',
+        how='left',
+        indicator=True,
+    )
+    workbook_catalog_df['status'] = np.where(
+        workbook_catalog_df['_merge'].eq('both'),
+        workbook_catalog_df['status'],
+        'skipped_not_selected',
+    )
+    workbook_catalog_df = workbook_catalog_df.drop(columns=['_merge'])
+
     skipped_models = workbook_catalog_df[workbook_catalog_df['status'].ne('estimated')].copy()
     skipped_models = skipped_models.sort_values('model_order').reset_index(drop=True)
 
@@ -409,9 +452,28 @@ def run_full_estimation_and_export(df: pd.DataFrame, estimated_models: pd.DataFr
         diagnostics_tables.append(model_outputs['diagnostics'])
         missingness_tables.append(model_outputs['sample_missingness'])
 
+        raw_path = OUTPUTS_DIR / f"{model_row.model_id}_regression_raw.txt"
+        raw_sections = model_outputs.get("raw_summaries", {}) if isinstance(model_outputs, dict) else {}
+        if isinstance(raw_sections, dict) and raw_sections:
+            chunks = []
+            for key in ["pooled_ols", "fixed_effects", "fixed_effects_driscoll_kraay", "random_effects"]:
+                text = str(raw_sections.get(key, "")).strip()
+                if not text:
+                    continue
+                chunks.append(f"===== {key} =====\n{text}\n")
+            raw_path.write_text("\n".join(chunks).rstrip() + "\n")
+
         status_row['status'] = 'estimated'
         status_row['missing_reason'] = ''
         status_rows.append(status_row)
+
+    if not coefficients_tables:
+        status_counts = workbook_catalog_df['status'].value_counts(dropna=False).to_dict()
+        raise ValueError(
+            "No models were estimated (coefficients_tables is empty). "
+            f"Status counts: {status_counts}. "
+            "This usually means required panel columns are missing or all models were skipped."
+        )
 
     coefficients_df = pd.concat(coefficients_tables, ignore_index=True)
     fit_stats_df = pd.concat(fit_stats_tables, ignore_index=True)
@@ -422,23 +484,54 @@ def run_full_estimation_and_export(df: pd.DataFrame, estimated_models: pd.DataFr
     sample_missingness_df = pd.concat(missingness_tables, ignore_index=True)
     model_status_df = pd.DataFrame(status_rows).sort_values('model_id').reset_index(drop=True)
 
-    # 3. Model Sample Audit Comparisons
+    def _pick_model_id(workbook_code: str, *, contains: str | None = None) -> str | None:
+        subset = workbook_catalog_df[workbook_catalog_df["workbook_code"].astype(str).eq(workbook_code)].copy()
+        if contains:
+            subset = subset[subset["model_id"].astype(str).str.contains(contains, regex=False)]
+        subset = subset[subset["status"].eq("estimated")]
+        if subset.empty:
+            return None
+        # Deterministic: prefer non-appendix for baseline codes; otherwise first in sort order.
+        subset = subset.sort_values(["appendix_only", "model_order", "model_id"]).reset_index(drop=True)
+        return str(subset.at[0, "model_id"])
+
+    # 3. Model Sample Audit Comparisons (workbook-driven)
     print("Running model sample loss audits...")
-    SAMPLE_AUDIT_COMPARISONS = [
-        ('M1_to_M2', 'M1_baseline_liquidity', 'M2_main_monetary_policy'),
-        ('M2_to_M3_lagged_proxy', 'M2_main_monetary_policy', 'M3_lagged_main_model'),
-        ('M2_to_M5_lending_robustness', 'M2_main_monetary_policy', 'M5_lending_rate_robustness'),
-        ('M2_to_M7a_appendix_hc', 'M2_main_monetary_policy', 'M7a_human_capital_robustness_from_M2'),
-        ('M4_to_M7b_appendix_hc', 'M4_real_interest_robustness', 'M7b_human_capital_robustness_from_M4'),
-    ]
+    sample_audit_specs: list[tuple[str, str, str]] = []
+
+    m1 = _pick_model_id("M1")
+    m2 = _pick_model_id("M2")
+    m3 = _pick_model_id("M3")
+    m4 = _pick_model_id("M4")
+    m5 = _pick_model_id("M5")
+    m6_from_m2 = _pick_model_id("M6", contains="from_M2")
+    m6_from_m4 = _pick_model_id("M6", contains="from_M4")
+    m7_from_m2 = _pick_model_id("M7", contains="from_M2")
+    m7_from_m4 = _pick_model_id("M7", contains="from_M4")
+
+    if m1 and m2:
+        sample_audit_specs.append(("M1_to_M2", m1, m2))
+    if m2 and m3:
+        sample_audit_specs.append(("M2_to_M3_lagged", m2, m3))
+    if m2 and m5:
+        sample_audit_specs.append(("M2_to_M5_lending", m2, m5))
+    if m2 and m6_from_m2:
+        sample_audit_specs.append(("M2_to_M6_tourism", m2, m6_from_m2))
+    if m4 and m6_from_m4:
+        sample_audit_specs.append(("M4_to_M6_tourism", m4, m6_from_m4))
+    if m2 and m7_from_m2:
+        sample_audit_specs.append(("M2_to_M7_hc", m2, m7_from_m2))
+    if m4 and m7_from_m4:
+        sample_audit_specs.append(("M4_to_M7_hc", m4, m7_from_m4))
+
     require_model_rows(
-        sorted({model_id for _, base_id, added_id in SAMPLE_AUDIT_COMPARISONS for model_id in [base_id, added_id]}),
-        context='SAMPLE_AUDIT_COMPARISONS',
+        sorted({model_id for _, base_id, added_id in sample_audit_specs for model_id in [base_id, added_id]}),
+        context="SAMPLE_AUDIT_COMPARISONS",
     )
 
     sample_audit_rows = []
     sample_loss_driver_rows = []
-    for comparison_id, base_model_id, added_model_id in SAMPLE_AUDIT_COMPARISONS:
+    for comparison_id, base_model_id, added_model_id in sample_audit_specs:
         base_row = model_row_lookup[base_model_id]
         added_row = model_row_lookup[added_model_id]
         
@@ -497,18 +590,12 @@ def run_full_estimation_and_export(df: pd.DataFrame, estimated_models: pd.DataFr
     model_sample_audit_df = pd.DataFrame(sample_audit_rows)
     model_sample_loss_drivers_df = pd.DataFrame(sample_loss_driver_rows)
 
-    # 4. Common Samples Estimation
+    # 4. Common Samples Estimation (mirror the audit comparisons)
     print("Running common sample estimations...")
-    COMMON_SAMPLE_COMPARISONS = [
-        ('M1_vs_M2_common_sample', 'M1_baseline_liquidity', 'M2_main_monetary_policy'),
-        ('M2_vs_M3_lagged_proxy_common_sample', 'M2_main_monetary_policy', 'M3_lagged_main_model'),
-        ('M2_vs_M5_lending_common_sample', 'M2_main_monetary_policy', 'M5_lending_rate_robustness'),
-        ('M2_vs_M7a_appendix_common_sample', 'M2_main_monetary_policy', 'M7a_human_capital_robustness_from_M2'),
-        ('M4_vs_M7b_appendix_common_sample', 'M4_real_interest_robustness', 'M7b_human_capital_robustness_from_M4'),
-    ]
+    common_sample_specs = [(f"{cid}_common_sample", left, right) for cid, left, right in sample_audit_specs]
     require_model_rows(
-        sorted({model_id for _, left_id, right_id in COMMON_SAMPLE_COMPARISONS for model_id in [left_id, right_id]}),
-        context='COMMON_SAMPLE_COMPARISONS',
+        sorted({model_id for _, left_id, right_id in common_sample_specs for model_id in [left_id, right_id]}),
+        context="COMMON_SAMPLE_COMPARISONS",
     )
     common_coefficients_tables = []
     common_fit_stats_tables = []
@@ -517,7 +604,7 @@ def run_full_estimation_and_export(df: pd.DataFrame, estimated_models: pd.DataFr
     common_vif_tables = []
     common_diagnostics_tables = []
 
-    for comparison_id, left_model_id, right_model_id in COMMON_SAMPLE_COMPARISONS:
+    for comparison_id, left_model_id, right_model_id in common_sample_specs:
         prepared = {}
         key_frames = []
         for model_id in [left_model_id, right_model_id]:
@@ -918,11 +1005,15 @@ def run_full_estimation_and_export(df: pd.DataFrame, estimated_models: pd.DataFr
     # 10. Main Regression Table Construction
     print("Building main regression table...")
     reporting_models = estimated_models[~estimated_models['appendix_only'].astype(bool)].copy()
+    reporting_models['workbook_model_label'] = reporting_models.apply(
+        lambda row: f"{row['workbook_model']} (t-1)" if bool(row.get('lagged_model', False)) else str(row['workbook_model']),
+        axis=1,
+    )
+    label_by_model_id = reporting_models.set_index('model_id')['workbook_model_label'].to_dict()
     regression_table_rows = []
     regression_terms = [
-        'broad_money_pct_gdp',
+        'broad_money_growth_pct',
         'deposit_interest_rate_pct',
-        'deposit_interest_rate_pct_lag1',
         'real_interest_rate_pct',
         'lending_interest_rate_pct',
         'trade_pct_gdp',
@@ -934,8 +1025,13 @@ def run_full_estimation_and_export(df: pd.DataFrame, estimated_models: pd.DataFr
         row = {'metric': VARIABLE_LABELS.get(term, term)}
         for model_row in reporting_models.itertuples(index=False):
             table = inference_tables[model_row.model_id]
-            match = table[table['variable'].eq(term)]
-            row[model_row.workbook_model] = format_coef_cell(match.iloc[0]) if not match.empty else ''
+            lookup_term = f"{term}_lag1" if bool(getattr(model_row, 'lagged_model', False)) else term
+            if lookup_term not in set(table['variable'].astype(str).unique()):
+                lookup_term = term
+            match = table[table['variable'].eq(lookup_term)]
+            row[label_by_model_id.get(model_row.model_id, model_row.workbook_model)] = (
+                format_coef_cell(match.iloc[0]) if not match.empty else ''
+            )
         regression_table_rows.append(row)
 
     summary_metrics = {
@@ -961,7 +1057,9 @@ def run_full_estimation_and_export(df: pd.DataFrame, estimated_models: pd.DataFr
             hausman_row = hausman_lookup.loc[model_id]
             diagnostics_row = diagnostics_lookup.loc[model_id]
             model_vif = vif_df[vif_df['model_id'].eq(model_id)][['variable', 'vif']]
-            row[model_row.workbook_model] = value_fn(model_id, estimator, hausman_row, model_vif, diagnostics_row)
+            row[label_by_model_id.get(model_id, model_row.workbook_model)] = value_fn(
+                model_id, estimator, hausman_row, model_vif, diagnostics_row
+            )
         regression_table_rows.append(row)
 
     regression_table_main = pd.DataFrame(regression_table_rows).set_index('metric')
@@ -1091,44 +1189,44 @@ def run_full_estimation_and_export(df: pd.DataFrame, estimated_models: pd.DataFr
             'step': 1,
             'spec_id': 'bm_only',
             'spec_label': 'Broad money only',
-            'regressors': ['broad_money_pct_gdp'],
+            'regressors': ['broad_money_growth_pct'],
         },
         {
             'step': 2,
             'spec_id': 'bm_inflation',
             'spec_label': 'Broad money + inflation',
-            'regressors': ['broad_money_pct_gdp', 'inflation_gdp_deflator_pct'],
+            'regressors': ['broad_money_growth_pct', 'inflation_gdp_deflator_pct'],
         },
         {
             'step': 3,
             'spec_id': 'bm_trade',
             'spec_label': 'Broad money + trade',
-            'regressors': ['broad_money_pct_gdp', 'trade_pct_gdp'],
+            'regressors': ['broad_money_growth_pct', 'trade_pct_gdp'],
         },
         {
             'step': 4,
             'spec_id': 'bm_gdppc',
             'spec_label': 'Broad money + log GDP per capita',
-            'regressors': ['broad_money_pct_gdp', 'ln_gdppc'],
+            'regressors': ['broad_money_growth_pct', 'ln_gdppc'],
         },
         {
             'step': 5,
             'spec_id': 'bm_trade_gdppc',
             'spec_label': 'Broad money + trade + log GDP per capita',
-            'regressors': ['broad_money_pct_gdp', 'trade_pct_gdp', 'ln_gdppc'],
+            'regressors': ['broad_money_growth_pct', 'trade_pct_gdp', 'ln_gdppc'],
         },
         {
             'step': 6,
             'spec_id': 'm1_controls',
             'spec_label': 'M1 baseline controls',
-            'regressors': ['broad_money_pct_gdp', 'inflation_gdp_deflator_pct', 'trade_pct_gdp', 'ln_gdppc', 'xr_dep_pct'],
+            'regressors': ['broad_money_growth_pct', 'inflation_gdp_deflator_pct', 'trade_pct_gdp', 'ln_gdppc', 'xr_dep_pct'],
         },
         {
             'step': 7,
             'spec_id': 'm2_full_controls',
             'spec_label': 'M2 full controls',
             'regressors': [
-                'broad_money_pct_gdp',
+                'broad_money_growth_pct',
                 'deposit_interest_rate_pct',
                 'inflation_gdp_deflator_pct',
                 'trade_pct_gdp',
@@ -1234,8 +1332,8 @@ def run_full_estimation_and_export(df: pd.DataFrame, estimated_models: pd.DataFr
     # 12. Trade Collinearity Robustness
     print("Running trade collinearity robustness drops...")
     appendix_reference_candidates = [
-        'M7a_human_capital_robustness_from_M2',
-        'M7b_human_capital_robustness_from_M4',
+        'M7_human_capital_robustnessa_from_M2_main_monetary_policy',
+        'M7_human_capital_robustnessb_from_M4_real_interest_robustness',
         'M2_main_monetary_policy',
     ]
     estimated_model_ids = set(estimated_models['model_id'])
