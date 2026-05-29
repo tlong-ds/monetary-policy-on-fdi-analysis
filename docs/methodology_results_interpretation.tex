@@ -4,34 +4,38 @@
 \section{Data and Empirical Strategy}
 \label{sec:data-empirical-strategy}
 
-We study the association between domestic monetary conditions and FDI net inflows in an unbalanced panel of 11 ASEAN-oriented economies (Brunei, Cambodia, Indonesia, Lao PDR, Malaysia, Myanmar, Philippines, Singapore, Thailand, Timor-Leste, Viet Nam) over 2000--2023 (max 264 country-year observations). FDI net inflows (\% of GDP) is the dependent variable. The liquidity channel is proxied by broad money growth (annual \%). The cost-of-capital channel is proxied by three alternative interest rates: the nominal deposit rate, the real interest rate, and the lending rate. Controls include inflation (GDP deflator), trade openness (\% of GDP), log GDP per capita, and exchange-rate depreciation (log-difference of LCU/USD). All monetary proxies and FDI are used as observed; controls are interpolated or edge-filled under strict rules.
+We study the association between domestic monetary conditions and FDI net inflows in an unbalanced ASEAN-oriented panel over 2000--2023. FDI net inflows (\% of GDP) is the dependent variable. Broad money growth is used as the liquidity proxy, while the real interest rate proxies the cost of capital. Controls include GDP growth, log GDP per capita, trade openness (\% of GDP), exchange-rate depreciation, inflation, and Regulatory Quality.
 
-The preferred specification is a two-way fixed-effects (TWFE) model:
+The empirical sequence is summarized as follows:
+\begin{itemize}
+    \item \textbf{Spec 1:} baseline controls only.
+    \item \textbf{Spec 2:} baseline controls plus the real interest rate.
+    \item \textbf{Spec 3:} baseline controls plus Regulatory Quality.
+    \item \textbf{Spec 4:} the full static specification with the real interest rate and Regulatory Quality.
+    \item \textbf{Spec 5:} the full model plus lagged FDI, estimated with two-step System GMM and Windmeijer-corrected standard errors.
+\end{itemize}
+
+The static models report country-clustered standard errors and include country and year effects; Spec 1 is estimated with random effects, while Specs 2--4 use fixed effects. The dynamic specification uses year fixed effects and reports standard GMM diagnostics.
+
+The preferred static specification can be written as:
 \begin{equation}
     FDI_{it} = \beta_1 BM_{it} + \beta_2 IR_{it}^{(k)} + \boldsymbol{\gamma}'\mathbf{X}_{it} + \alpha_i + \lambda_t + \varepsilon_{it},
 \end{equation}
-where $\alpha_i$ and $\lambda_t$ are country and year fixed effects. The Hausman test rejects random effects across all specifications. We report Driscoll--Kraay (1998) standard errors, which are robust to heteroskedasticity, serial correlation, and cross-sectional dependence, making them appropriate for small-$N$, moderate-$T$ macro panels.
+where $\alpha_i$ and $\lambda_t$ are country and year effects.
 
 \section{Main Results}
 \label{sec:main-results}
 
 \input{tables/tab_main_and_diagnostics}
 
-Two key findings emerge. First, the liquidity proxy (broad money growth) is generally positive but statistically imprecise across all headline models (Panel A), ranging from 0.035 (M4, $p>0.10$) to 0.122 (M3, $p<0.05$). This pattern is directionally consistent with a liquidity channel but lacks precision. Second, the cost-of-capital proxies do not deliver a stable negative association: the deposit and lending rates are positive and imprecise, while the real interest rate is negative but also imprecise ($-0.323$, $p>0.10$). Within-$R^2$ values are modest ($\le 0.09$), indicating limited within-country explanatory power after absorbing fixed effects.
+Across the static models in Panel A, broad money growth is positive and statistically significant in every specification, which is the clearest evidence in support of a liquidity channel. The real interest rate is positive and significant in Specs 2 and 4, so the data do not support a stable negative cost-of-capital effect. GDP growth and log GDP per capita are often positive and significant, while trade openness and exchange-rate depreciation are mostly imprecise. Inflation is positive and significant in the full static model.
 
-The extended models (Panel B) add tourism arrivals (M6a, M6b) or the human capital index (M7a, M7b) to the real-rate and deposit-rate baselines respectively. Monetary coefficients remain stable, confirming that the headline imprecision is not driven by omitted structural controls. However, multicollinearity rises sharply in these specifications (max VIF $>170$), reinforcing their appendix status.
-
-\section{Robustness Checks}
-\label{sec:robustness}
-
-Common-sample re-estimation confirms that coefficient differences across monetary proxies are not artifacts of sample composition. Restricting M1 to the M2 support reduces the broad-money coefficient from 0.046 to 0.037, and the lagged M3 specification is stable to this restriction. The lending-rate coefficient in M5 is not robust to harmonization with the M2 sample. These checks are reported in the companion robustness table.
-
-Drop-collinearity diagnostics show that the severe VIF in M7a (387.19) is driven by the joint inclusion of the human capital index and log GDP per capita; omitting either variable resolves the issue (max VIF $\le 16.80$). The human-capital coefficient itself is imprecise regardless of specification (e.g., M7b: 0.165, SE 3.260).
+In the dynamic System GMM estimate, lagged FDI is negative and significant, Regulatory Quality is positive and significant, and broad money growth is not statistically distinguishable from zero. That result should be interpreted cautiously because the AR(2) test rejects the null of no second-order serial correlation (\(p=0.0002\)).
 
 \section{Limitations}
 \label{sec:limitations}
 
-Three caveats shape interpretation. (1) Short panel and identification: With at most 24 annual observations per country before missingness, and as few as 145 post-missingness, year fixed effects absorb common shocks and limited within-country variation remains for monetary variables. Coefficients are conditional associations, not causal effects. (2) Unbalanced proxy coverage: Cambodia has zero observed interest-rate years; Lao PDR and Timor-Leste have partial coverage. Estimation samples vary across models, and results may partly reflect the specific country composition of each specification. (3) Diagnostic fragility: Within-$R^2$ values are near zero; the real-rate model (M4) shows marginal cross-sectional dependence ($p=0.054$); the extended models (M6--M7) have extreme multicollinearity. The most defensible conclusion is that monetary conditions show directionally plausible but statistically fragile associations with FDI inflows in this panel.
+Three caveats shape interpretation. (1) Samples vary by specification, so coefficients are not directly comparable across all models. (2) The dynamic specification is diagnostically fragile because of the AR(2) rejection. (3) The static estimates explain only a modest share of within-country variation, so the safest reading is associational rather than causal. The most defensible conclusion is that broad money growth is the most robust correlate of FDI inflows, while interest-rate and institutional effects are less stable and model-dependent.
 
 \section*{Appendix}
 \label{app:appendix}

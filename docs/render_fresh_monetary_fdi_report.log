@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.8)  27 MAY 2026 15:54
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.8)  29 MAY 2026 12:30
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**/Users/bunnypro/Projects/monetary_policy_fdi_analysis/docs/render_methodology_results_interpretation.tex
-(/Users/bunnypro/Projects/monetary_policy_fdi_analysis/docs/render_methodology_results_interpretation.tex
+**/Users/bunnypro/Projects/monetary_policy_fdi_analysis/docs/render_fresh_monetary_fdi_report.tex
+(/Users/bunnypro/Projects/monetary_policy_fdi_analysis/docs/render_fresh_monetary_fdi_report.tex
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
 (/usr/local/texlive/2025/texmf-dist/tex/latex/base/report.cls
@@ -30,7 +30,10 @@ Package: fontenc 2021/04/29 v2.0v Standard LaTeX package
 Package: inputenc 2024/02/08 v1.3d Input encoding file
 \inpenc@prehook=\toks17
 \inpenc@posthook=\toks18
-) (/usr/local/texlive/2025/texmf-dist/tex/latex/geometry/geometry.sty
+)
+   defining Unicode char U+0394 (decimal 916)
+   defining Unicode char U+00B2 (decimal 178)
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/geometry/geometry.sty
 Package: geometry 2020/01/02 v5.9 Page Geometry
  (/usr/local/texlive/2025/texmf-dist/tex/latex/graphics/keyval.sty
 Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
@@ -345,34 +348,34 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 28
 )
 \Hy@SectionHShift=\skip55
 )
-LaTeX Font Info:    Trying to load font information for T1+lmr on input line 22.
+LaTeX Font Info:    Trying to load font information for T1+lmr on input line 24.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/lm/t1lmr.fd
 File: t1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 ) (/usr/local/texlive/2025/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2024-05-08 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count308
 \l__pdf_internal_box=\box56
-) (./render_methodology_results_interpretation.aux)
-\openout1 = `render_methodology_results_interpretation.aux'.
+) (./render_fresh_monetary_fdi_report.aux)
+\openout1 = `render_fresh_monetary_fdi_report.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -408,20 +411,20 @@ LaTeX Font Info:    ... okay on input line 22.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-LaTeX Info: Redefining \microtypecontext on input line 22.
-Package microtype Info: Applying patch `item' on input line 22.
-Package microtype Info: Applying patch `toc' on input line 22.
-Package microtype Info: Applying patch `eqnum' on input line 22.
-Package microtype Info: Applying patch `footnote' on input line 22.
-Package microtype Info: Applying patch `verbatim' on input line 22.
-LaTeX Info: Redefining \microtypesetup on input line 22.
+LaTeX Info: Redefining \microtypecontext on input line 24.
+Package microtype Info: Applying patch `item' on input line 24.
+Package microtype Info: Applying patch `toc' on input line 24.
+Package microtype Info: Applying patch `eqnum' on input line 24.
+Package microtype Info: Applying patch `footnote' on input line 24.
+Package microtype Info: Applying patch `verbatim' on input line 24.
+LaTeX Info: Redefining \microtypesetup on input line 24.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
 Package microtype Info: Automatic font expansion enabled (level 2),
 (microtype)             stretch: 20, shrink: 20, step: 1, non-selected.
 Package microtype Info: Using default expansion set `alltext-nott'.
-LaTeX Info: Redefining \showhyphens on input line 22.
+LaTeX Info: Redefining \showhyphens on input line 24.
 Package microtype Info: No adjustment of tracking.
 Package microtype Info: No adjustment of interword spacing.
 Package microtype Info: No adjustment of character kerning.
@@ -449,153 +452,69 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: hyperref package is loaded.
 Package caption Info: End \AtBeginDocument code.
-Package hyperref Info: Link coloring OFF on input line 22.
- (./render_methodology_results_interpretation.out) (./render_methodology_results_interpretation.out)
+Package hyperref Info: Link coloring OFF on input line 24.
+ (./render_fresh_monetary_fdi_report.out) (./render_fresh_monetary_fdi_report.out)
 \@outlinefile=\write3
-\openout3 = `render_methodology_results_interpretation.out'.
+\openout3 = `render_fresh_monetary_fdi_report.out'.
 
- (./methodology_results_interpretation.tex
+ (./fresh_monetary_fdi_report.tex
 Chapter 1.
-LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 10.
-(/usr/local/texlive/2025/texmf-dist/tex/latex/lm/ot1lmr.fd
+LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 15.
+(/usr/local/texlive/2025/texmf-dist/tex/latex/lm/ts1lmr.fd
+File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 36.
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-LaTeX Font Info:    Trying to load font information for OML+lmm on input line 10.
+LaTeX Font Info:    Trying to load font information for OML+lmm on input line 36.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 10.
+LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 36.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 10.
+LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 36.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/lm/omxlmex.fd
 File: omxlmex.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10.95> on input line 10.
+(Font)              <10.95> on input line 36.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 10.
+(Font)              <8> on input line 36.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 10.
- (./tables/tab_main_and_diagnostics.tex
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 42.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <9> on input line 45.
+(Font)              <6> on input line 36.
 
-Overfull \hbox (56.48764pt too wide) in paragraph at lines 6--48
- [] 
- []
-
-)
 
 [1
 
 
-{/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}]
+{/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}]
 
-[2] (./tables/tab_appendix_descriptive.tex)
-<assets/small_multiples_country_fdi_trends.png, id=66, 1063.8144pt x 890.3664pt>
-File: assets/small_multiples_country_fdi_trends.png Graphic file (type png)
-<use assets/small_multiples_country_fdi_trends.png>
-Package pdftex.def Info: assets/small_multiples_country_fdi_trends.png  used on input line 48.
-(pdftex.def)             Requested size: 469.75502pt x 393.17535pt.
-<assets/yearly_broad_money_growth_and_fdi_trend.png, id=68, 722.7pt x 289.08pt>
-File: assets/yearly_broad_money_growth_and_fdi_trend.png Graphic file (type png)
-<use assets/yearly_broad_money_growth_and_fdi_trend.png>
-Package pdftex.def Info: assets/yearly_broad_money_growth_and_fdi_trend.png  used on input line 55.
-(pdftex.def)             Requested size: 469.75502pt x 187.90417pt.
-<assets/univariate_dist__fdi_pct_gdp_winsorized.png, id=69, 794.97pt x 260.172pt>
-File: assets/univariate_dist__fdi_pct_gdp_winsorized.png Graphic file (type png)
-<use assets/univariate_dist__fdi_pct_gdp_winsorized.png>
-Package pdftex.def Info: assets/univariate_dist__fdi_pct_gdp_winsorized.png  used on input line 66.
-(pdftex.def)             Requested size: 150.32504pt x 49.19499pt.
-<assets/univariate_dist__broad_money_growth_pct.png, id=70, 794.97pt x 260.172pt>
-File: assets/univariate_dist__broad_money_growth_pct.png Graphic file (type png)
-<use assets/univariate_dist__broad_money_growth_pct.png>
-Package pdftex.def Info: assets/univariate_dist__broad_money_growth_pct.png  used on input line 70.
-(pdftex.def)             Requested size: 150.32504pt x 49.19499pt.
-<assets/univariate_dist__deposit_interest_rate_pct.png, id=71, 794.97pt x 260.172pt>
-File: assets/univariate_dist__deposit_interest_rate_pct.png Graphic file (type png)
-<use assets/univariate_dist__deposit_interest_rate_pct.png>
-Package pdftex.def Info: assets/univariate_dist__deposit_interest_rate_pct.png  used on input line 74.
-(pdftex.def)             Requested size: 150.32504pt x 49.19499pt.
-<assets/univariate_dist__real_interest_rate_pct.png, id=72, 794.97pt x 260.172pt>
-File: assets/univariate_dist__real_interest_rate_pct.png Graphic file (type png)
-<use assets/univariate_dist__real_interest_rate_pct.png>
-Package pdftex.def Info: assets/univariate_dist__real_interest_rate_pct.png  used on input line 78.
-(pdftex.def)             Requested size: 150.32504pt x 49.19499pt.
-<assets/univariate_dist__lending_interest_rate_pct.png, id=73, 794.97pt x 260.172pt>
-File: assets/univariate_dist__lending_interest_rate_pct.png Graphic file (type png)
-<use assets/univariate_dist__lending_interest_rate_pct.png>
-Package pdftex.def Info: assets/univariate_dist__lending_interest_rate_pct.png  used on input line 82.
-(pdftex.def)             Requested size: 150.32504pt x 49.19499pt.
-<assets/univariate_dist__trade_pct_gdp.png, id=74, 794.97pt x 260.172pt>
-File: assets/univariate_dist__trade_pct_gdp.png Graphic file (type png)
-<use assets/univariate_dist__trade_pct_gdp.png>
-Package pdftex.def Info: assets/univariate_dist__trade_pct_gdp.png  used on input line 86.
-(pdftex.def)             Requested size: 150.32504pt x 49.19499pt.
-<assets/scatter_country_year_broad_money_fdi.png, id=75, 637.78275pt x 420.97275pt>
-File: assets/scatter_country_year_broad_money_fdi.png Graphic file (type png)
-<use assets/scatter_country_year_broad_money_fdi.png>
-Package pdftex.def Info: assets/scatter_country_year_broad_money_fdi.png  used on input line 98.
-(pdftex.def)             Requested size: 352.31625pt x 232.55705pt.
-<assets/scatter_country_year_deposit_interest_fdi.png, id=76, 637.78275pt x 420.97275pt>
-File: assets/scatter_country_year_deposit_interest_fdi.png Graphic file (type png)
-<use assets/scatter_country_year_deposit_interest_fdi.png>
-Package pdftex.def Info: assets/scatter_country_year_deposit_interest_fdi.png  used on input line 105.
-(pdftex.def)             Requested size: 352.31625pt x 232.55705pt.
-<assets/scatter_country_year_trade_fdi.png, id=77, 637.78275pt x 420.97275pt>
-File: assets/scatter_country_year_trade_fdi.png Graphic file (type png)
-<use assets/scatter_country_year_trade_fdi.png>
-Package pdftex.def Info: assets/scatter_country_year_trade_fdi.png  used on input line 112.
-(pdftex.def)             Requested size: 352.31625pt x 232.55705pt.
-<assets/correlation_matrix_main_variables.png, id=78, 867.24pt x 722.7pt>
-File: assets/correlation_matrix_main_variables.png Graphic file (type png)
-<use assets/correlation_matrix_main_variables.png>
-Package pdftex.def Info: assets/correlation_matrix_main_variables.png  used on input line 122.
-(pdftex.def)             Requested size: 469.75502pt x 391.46521pt.
-<assets/missingness_by_variable.png, id=79, 722.7pt x 433.62pt>
-File: assets/missingness_by_variable.png Graphic file (type png)
-<use assets/missingness_by_variable.png>
-Package pdftex.def Info: assets/missingness_by_variable.png  used on input line 129.
-(pdftex.def)             Requested size: 375.80544pt x 225.48369pt.
-)
+[2{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}])
 
-[3]
-
-[4 <./assets/small_multiples_country_fdi_trends.png>]
-
-[5 <./assets/yearly_broad_money_growth_and_fdi_trend.png> <./assets/univariate_dist__fdi_pct_gdp_winsorized.png> <./assets/univariate_dist__broad_money_growth_pct.png> <./assets/univariate_dist__deposit_interest_rate_pct.png> <./assets/univariate_dist__real_interest_rate_pct.png> <./assets/univariate_dist__lending_interest_rate_pct.png> <./assets/univariate_dist__trade_pct_gdp.png>]
-
-[6 <./assets/scatter_country_year_broad_money_fdi.png> <./assets/scatter_country_year_deposit_interest_fdi.png>]
-
-[7 <./assets/scatter_country_year_trade_fdi.png>]
-
-[8 <./assets/correlation_matrix_main_variables.png>]
-
-[9 <./assets/missingness_by_variable.png>] (./render_methodology_results_interpretation.aux)
+[3] (./render_fresh_monetary_fdi_report.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
  ***********
-Package rerunfilecheck Info: File `render_methodology_results_interpretation.out' has not changed.
-(rerunfilecheck)             Checksum: CEA472FE21E07F65A8449912C32ED9C5;1545.
+Package rerunfilecheck Info: File `render_fresh_monetary_fdi_report.out' has not changed.
+(rerunfilecheck)             Checksum: F9A65604E41584A3B5A21A0EFF696711;1376.
  ) 
 Here is how much of TeX's memory you used:
- 13845 strings out of 473190
- 228413 string characters out of 5715801
- 681168 words of memory out of 5000000
- 36746 multiletter control sequences out of 15000+600000
- 636585 words of font info for 145 fonts, out of 8000000 for 9000
+ 13610 strings out of 473190
+ 221169 string characters out of 5715801
+ 663878 words of memory out of 5000000
+ 36605 multiletter control sequences out of 15000+600000
+ 606026 words of font info for 98 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,13n,79p,1129b,577s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmmi10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmmi8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmmib10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmr6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmr8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmr9.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmsy8.pfb>
-Output written on render_methodology_results_interpretation.pdf (9 pages, 1835096 bytes).
+ 75i,10n,79p,1088b,474s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmmi10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmr8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmri10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmsy8.pfb>
+Output written on render_fresh_monetary_fdi_report.pdf (3 pages, 139071 bytes).
 PDF statistics:
- 198 PDF objects out of 1000 (max. 8388607)
- 135 compressed objects within 2 object streams
- 33 named destinations out of 1000 (max. 500000)
- 45194 words of extra memory for PDF output out of 51595 (max. 10000000)
+ 109 PDF objects out of 1000 (max. 8388607)
+ 87 compressed objects within 1 object stream
+ 15 named destinations out of 1000 (max. 500000)
+ 28745 words of extra memory for PDF output out of 29859 (max. 10000000)
 

@@ -1,0 +1,129 @@
+\chapter{Monetary Conditions and FDI in ASEAN-Oriented Economies}
+\label{chap:fresh-monetary-fdi-report}
+
+\section{Purpose and Scope}
+\label{sec:purpose-scope}
+
+This report summarizes the current empirical specification and results for the relationship between monetary conditions and FDI net inflows in an unbalanced panel of ASEAN-oriented economies over 2000--2023. It is written as a clean replacement for the older methodology draft and is aligned with the latest regression tables.
+
+\section{Empirical Design}
+\label{sec:empirical-design}
+
+The dependent variable is FDI net inflows as a share of GDP. The common control set includes broad money growth, GDP growth, log GDP per capita, trade openness, exchange-rate depreciation, inflation, and Regulatory Quality. The specification sequence is:
+
+\begin{itemize}
+    \item \textbf{Spec 1}: baseline controls only.
+    \item \textbf{Spec 2}: baseline controls plus the real interest rate.
+    \item \textbf{Spec 3}: baseline controls plus Regulatory Quality.
+    \item \textbf{Spec 4}: baseline controls plus the real interest rate and Regulatory Quality.
+    \item \textbf{Spec 5}: the full model plus lagged FDI, estimated with two-step System GMM.
+\end{itemize}
+
+The static models report country-clustered standard errors and include country and year effects; Spec 1 is estimated with random effects, while Specs 2--4 use fixed effects. The dynamic model uses year effects and Windmeijer-corrected standard errors.
+
+\section{Results}
+\label{sec:results}
+
+\subsection{Static panel estimates}
+\label{subsec:static-panel-estimates}
+
+\begin{table}[htbp]
+\centering
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{0.95}
+\caption{FDI Determinants: Static Panel Estimates}
+\label{tab:fresh-static}
+\begin{tabular}{lcccc}
+\hline\hline
+Variable & Spec 1 & Spec 2 & Spec 3 & Spec 4 \\
+\hline
+Broad money growth & 0.060*** & 0.109*** & 0.064** & 0.108*** \\
+ & (0.022) & (0.027) & (0.029) & (0.028) \\
+Real interest rate &  & 0.099** &  & 0.104*** \\
+ &  & (0.041) &  & (0.033) \\
+GDP Growth & 0.112 & 0.405*** & 0.312** & 0.410*** \\
+ & (0.084) & (0.112) & (0.143) & (0.130) \\
+ln(GDP per capita) & 0.877*** & 2.235*** & 2.997** & 1.715* \\
+ & (0.175) & (0.676) & (1.173) & (1.005) \\
+Trade openness (\% GDP) & -0.009 & -0.025 & -0.026 & -0.024 \\
+ & (0.012) & (0.021) & (0.022) & (0.023) \\
+$\Delta \ln$(Exchange rate) & -0.009 & -0.000 & 0.019 & -0.002 \\
+ & (0.027) & (0.040) & (0.033) & (0.033) \\
+Inflation & 0.017 & 0.151* & 0.061 & 0.160*** \\
+ & (0.038) & (0.078) & (0.070) & (0.060) \\
+Regulatory quality &  &  & -2.032 & 1.076 \\
+ &  &  & (1.821) & (2.218) \\
+N & 216 & 192 & 207 & 184 \\
+Within $R^2$ & 0.192 & 0.257 & 0.252 & 0.243 \\
+Estimator & RE & FE & FE & FE \\
+\hline\hline
+\end{tabular}%
+\par\noindent\textit{Note:} Standard errors are in parentheses. $^{*}$p$<$0.10, $^{**}$p$<$0.05, $^{***}$p$<$0.01.
+\end{table}
+
+\subsection{Dynamic GMM estimate}
+\label{subsec:dynamic-gmm-estimate}
+
+\begin{table}[htbp]
+\centering
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{0.95}
+\caption{FDI Determinants: Dynamic GMM Estimate}
+\label{tab:fresh-gmm}
+\begin{tabular}{lc}
+\hline\hline
+Variable & Spec 5 \\
+\hline
+Lagged FDI (\% GDP) & -2.432** \\
+ & (1.174) \\
+Broad money growth & -0.036 \\
+ & (0.675) \\
+Real interest rate & 0.545 \\
+ & (0.979) \\
+GDP Growth & 0.062 \\
+ & (0.132) \\
+ln(GDP per capita) & -3.011** \\
+ & (1.176) \\
+Trade openness (\% GDP) & 0.276*** \\
+ & (0.081) \\
+$\Delta \ln$(Exchange rate) & -0.020 \\
+ & (0.142) \\
+Inflation & 0.592 \\
+ & (0.942) \\
+Regulatory quality & 0.672*** \\
+ & (0.225) \\
+N & 320 \\
+Estimator & 2-step GMM \\
+\hline\hline
+\end{tabular}%
+\par\noindent\textit{Note:} Standard errors are in parentheses. $^{*}$p$<$0.10, $^{**}$p$<$0.05, $^{***}$p$<$0.01.
+\end{table}
+
+The clearest result is the broad money coefficient. It is positive and statistically significant in all four static specifications, which is the strongest evidence in favor of a liquidity channel.
+
+The real interest rate does not deliver a stable negative effect. It is positive and significant in Specs 2 and 4, so the data do not support a simple cost-of-capital story.
+
+Among the controls, GDP growth is positive in the static models where it is significant, and log GDP per capita is generally positive as well. Trade openness, exchange-rate depreciation, and inflation are mostly imprecise in the static models. Regulatory Quality is not robust in the static specifications.
+
+The dynamic GMM estimate is mixed. Lagged FDI is negative and significant, Regulatory Quality is positive and significant, and trade openness is positive and significant. However, the AR(2) test rejects the null of no second-order serial correlation, so that specification should be treated cautiously.
+
+The GMM specification uses 64 instruments, has a Hansen p-value of 1.0, and reports AR(1) and AR(2) p-values of 0.4484 and 0.0002, respectively.
+
+\section{Interpretation}
+\label{sec:interpretation}
+
+The most defensible reading is that liquidity conditions are more consistently associated with FDI inflows than interest-rate conditions in this panel. The static models provide the cleanest pattern. The dynamic model adds a persistence result, but its diagnostic weakness makes it less persuasive as a headline finding.
+
+\section{Caveats}
+\label{sec:caveats}
+
+\begin{itemize}
+    \item Sample sizes differ across specifications, so coefficients are not directly comparable across every model.
+    \item The dynamic model has a concerning AR(2) diagnostic.
+    \item The static models explain only a modest share of within-country variation.
+\end{itemize}
+
+\section{Bottom Line}
+\label{sec:bottom-line}
+
+Broad money growth is the most robust correlate of FDI inflows in the current results. Interest-rate and institutional effects are less stable and more model-dependent, so the report should stay moderate in its claims.
