@@ -1,0 +1,40 @@
+\begin{table}[htbp]
+\centering
+\caption{FDI Determinants: All Specifications}
+\label{tab:regression_all_specs}
+\begin{tabular}{lccccc}
+\hline\hline
+variable & Spec 1 / Baseline & Spec 2 / + Monetary & Spec 3 / + Institutional & Spec 4 / Full & Spec 5 / Dynamic GMM \\
+\hline
+Lagged FDI (\% GDP) &  &  &  &  & -2.432** \\
+ &  &  &  &  & (1.174) \\
+Broad Money Growth & 0.060*** & 0.109*** & 0.064** & 0.108*** & -0.036 \\
+ & (0.022) & (0.027) & (0.029) & (0.028) & (0.675) \\
+Real Interest Rate &  & 0.099** &  & 0.104*** & 0.545 \\
+ &  & (0.041) &  & (0.033) & (0.979) \\
+GDP Growth & 0.112 & 0.405*** & 0.312** & 0.410*** & 0.062 \\
+ & (0.084) & (0.112) & (0.143) & (0.130) & (0.132) \\
+ln(GDP per Capita) & 0.877*** & 2.235*** & 2.997** & 1.715* & -3.011** \\
+ & (0.175) & (0.676) & (1.173) & (1.005) & (1.176) \\
+Trade Openness (\% GDP) & -0.009 & -0.025 & -0.026 & -0.024 & 0.276*** \\
+ & (0.012) & (0.021) & (0.022) & (0.023) & (0.081) \\
+Δln(Exchange Rate) & -0.009 & -0.000 & 0.019 & -0.002 & -0.020 \\
+ & (0.027) & (0.040) & (0.033) & (0.033) & (0.142) \\
+Inflation & 0.017 & 0.151* & 0.061 & 0.160*** & 0.592 \\
+ & (0.038) & (0.078) & (0.070) & (0.060) & (0.942) \\
+Regulatory Quality &  &  & -2.032 & 1.076 & 0.672*** \\
+ &  &  & (1.821) & (2.218) & (0.225) \\
+\hline
+N & 216 & 192 & 207 & 184 & 320 \\
+R² (within) & 0.192 & 0.257 & 0.252 & 0.243 & — \\
+Country FE & Yes & Yes & Yes & Yes & — \\
+Year FE & Yes & Yes & Yes & Yes & Yes \\
+Estimator & Random Effects & Fixed Effects & Fixed Effects & Fixed Effects & System GMM (2-step, Windmeijer SE) \\
+N instruments &  &  &  &  & 64 \\
+Hansen p-value &  &  &  &  & 1.0 \\
+AR(1) p-value &  &  &  &  & 0.4484 \\
+AR(2) p-value &  &  &  &  & 0.0002 \\
+\hline\hline
+\multicolumn{6}{l}{\textit{Note:} $^{*}$p$<$0.10, $^{**}$p$<$0.05, $^{***}$p$<$0.01. Standard errors (cluster-robust, country level) in parentheses.}
+\end{tabular}
+\end{table}

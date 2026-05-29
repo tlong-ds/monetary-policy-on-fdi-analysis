@@ -1,9 +1,0 @@
-metric,value
-Hausman statistic (clipped at zero),45.8767
-Hausman raw statistic,45.8767
-Hausman negative-statistic flag,False
-Condition number,1517.2974
-Breusch-Pagan LM p-value,0.0484
-Breusch-Pagan F p-value,0.0453
-White LM p-value,0.0006
-White F p-value,0.0000

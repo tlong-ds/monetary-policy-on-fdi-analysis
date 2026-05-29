@@ -1,7 +1,0 @@
-model_id,variable,vif
-M2_main_monetary_policy,ln_gdppc,7.176973809351371
-M2_main_monetary_policy,deposit_interest_rate_pct,4.365168388646567
-M2_main_monetary_policy,trade_pct_gdp,4.0493072493695355
-M2_main_monetary_policy,broad_money_growth_pct,3.7908327707530285
-M2_main_monetary_policy,inflation_gdp_deflator_pct,1.815445162803177
-M2_main_monetary_policy,xr_dep_pct,1.1203232564558403

@@ -1,5 +1,0 @@
-country,year,flag,value,note
-Myanmar,2002,inflation_extreme_keep_and_review,41.5089280021532,Observed value retained for main analysis.
-Timor-Leste,2021,inflation_extreme_keep_and_review,59.079677556011404,Observed value retained for main analysis.
-Viet Nam,2010,inflation_extreme_keep_and_review,42.30326724885569,Observed value retained for main analysis.
-Myanmar,2012,xr_dep_pct_extreme_keep_and_review,476.795463489171,Observed value retained; winsorized version is sensitivity-only.

@@ -1,0 +1,5 @@
+Spec,Name,BP-LM stat,BP-LM p,BP-LM decision,Hausman stat,Hausman p,Hausman decision,Preferred,N obs
+Spec 1,Baseline,135.7079,0.0,Reject H0 → use panel estimator,11.0735,0.0861,Fail to reject H0 → Random Effects preferred,Random Effects,216
+Spec 2,+ Monetary,146.5146,0.0,Reject H0 → use panel estimator,25.1607,0.0007,Reject H0 → Fixed Effects preferred,Fixed Effects,192
+Spec 3,+ Institutional,90.2039,0.0,Reject H0 → use panel estimator,21.6376,0.0029,Reject H0 → Fixed Effects preferred,Fixed Effects,207
+Spec 4,Full,34.281,0.0,Reject H0 → use panel estimator,,,RE failed → Fixed Effects used by default,Fixed Effects,184

@@ -1,0 +1,8 @@
+Check,BM variable,Coef,SE,p-value,Sig,N obs,Estimator,Decision
+Baseline (Spec 4),bm_growth,0.1083,0.028,0.0002,***,184,Fixed Effects,Reject H0
+R1 — Rule of Law (RL),bm_growth,0.1023,0.0293,0.0006,***,184,Fixed Effects,Reject H0
+R2 — Lagged BM Growth,bm_growth_lag1,0.0691,0.0192,0.0004,***,176,Fixed Effects,Reject H0
+R3 — Excl. Singapore,bm_growth,0.1197,0.0217,0.0,***,161,Pooled OLS,Reject H0
+R4 — Excl. Crisis Years,bm_growth,0.1266,0.0356,0.0005,***,152,Fixed Effects,Reject H0
+R5 — System GMM,bm_growth,-0.0359,0.675,0.9575,,320,"System GMM (2-step, Windmeijer SE)",Fail to reject
+R6 — WGI Composite,bm_growth,0.1069,0.0286,0.0003,***,184,Fixed Effects,Reject H0

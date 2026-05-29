@@ -1,8 +1,0 @@
-comparison_id,base_model_id,added_model_id,base_rows,added_rows,rows_lost_from_base,base_countries,added_countries,countries_lost_from_base,lost_countries,top_loss_drivers
-M1_to_M2,M1_baseline_liquidity,M2_main_monetary_policy,209,182,27,10,9,1,"Brunei Darussalam, Philippines, Thailand, Timor-Leste",deposit_interest_rate_pct: 27
-M2_to_M3_lagged,M2_main_monetary_policy,M3_lagged_main_model,182,177,10,9,9,0,"Brunei Darussalam, Cambodia, Indonesia, Lao PDR, Malaysia, Philippines, Singapore, Thailand, Viet Nam",xr_dep_pct_lag1: 8; deposit_interest_rate_pct_lag1: 2
-M2_to_M5_lending,M2_main_monetary_policy,M5_lending_rate_robustness,182,161,23,9,8,1,Cambodia,lending_interest_rate_pct: 23
-M2_to_M6_tourism,M2_main_monetary_policy,M6_tourism_robustnessb_from_M2_main_monetary_policy,182,182,0,9,9,0,,
-M4_to_M6_tourism,M4_real_interest_robustness,M6_tourism_robustnessa_from_M4_real_interest_robustness,174,161,13,9,8,1,Timor-Leste,ln_tourism_arrivals: 13
-M2_to_M7_hc,M2_main_monetary_policy,M7_human_capital_robustnessb_from_M2_main_monetary_policy,182,182,0,9,9,0,,
-M4_to_M7_hc,M4_real_interest_robustness,M7_human_capital_robustnessa_from_M4_real_interest_robustness,174,161,13,9,8,1,Timor-Leste,hc_human_capital_index: 13

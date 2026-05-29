@@ -1,8 +1,0 @@
-var_a,var_b,corr,abs_corr,pairwise_n
-fdi_pct_gdp,fdi_pct_gdp_winsorized,0.9914168691177987,0.9914168691177987,260
-lending_interest_rate_pct,hc_human_capital_index,-0.8487478014588647,0.8487478014588647,192
-fdi_pct_gdp_winsorized,trade_pct_gdp,0.7962597309015683,0.7962597309015683,236
-fdi_pct_gdp,trade_pct_gdp,0.7787267844860726,0.7787267844860726,236
-inflation_gdp_deflator_pct,real_interest_rate_pct,-0.7354890153099771,0.7354890153099771,205
-deposit_interest_rate_pct,lending_interest_rate_pct,0.7350932451356269,0.7350932451356269,189
-ln_gdppc,ln_tourism_arrivals,0.7228179970511428,0.7228179970511428,240

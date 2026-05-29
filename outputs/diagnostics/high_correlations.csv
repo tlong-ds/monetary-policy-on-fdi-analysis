@@ -1,0 +1,10 @@
+var1,var2,correlation
+Rule of Law,WGI Composite,0.9867
+Regulatory Quality,WGI Composite,0.9786
+Regulatory Quality,Rule of Law,0.9588
+ln(GDP per Capita),WGI Composite,0.9223
+ln(GDP per Capita),Rule of Law,0.9114
+ln(GDP per Capita),Regulatory Quality,0.9039
+Trade (% GDP),WGI Composite,0.7603
+Trade (% GDP),Rule of Law,0.7283
+Trade (% GDP),Regulatory Quality,0.7195

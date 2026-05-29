@@ -1,0 +1,29 @@
+model,variable,vif,flag
+Spec1_Baseline,bm_growth,1.524,acceptable
+Spec1_Baseline,gdp_growth,1.59,acceptable
+Spec1_Baseline,ln_gdppc,2.754,acceptable
+Spec1_Baseline,trade_pct_gdp,1.806,acceptable
+Spec1_Baseline,d_ln_exr,1.108,acceptable
+Spec1_Baseline,inflation,1.148,acceptable
+Spec2_+Monetary,bm_growth,1.768,acceptable
+Spec2_+Monetary,gdp_growth,1.493,acceptable
+Spec2_+Monetary,ln_gdppc,2.913,acceptable
+Spec2_+Monetary,trade_pct_gdp,1.908,acceptable
+Spec2_+Monetary,d_ln_exr,1.163,acceptable
+Spec2_+Monetary,inflation,2.579,acceptable
+Spec2_+Monetary,real_interest_rate,2.447,acceptable
+Spec3_+Institutional,bm_growth,1.81,acceptable
+Spec3_+Institutional,gdp_growth,1.641,acceptable
+Spec3_+Institutional,ln_gdppc,6.859,moderate concern
+Spec3_+Institutional,trade_pct_gdp,2.835,acceptable
+Spec3_+Institutional,d_ln_exr,1.084,acceptable
+Spec3_+Institutional,inflation,1.134,acceptable
+Spec3_+Institutional,rq,9.605,moderate concern
+Spec4_Full,bm_growth,2.105,acceptable
+Spec4_Full,gdp_growth,1.543,acceptable
+Spec4_Full,ln_gdppc,7.742,moderate concern
+Spec4_Full,trade_pct_gdp,3.291,acceptable
+Spec4_Full,d_ln_exr,1.13,acceptable
+Spec4_Full,inflation,2.694,acceptable
+Spec4_Full,real_interest_rate,2.658,acceptable
+Spec4_Full,rq,13.043,problematic

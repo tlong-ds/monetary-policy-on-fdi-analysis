@@ -1,0 +1,18 @@
+variable,label,unit,role,source,transformation
+fdi_pct_gdp,FDI net inflows (% of GDP),% GDP,Dependent,Macro workbook,None
+bm_growth,Broad money growth,% growth,Main explanatory,Macro workbook,None
+real_interest_rate,Real interest rate,Level (%),Monetary tightness,Macro workbook,None
+gdp_growth,GDP growth,% growth,Control,Macro workbook,None
+gdppc,GDP per capita (current USD),USD,Control (source),Derived,GDP / population
+ln_gdppc,ln(GDP per capita),Log level,Control,Derived,ln(gdp_current_usd / population)
+trade_pct_gdp,Trade openness,% GDP,Control,Macro workbook,None
+d_ln_exr,Δln(Exchange rate),% change,Control,Derived,[ln(EXR_t) - ln(EXR_t-1)] × 100
+inflation,Inflation (GDP deflator),%,Control,Macro workbook,None
+rq,Regulatory Quality (WGI),Index,Institutional,WGI workbook,None — baseline proxy
+rl,Rule of Law (WGI),Index,Institutional,WGI workbook,None — robustness proxy
+ge,Government Effectiveness (WGI),Index,Institutional,WGI workbook,None
+cc,Control of Corruption (WGI),Index,Institutional,WGI workbook,None
+va,Voice & Accountability (WGI),Index,Institutional,WGI workbook,None
+pv,Political Stability (WGI),Index,Institutional,WGI workbook,None
+wgi_composite,WGI Composite Index,Index,Institutional,Derived,(rq + rl + ge + cc) / 4
+hc_index,Human Capital Index,Index,Auxiliary,HC/pop file,None

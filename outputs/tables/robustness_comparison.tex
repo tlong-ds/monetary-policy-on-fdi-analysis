@@ -1,0 +1,44 @@
+\begin{table}[htbp]
+\centering
+\caption{FDI Determinants: Robustness Checks}
+\label{tab:robustness}
+\begin{tabular}{lccccccc}
+\hline\hline
+Variable & Baseline / (Spec 4) & R1 / Rule of Law (RL) & R2 / Lagged BM Growth & R3 / Excl. Singapore & R4 / Excl. Crisis Years & R5 / System GMM & R6 / WGI Composite \\
+\hline
+Broad Money Growth & 0.1083*** & 0.1023*** &  & 0.1197*** & 0.1266*** & -0.0359 & 0.1069*** \\
+ & (0.0280) & (0.0293) &  & (0.0217) & (0.0356) & (0.6750) & (0.0286) \\
+bm\_growth\_lag1 &  &  & 0.0691*** &  &  &  &  \\
+ &  &  & (0.0192) &  &  &  &  \\
+Real Interest Rate & 0.1037*** & 0.1022*** & 0.0652* & 0.0049 & 0.0581 & 0.5455 & 0.0964*** \\
+ & (0.0330) & (0.0387) & (0.0346) & (0.0306) & (0.0599) & (0.9792) & (0.0359) \\
+GDP Growth & 0.4101*** & 0.3947*** & 0.4016*** & 0.1077* & 0.1962* & 0.0620 & 0.4112*** \\
+ & (0.1303) & (0.1226) & (0.1273) & (0.0593) & (0.1082) & (0.1325) & (0.1322) \\
+ln(GDP per Capita) & 1.7149* & 1.3894* & 1.2156 & -0.0613 & 2.0418** & -3.0110** & 2.0247*** \\
+ & (1.0045) & (0.7157) & (1.2319) & (0.0789) & (0.7846) & (1.1763) & (0.7494) \\
+Trade Openness (\% GDP) & -0.0237 & -0.0255 & -0.0229 & 0.0143** & -0.0114 & 0.2763*** & -0.0259 \\
+ & (0.0230) & (0.0220) & (0.0246) & (0.0060) & (0.0150) & (0.0809) & (0.0210) \\
+Δln(Exchange Rate) & -0.0016 & -0.0032 & 0.0087 & 0.0100 & 0.0107 & -0.0199 & 0.0013 \\
+ & (0.0326) & (0.0385) & (0.0322) & (0.0069) & (0.0395) & (0.1425) & (0.0331) \\
+Inflation & 0.1604*** & 0.1718** & 0.1476*** & -0.0193 & 0.0876 & 0.5923 & 0.1541** \\
+ & (0.0599) & (0.0698) & (0.0563) & (0.0339) & (0.0788) & (0.9423) & (0.0600) \\
+Regulatory Quality & 1.0764 &  & 0.9425 & 0.8745 & 0.7143 & 0.6717*** &  \\
+ & (2.2184) &  & (2.5588) & (0.5451) & (1.8369) & (0.2254) &  \\
+Rule of Law &  & 2.0256* &  &  &  &  &  \\
+ &  & (1.1300) &  &  &  &  &  \\
+WGI Composite &  &  &  &  &  &  & 0.7709 \\
+ &  &  &  &  &  &  & (2.6371) \\
+Lagged FDI (\% GDP) &  &  &  &  &  & -2.4322** &  \\
+ &  &  &  &  &  & (1.1739) &  \\
+\hline
+N obs & 184 & 184 & 176 & 161 & 152 & 320 & 184 \\
+N countries & 10 & 10 & 10 & 9 & 10 & 10 & 10 \\
+Estimator & Fixed Effects & Fixed Effects & Fixed Effects & Pooled OLS & Fixed Effects & System GMM (2-step, Windmeijer SE) & Fixed Effects \\
+N instruments (GMM) & — & — & — & — & — & 64 & — \\
+Hansen p (GMM) & — & — & — & — & — & 1.0 & — \\
+AR(1) p (GMM) & — & — & — & — & — & 0.4484 & — \\
+AR(2) p (GMM) & — & — & — & — & — & 0.0002 & — \\
+\hline\hline
+\multicolumn{8}{l}{\textit{Note:} $^{*}$p$<$0.10, $^{**}$p$<$0.05, $^{***}$p$<$0.01. SE in parentheses. Cluster-robust SE at country level (static models). R1=RL institutional proxy, R2=Lagged BM, R3=Excl. Singapore, R4=Excl. Crisis Years, R5=System GMM, R6=Composite WGI.}
+\end{tabular}
+\end{table}

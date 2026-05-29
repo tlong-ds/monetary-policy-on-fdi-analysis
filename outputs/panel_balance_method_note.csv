@@ -1,4 +1,0 @@
-issue,current_status,risk,recommended_response
-complete_case_unbalanced_panel,complete-case samples differ across model specifications,coefficients may reflect country/year coverage differences as well as economic effects,"report country-year window audits, keep main model parsimonious, and use common-sample sensitivity checks"
-short_country_series,flag country-spec samples with fewer than 8 usable years,country fixed effects become weakly informed for countries with very short usable windows,avoid making country-specific claims and test robustness to minimum-year thresholds
-control_imputation_scope,only controls are interpolated; FDI and monetary-policy variables remain observed-only,key-variable missingness still drives sample loss,make imputation flags visible and avoid imputing core monetary-policy variables without a separate sensitivity design

@@ -1,1 +1,0 @@
-Diagnostics summary: heteroskedasticity tests are based on pooled OLS residuals on the exact complete-case sample for each specification; VIF and condition number are computed on the same design matrix.

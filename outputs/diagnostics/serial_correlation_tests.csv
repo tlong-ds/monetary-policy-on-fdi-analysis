@@ -1,0 +1,2 @@
+test,coef_on_lagged_fd_resid,h0_value,statistic,p_value,degrees_of_freedom,n_entities,n_obs,h0,decision
+Wooldridge (2002),-0.3289,-0.5,3.4745,0.0103,7,8,168,No first-order serial correlation (α = −0.5),Reject H0 (serial correlation present)

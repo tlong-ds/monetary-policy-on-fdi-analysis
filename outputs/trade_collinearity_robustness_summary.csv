@@ -1,4 +1,0 @@
-scenario,preferred_estimator,hausman_p_value,hausman_raw_statistic,negative_hausman_flag,comparison_note,re_failure_reason,observations,countries_used,years_used,trade_coef,trade_std_error,trade_p_value,max_vif,condition_number,trade_coef_change_vs_reference
-M2_main_monetary_policy,fixed_effects_driscoll_kraay,,,False,random_effects_failed,float division by zero,149,7,23,-0.015396536881157396,0.017476400252529972,0.3801767452120721,7.176973809351371,3753.0677700124334,0.0
-M2_main_monetary_policy_drop_trade_pct_gdp,fixed_effects_driscoll_kraay,1.0,-1.0289628150298116,True,ok,,169,8,23,,,,4.27893845990541,771.3388121640484,
-M2_main_monetary_policy_drop_ln_gdppc,fixed_effects_driscoll_kraay,0.07014773764673865,10.185457306420336,False,ok,,149,7,23,-0.014947811767336883,0.017718644366057287,0.40063288126303087,3.638422265168626,458.2306862884405,0.00044872511382051256

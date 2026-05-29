@@ -1,0 +1,2 @@
+test,statistic,p_value,n_entities,n_pairs,avg_pair_obs,h0,decision
+Pesaran CD,0.5825,0.5602,8,28,23.0,No cross-sectional dependence,Fail to reject H0 (no CSD)

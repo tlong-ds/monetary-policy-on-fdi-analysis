@@ -1,6 +1,0 @@
-comparison_id,base_model_id,added_model_id,base_rows,added_rows,rows_lost_from_base,base_countries,added_countries,countries_lost_from_base,lost_countries,top_loss_drivers
-M1_to_M2,M1_baseline_liquidity,M2_main_monetary_policy,116,110,6,10,9,1,"Lao PDR, Philippines, Singapore, Viet Nam",broad_money_pct_gdp: 4; deposit_interest_rate_pct_lag1: 3
-M2_to_M3_lagged_proxy,M2_main_monetary_policy,M3_lagged_main_model,110,109,1,9,9,0,Philippines,deposit_interest_rate_pct: 1
-M2_to_M5_lending_robustness,M2_main_monetary_policy,M5_lending_rate_robustness,110,96,14,9,8,1,"Cambodia, Timor-Leste",lending_interest_rate_pct_lag1: 14
-M2_to_M7a_appendix_hc,M2_main_monetary_policy,M7a_human_capital_robustness_from_M2,110,97,13,9,8,1,Timor-Leste,hc_human_capital_index: 13
-M4_to_M7b_appendix_hc,M4_real_interest_robustness,M7b_human_capital_robustness_from_M4,96,84,12,8,7,1,Timor-Leste,hc_human_capital_index: 12

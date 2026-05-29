@@ -1,1 +1,0 @@
-Estimator: Fixed effects. Hausman p-value: 0.0000. Observations: 119. R-squared: 0.0806. Countries used: 10. Years used: 14. Hausman note: positive test statistic with the standard FE-versus-RE interpretation.

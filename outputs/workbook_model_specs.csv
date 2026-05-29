@@ -1,8 +1,0 @@
-model,purpose,equation_variables,estimated_complete_observations,recommendation,workbook_code
-M1 - Baseline liquidity,Kiểm tra kênh cung tiền,"fdi_gdp_it = α_i + λ_t + β1 bm_gdp_it + γ controls_it + ε_it; controls = infl, trade_gdp, ln_gdppc, xr_dep/ln_xr",122.0,Use as baseline if muốn giữ mẫu lớn nhất.,M1
-M2 - Main monetary policy,Kênh cung tiền + lãi suất,fdi_gdp_it = α_i + λ_t + β1 bm_gdp_it + β2 ir_deposit_it + γ controls_it + ε_it,119.0,Recommended main model with available data.,M2
-M3 - Lagged main model,Giảm vấn đề nội sinh/đồng thời,"fdi_gdp_it = α_i + λ_t + β1 bm_gdp_i,t-1 + β2 ir_deposit_i,t-1 + γ controls_i,t-1 + ε_it",,Recommended if bạn tạo biến trễ 1 năm.,M3
-M4 - Real interest robustness,Thay proxy lãi suất bằng real interest rate,fdi_gdp_it = α_i + λ_t + β1 bm_gdp_it + β2 ir_real_it + γ controls_it + ε_it,104.0,"Use as robustness only; mẫu nhỏ hơn, Cambodia/Myanmar mất.",M4
-M5 - Lending rate robustness,Thay proxy lãi suất bằng lending rate,fdi_gdp_it = α_i + λ_t + β1 bm_gdp_it + β2 ir_lending_it + γ controls_it + ε_it,104.0,Use as robustness only; không đưa cùng ir_real/ir_deposit.,M5
-M6 - Tourism robustness,Kiểm tra kênh dịch vụ/du lịch,Add ln_tourism to M4/M2,79.0,Optional; thiếu nhiều quan sát sau Covid.,M6
-M7 - Human capital robustness,Kiểm soát chất lượng lao động,Add hc to M4/M2,91.0,Optional after fixing number-format issue in combined file.,M7

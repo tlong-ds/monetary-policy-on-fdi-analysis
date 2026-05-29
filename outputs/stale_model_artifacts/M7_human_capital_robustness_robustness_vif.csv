@@ -1,8 +1,0 @@
-model_id,variable,vif
-M7_human_capital_robustness,hc_human_capital_index,229.77560795927178
-M7_human_capital_robustness,ln_gdppc,164.10024731753893
-M7_human_capital_robustness,broad_money_pct_gdp,23.268917256122204
-M7_human_capital_robustness,trade_pct_gdp,7.707896240169868
-M7_human_capital_robustness,deposit_interest_rate_pct,2.861042068684819
-M7_human_capital_robustness,inflation_gdp_deflator_pct,1.4021258949853457
-M7_human_capital_robustness,xr_dep_pct,1.2935150123759835

@@ -1,8 +1,0 @@
-item,note
-Data period,"Use ASEAN countries from 2010-2023 only. The WDI file also contains 2024-2025, but should be excluded for this thesis period."
-Data quality warning,"combined_dataset.xlsx appears to have numeric-format/scaling issues in many percentage and exchange-rate columns. Use wdi data.xlsx for WDI variables, or re-import/clean combined_dataset before estimation."
-Panel type,"Use unbalanced panel, because broad money/trade/interest variables are missing for Laos and Myanmar in several years."
-Estimator,"Start with pooled OLS, then Fixed Effects (country FE and year FE). Use Hausman test to compare FE vs RE; use robust/clustered standard errors by country."
-Avoid multicollinearity,"Do not put ir_deposit, ir_real, and ir_lending together in the same main regression. Use one interest-rate proxy per model."
-Transformations,"Use ln_gdppc = ln(gdppc); xr_dep = 100*(ln(xr_official_it)-ln(xr_official_i,t-1)); optionally ln_tourism and ln_pop."
-Main recommendation,"Main model: fdi_gdp on bm_gdp, ir_deposit, inflation, trade openness, ln_gdppc, and exchange-rate depreciation with country and year fixed effects."

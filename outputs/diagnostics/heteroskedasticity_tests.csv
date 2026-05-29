@@ -1,0 +1,2 @@
+test,statistic,p_value,degrees_of_freedom,n_entities,pooled_variance,h0,decision
+Modified Wald,421.1206,0.0,7,8,7.909306,Homoskedasticity across groups (σ²_i = σ² for all i),Reject H0 (heteroskedastic)

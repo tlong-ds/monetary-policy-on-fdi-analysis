@@ -1,0 +1,21 @@
+variable,test,statistic,p_value,n_entities,avg_obs_per_entity,h0,decision,t_bar,n_valid_adf
+fdi_pct_gdp,LLC,-10.4472,0.0,10,24.0,Unit root (non-stationary),Reject H0 (stationary),,
+fdi_pct_gdp,IPS,-6.0135,0.0,10,24.0,Unit root (non-stationary) for all panels,Reject H0 (at least some panels stationary),-3.0632,10.0
+bm_growth,LLC,-8.1621,0.0,10,24.0,Unit root (non-stationary),Reject H0 (stationary),,
+bm_growth,IPS,-10.0943,0.0,10,24.0,Unit root (non-stationary) for all panels,Reject H0 (at least some panels stationary),-4.118,10.0
+real_interest_rate,LLC,-10.6916,0.0,9,24.0,Unit root (non-stationary),Reject H0 (stationary),,
+real_interest_rate,IPS,-8.4481,0.0,9,24.0,Unit root (non-stationary) for all panels,Reject H0 (at least some panels stationary),-3.8106,9.0
+gdp_growth,LLC,-11.1882,0.0,10,24.0,Unit root (non-stationary),Reject H0 (stationary),,
+gdp_growth,IPS,-8.0294,0.0,10,24.0,Unit root (non-stationary) for all panels,Reject H0 (at least some panels stationary),-3.5842,10.0
+ln_gdppc,LLC,-4.8977,0.0,10,24.0,Unit root (non-stationary),Reject H0 (stationary),,
+ln_gdppc,IPS,-0.9593,0.1687,10,24.0,Unit root (non-stationary) for all panels,Fail to reject H0 (unit root),-1.7569,10.0
+trade_pct_gdp,LLC,-4.5894,0.0001,9,24.0,Unit root (non-stationary),Reject H0 (stationary),,
+trade_pct_gdp,IPS,-0.8684,0.1926,9,24.0,Unit root (non-stationary) for all panels,Fail to reject H0 (unit root),-1.7456,9.0
+d_ln_exr,LLC,-9.0806,0.0,10,24.0,Unit root (non-stationary),Reject H0 (stationary),,
+d_ln_exr,IPS,-7.6969,0.0,10,24.0,Unit root (non-stationary) for all panels,Reject H0 (at least some panels stationary),-3.4983,10.0
+inflation,LLC,-12.4478,0.0,10,24.0,Unit root (non-stationary),Reject H0 (stationary),,
+inflation,IPS,-9.0334,0.0,10,24.0,Unit root (non-stationary) for all panels,Reject H0 (at least some panels stationary),-3.8438,10.0
+rq,LLC,-4.3777,0.0003,10,23.0,Unit root (non-stationary),Reject H0 (stationary),,
+rq,IPS,-2.7619,0.0029,10,23.0,Unit root (non-stationary) for all panels,Reject H0 (at least some panels stationary),-2.2228,10.0
+rl,LLC,-6.6446,0.0,10,23.0,Unit root (non-stationary),Reject H0 (stationary),,
+rl,IPS,-4.1193,0.0,10,23.0,Unit root (non-stationary) for all panels,Reject H0 (at least some panels stationary),-2.5736,10.0
