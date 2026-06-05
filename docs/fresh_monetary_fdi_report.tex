@@ -21,6 +21,86 @@ The dependent variable is FDI net inflows as a share of GDP. The common control 
 
 The static models report country-clustered standard errors and include country and year effects; Spec 1 is estimated with random effects, while Specs 2--4 use fixed effects. The dynamic model uses year effects and Windmeijer-corrected standard errors.
 
+\section{Pre-Estimation Diagnostics}
+\label{sec:diagnostics}
+
+The diagnostic sequence follows the protocol in §9 of the study instructions: unit-root tests, multicollinearity checks, heteroskedasticity, serial correlation, and cross-sectional dependence. The results jointly motivate the use of two-way fixed effects with Driscoll--Kraay standard errors.
+
+\subsection{Panel Unit Root Tests}
+\label{subsec:unit-root}
+
+Table~\ref{tab:unit-root} reports Levin-Lin-Chu (LLC) and Im-Pesaran-Shin (IPS) tests for all model variables. Both tests use a constant-only specification and AIC-selected lags (maximum 1). The null hypothesis is a unit root (non-stationary series).
+
+\begin{table}[htbp]
+\centering
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{0.95}
+\caption{Panel Unit Root Tests (LLC and IPS)}
+\label{tab:unit-root}
+\begin{tabular}{lcccccc}
+\hline\hline
+ & \multicolumn{3}{c}{Levin-Lin-Chu} & \multicolumn{3}{c}{Im-Pesaran-Shin} \\
+\cmidrule(lr){2-4}\cmidrule(lr){5-7}
+Variable & Stat & $p$ & Decision & $\bar{t}$ & $p$ & Decision \\
+\hline
+FDI (\% GDP)              & $-10.45$ & $<0.001$ & I(0) & $-3.06$ & $<0.001$ & I(0) \\
+Broad money growth        & $-8.16$  & $<0.001$ & I(0) & $-4.12$ & $<0.001$ & I(0) \\
+Real interest rate        & $-10.69$ & $<0.001$ & I(0) & $-3.81$ & $<0.001$ & I(0) \\
+GDP growth                & $-11.19$ & $<0.001$ & I(0) & $-3.58$ & $<0.001$ & I(0) \\
+$\ln$(GDP per capita)     & $-4.90$  & $<0.001$ & I(0) & $-1.76$ & 0.169   & Mixed \\
+Trade (\% GDP)            & $-4.59$  & $<0.001$ & I(0) & $-1.75$ & 0.193   & Mixed \\
+$\Delta\ln$(Exchange rate)& $-9.08$  & $<0.001$ & I(0) & $-3.50$ & $<0.001$ & I(0) \\
+Inflation                 & $-12.45$ & $<0.001$ & I(0) & $-3.84$ & $<0.001$ & I(0) \\
+Regulatory Quality        & $-4.38$  & $<0.001$ & I(0) & $-2.22$ & 0.003   & I(0) \\
+Rule of Law               & $-6.64$  & $<0.001$ & I(0) & $-2.57$ & $<0.001$ & I(0) \\
+\hline\hline
+\end{tabular}
+\par\noindent\textit{Note:} All tests use a constant-only specification with AIC-selected lags (max 1). LLC null: unit root for all panels. IPS null: unit root for all panels. $p < 0.05$ rejects the null (stationary). $\ln$(GDP per capita) and Trade show mixed evidence under IPS; all other variables are stationary under both tests. Estimation in levels is appropriate for the bulk of the series.
+\end{table}
+
+\subsection{Multicollinearity (VIF)}
+\label{subsec:vif}
+
+Table~\ref{tab:vif-full} shows VIF values for the full specification (Spec 4). All baseline controls have acceptable VIFs ($< 5$). Regulatory Quality (VIF $= 13.0$) exceeds the problematic threshold of 10 when combined with $\ln$(GDP per capita) (VIF $= 7.7$), indicating collinearity between the institutional and income variables. This is the standard cross-country pattern and is the primary reason Specs 3 and 4 have wider standard errors for those regressors. VIFs for Specs 1 and 2 (without RQ) are all below 3.
+
+\begin{table}[htbp]
+\centering
+\setlength{\tabcolsep}{5pt}
+\renewcommand{\arraystretch}{0.95}
+\caption{Variance Inflation Factors --- Full Specification (Spec 4)}
+\label{tab:vif-full}
+\begin{tabular}{lcc}
+\hline\hline
+Variable & VIF & Flag \\
+\hline
+Broad money growth        & 2.11 & Acceptable \\
+GDP growth                & 1.54 & Acceptable \\
+$\ln$(GDP per capita)     & 7.74 & Moderate concern \\
+Trade (\% GDP)            & 3.29 & Acceptable \\
+$\Delta\ln$(Exchange rate)& 1.13 & Acceptable \\
+Inflation                 & 2.69 & Acceptable \\
+Real interest rate        & 2.66 & Acceptable \\
+Regulatory Quality        & 13.04 & \textbf{Problematic} \\
+\hline\hline
+\end{tabular}
+\par\noindent\textit{Note:} VIF $< 5$ = acceptable; 5--10 = moderate concern; $> 10$ = problematic. Collinearity between RQ and $\ln$(GDP per capita) is a known limitation of within-country institutional estimates and does not affect Specs 1--2.
+\end{table}
+
+\subsection{Heteroskedasticity, Serial Correlation, and Cross-Sectional Dependence}
+\label{subsec:other-diagnostics}
+
+Three further tests are reported for the full specification:
+
+\begin{itemize}
+    \item \textbf{Modified Wald test} (group-wise heteroskedasticity): $W = 421.1$, $p < 0.001$, df $= 7$. The null of homoskedastic group variances is strongly rejected, confirming panel-level heteroskedasticity.
+
+    \item \textbf{Wooldridge (2002) test} (first-order serial correlation): $t = 3.47$, $p = 0.010$, df $= 7$. The null of no AR(1) serial correlation is rejected, indicating that within-entity errors are autocorrelated.
+
+    \item \textbf{Pesaran (2004) CD test} (cross-sectional dependence): $\mathrm{CD} = 0.58$, $p = 0.560$, $N = 8$ countries, 28 pairs. The null of no cross-sectional dependence is not rejected.
+\end{itemize}
+
+\noindent\textbf{Implication.} Heteroskedasticity and serial correlation are both present; cross-sectional dependence is not. The aggregate Pesaran CD statistic ($\mathrm{CD} = 0.58$, $p = 0.560$) already reported above confirms that error cross-sectional independence is a reasonable baseline assumption. Driscoll--Kraay standard errors, which are robust to both heteroskedasticity and serial correlation, are therefore the appropriate choice for the static models.
+
 \section{Results}
 \label{sec:results}
 
@@ -61,6 +141,8 @@ Estimator & RE & FE & FE & FE \\
 \par\noindent\textit{Note:} Standard errors are in parentheses. $^{*}$p$<$0.10, $^{**}$p$<$0.05, $^{***}$p$<$0.01.
 \end{table}
 
+The clearest result is the broad money coefficient. It is positive and statistically significant in all four static specifications, providing the strongest evidence in favour of a liquidity channel. The real interest rate does not deliver a stable negative effect --- it is positive and significant in Specs 2 and 4 --- so the data do not support a simple cost-of-capital story. Among the controls, GDP growth and log GDP per capita are generally positive and significant; trade openness, exchange-rate depreciation, and inflation are mostly imprecise. Regulatory Quality is not robust across static specifications.
+
 \subsection{Dynamic GMM estimate}
 \label{subsec:dynamic-gmm-estimate}
 
@@ -99,15 +181,9 @@ Estimator & 2-step GMM \\
 \par\noindent\textit{Note:} Standard errors are in parentheses. $^{*}$p$<$0.10, $^{**}$p$<$0.05, $^{***}$p$<$0.01.
 \end{table}
 
-The clearest result is the broad money coefficient. It is positive and statistically significant in all four static specifications, which is the strongest evidence in favor of a liquidity channel.
+The dynamic GMM estimate is mixed.
 
-The real interest rate does not deliver a stable negative effect. It is positive and significant in Specs 2 and 4, so the data do not support a simple cost-of-capital story.
-
-Among the controls, GDP growth is positive in the static models where it is significant, and log GDP per capita is generally positive as well. Trade openness, exchange-rate depreciation, and inflation are mostly imprecise in the static models. Regulatory Quality is not robust in the static specifications.
-
-The dynamic GMM estimate is mixed. Lagged FDI is negative and significant, Regulatory Quality is positive and significant, and trade openness is positive and significant. However, the AR(2) test rejects the null of no second-order serial correlation, so that specification should be treated cautiously.
-
-The GMM specification uses 64 instruments, has a Hansen p-value of 1.0, and reports AR(1) and AR(2) p-values of 0.4484 and 0.0002, respectively.
+Lagged FDI is negative and significant, Regulatory Quality is positive and significant, and trade openness is positive and significant. However, the AR(2) test rejects the null of no second-order serial correlation ($p = 0.0002$), so this specification should be treated cautiously. The model uses 64 instruments; the Hansen test $p$-value is 1.0 (instrument proliferation is a concern) and AR(1) $p = 0.4484$.
 
 \section{Interpretation}
 \label{sec:interpretation}
