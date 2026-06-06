@@ -9,14 +9,30 @@ This report summarizes the current empirical specification and results for the r
 \section{Empirical Design}
 \label{sec:empirical-design}
 
-The dependent variable is FDI net inflows as a share of GDP. The common control set includes broad money growth, GDP growth, log GDP per capita, trade openness, exchange-rate depreciation, inflation, and Regulatory Quality. The specification sequence is:
+The empirical analysis estimates both static and dynamic specifications to examine the relationship between monetary conditions and FDI net inflows. The dependent variable is FDI net inflows as a share of GDP. 
+
+The static panel models are specified in the following general form:
+\begin{equation}
+    \mathit{FDI}_{i,t} = \alpha + \mathbf{M}_{i,t}'\beta + \mathbf{C}_{i,t}'\gamma + \mu_i + \lambda_t + \varepsilon_{i,t}
+    \label{eq:static}
+\end{equation}
+where $\mathit{FDI}_{i,t}$ represents FDI net inflows as a share of GDP for country $i$ in year $t$. The vector $\mathbf{M}_{i,t}$ contains the monetary variables of interest (broad money growth and, depending on the specification, the real interest rate). The vector $\mathbf{C}_{i,t}$ represents the set of control variables, which includes macroeconomic fundamentals (GDP growth, log GDP per capita, trade openness, exchange-rate depreciation, inflation) and, in certain specifications, institutional quality (Regulatory Quality). The terms $\mu_i$ and $\lambda_t$ denote country and year fixed effects, respectively, while $\varepsilon_{i,t}$ is the idiosyncratic error term.
+
+To account for the persistence of FDI and potential endogeneity, we also estimate a dynamic model using the two-step System GMM estimator:
+\begin{equation}
+    \mathit{FDI}_{i,t} = \alpha + \delta \mathit{FDI}_{i,t-1} + \mathbf{M}_{i,t}'\beta + \mathbf{C}_{i,t}'\gamma + \mu_i + \lambda_t + \varepsilon_{i,t}
+    \label{eq:dynamic}
+\end{equation}
+where $\mathit{FDI}_{i,t-1}$ is the lagged dependent variable.
+
+The specification sequence is:
 
 \begin{itemize}
-    \item \textbf{Spec 1}: baseline controls only.
+    \item \textbf{Spec 1}: baseline controls only (omitting $\mathit{RIR}$ and Regulatory Quality).
     \item \textbf{Spec 2}: baseline controls plus the real interest rate.
     \item \textbf{Spec 3}: baseline controls plus Regulatory Quality.
-    \item \textbf{Spec 4}: baseline controls plus the real interest rate and Regulatory Quality.
-    \item \textbf{Spec 5}: the full model plus lagged FDI, estimated with two-step System GMM.
+    \item \textbf{Spec 4}: baseline controls plus the real interest rate and Regulatory Quality (Equation~\ref{eq:static}).
+    \item \textbf{Spec 5}: the full model plus lagged FDI, estimated with two-step System GMM (Equation~\ref{eq:dynamic}).
 \end{itemize}
 
 The static models report country-clustered standard errors and include country and year effects; Spec 1 is estimated with random effects, while Specs 2--4 use fixed effects. The dynamic model uses year effects and Windmeijer-corrected standard errors.
